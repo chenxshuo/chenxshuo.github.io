@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="chenxshuo">
 <meta property="og:description" content="整理部署过程">
 <meta property="og:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-365736.jpg">
-<meta property="og:updated_time" content="2017-05-25T14:27:49.413Z">
+<meta property="og:updated_time" content="2017-05-25T14:30:39.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello World from Hexo　">
 <meta name="twitter:description" content="整理部署过程">
@@ -282,7 +282,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T22:27:49+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T22:30:39+08:00">
                 2017-05-25
               </time>
             
@@ -338,11 +338,8 @@
 <p>就能够看到刚刚生成的默认界面</p>
 <blockquote>
 <p>hexo常用命令集</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> hexo clean</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#清除缓存，在更新过设定和内容后要记得清除缓存</span></span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> hexo g</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> hexo s</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> hexo d</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#即hexo deploy 可以将内容部署到远端平台例如github</span></span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> hexo n <span class="string">"name"</span></span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#新建一个文章</span></span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> hexo d -g</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#生成部署</span></span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> hexo s -g</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#生成预览</span></span></div><div class="line"><span class="meta">&gt;</span><span class="bash"></span></div></pre></td></tr></table></figure>
 </blockquote>
-<p>&gt;</p>
-<blockquote>
-</blockquote>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line"><span class="meta">#清除缓存，在更新过设定和内容后要记得清除缓存</span></div><div class="line">hexo g</div><div class="line">hexo s</div><div class="line">hexo d</div><div class="line"><span class="meta">#即hexo deploy 可以将内容部署到远端平台例如github</span></div><div class="line">hexo n <span class="string">"name"</span></div><div class="line"><span class="meta">#新建一个文章</span></div><div class="line">hexo d -g</div><div class="line"><span class="meta">#生成部署</span></div><div class="line">hexo s -g</div><div class="line"><span class="meta">#生成预览</span></div></pre></td></tr></table></figure>
 <h3 id="二-本地博客搭建和优化"><a href="#二-本地博客搭建和优化" class="headerlink" title="二. 本地博客搭建和优化"></a>二. 本地博客搭建和优化</h3><h4 id="1-主题设置"><a href="#1-主题设置" class="headerlink" title="1. 主题设置"></a>1. 主题设置</h4><p>使用主题步骤很简单，下载主题的安装包，把包解压到blog/themes/下，更改博客的配置文件，即blog文件夹下的_config.yml文件</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd <span class="keyword">blog</span></div><div class="line">vi _<span class="built_in">config</span>.yml</div></pre></td></tr></table></figure>
 <p>把内容中的theme一项的值改为想要更改成的主题的名称，例如我用的是nexT主题。</p>
@@ -358,7 +355,7 @@
 <h3 id="三-托管至Github"><a href="#三-托管至Github" class="headerlink" title="三. 托管至Github"></a>三. 托管至Github</h3><p>首先注册github账号，生成对应的github.io页面，在本地终端配置git设置</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git config --global user.name <span class="string">"username"</span></span></div><div class="line"><span class="meta">$</span><span class="bash"> git config --global user.email email@example.com</span></div><div class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t rsa -C <span class="string">"email@example.com"</span></span></div></pre></td></tr></table></figure>
 <p>使用文本编辑器复制~/.ssh/id_rsa.pub的内容</p>
-<p>在<a href="http://github.com/settings/keys中点击New" target="_blank" rel="external">http://github.com/settings/keys中点击New</a> SSH key讲复制的内容保存在key中</p>
+<p>在 <a href="http://github.com/settings/keys" target="_blank" rel="external">http://github.com/settings/keys</a> 中点击New SSH key讲复制的内容保存在key中</p>
 <p>之后设置hexo，在blog目录下安装一个插件</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></div></pre></td></tr></table></figure>
 <p>之后在博客配置文件中添加内容</p>
