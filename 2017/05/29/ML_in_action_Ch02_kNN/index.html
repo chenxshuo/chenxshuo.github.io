@@ -2,8 +2,10 @@
 
 
 
+  
 
-<html class="theme-next mist" lang="zh-Hans">
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -95,12 +97,13 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/29/ML_in_action_Ch02_kNN/index.html">
 <meta property="og:site_name" content="chenxshuo">
 <meta property="og:description" content="Learning Notes of Machine Learning in Action by Peter Harrington">
+<meta property="og:image" content="http://oqia88p5q.bkt.clouddn.com/Slide1.png">
 <meta property="og:image" content="http://oqia88p5q.bkt.clouddn.com/Screenshot%20from%202017-05-30%2000:05:42.png">
-<meta property="og:updated_time" content="2017-05-30T10:35:23.735Z">
+<meta property="og:updated_time" content="2017-05-30T11:18:58.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ML_in_action_Ch02_kNN">
 <meta name="twitter:description" content="Learning Notes of Machine Learning in Action by Peter Harrington">
-<meta name="twitter:image" content="http://oqia88p5q.bkt.clouddn.com/Screenshot%20from%202017-05-30%2000:05:42.png">
+<meta name="twitter:image" content="http://oqia88p5q.bkt.clouddn.com/Slide1.png">
 
 
 
@@ -111,7 +114,7 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
-    motion: false,
+    motion: true,
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -318,7 +321,8 @@
       
 
       
-        <p>Learning Notes of <em>Machine Learning in Action by Peter Harrington</em></p>
+        <p><img src="http://oqia88p5q.bkt.clouddn.com/Slide1.png" alt=""></p>
+<p>Learning Notes of <em>Machine Learning in Action by Peter Harrington</em></p>
 <a id="more"></a>
 <h2 id="Ch02-kNN"><a href="#Ch02-kNN" class="headerlink" title="Ch02. kNN"></a>Ch02. kNN</h2><h3 id="kNN算法概述"><a href="#kNN算法概述" class="headerlink" title="kNN算法概述"></a>kNN算法概述</h3><p>k近邻法（k-nearest neighbor, k-NN）是一种基本的分类方法。首先存在一个样本数据集合，即训练样本集，数据集之中每个数据有其对应的标签即所属类别。当输入一个新的数据后，将新数据的各个特征属性值与训练样本的各个数据的各个属性值进行比较，提取样本最为相似的数据，选择前k个最相似的数据，并将k个相似的数据中，同一个类别数据出现最多的类别作为输入样本的类别。</p>
 <p>这里涉及了两个基本问题，一是什么叫和样本的数据相似，二是这个k值怎么选择。</p>
@@ -613,6 +617,8 @@
   
 
 
+  
+
 
 
 
@@ -640,6 +646,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
