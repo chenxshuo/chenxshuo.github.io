@@ -1,0 +1,720 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next mist" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Machine Learning in Action," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Learning Notes of Machine Learning in Action by Peter Harrington">
+<meta name="keywords" content="Machine Learning in Action">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ML_in_action_Ch02_kNN">
+<meta property="og:url" content="http://yoursite.com/2017/05/29/ML_in_action_Ch02_kNN/index.html">
+<meta property="og:site_name" content="chenxshuo">
+<meta property="og:description" content="Learning Notes of Machine Learning in Action by Peter Harrington">
+<meta property="og:image" content="http://oqia88p5q.bkt.clouddn.com/Screenshot%20from%202017-05-30%2000:05:42.png">
+<meta property="og:updated_time" content="2017-05-30T09:09:51.331Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ML_in_action_Ch02_kNN">
+<meta name="twitter:description" content="Learning Notes of Machine Learning in Action by Peter Harrington">
+<meta name="twitter:image" content="http://oqia88p5q.bkt.clouddn.com/Screenshot%20from%202017-05-30%2000:05:42.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/29/ML_in_action_Ch02_kNN/"/>
+
+
+
+
+
+  <title>ML_in_action_Ch02_kNN | chenxshuo</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenxshuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">THINK WRITE PRICTICE</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/29/ML_in_action_Ch02_kNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenxshuo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oqia88p5q.bkt.clouddn.com/360%E5%8F%8D%E9%A6%88%E6%84%8F%E8%A7%81%E6%88%AA%E5%9B%BE16421027265035.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxshuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ML_in_action_Ch02_kNN</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-29T14:34:59+08:00">
+                2017-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Learning Notes of <em>Machine Learning in Action by Peter Harrington</em></p>
+<a id="more"></a>
+<h2 id="Ch02-kNN"><a href="#Ch02-kNN" class="headerlink" title="Ch02. kNN"></a>Ch02. kNN</h2><h3 id="2-1-kNN算法概述"><a href="#2-1-kNN算法概述" class="headerlink" title="2.1 kNN算法概述"></a>2.1 kNN算法概述</h3><p>k近邻法（k-nearest neighbor, k-NN）是一种基本的分类方法。首先存在一个样本数据集合，即训练样本集，数据集之中每个数据有其对应的标签即所属类别。当输入一个新的数据后，将新数据的各个特征属性值与训练样本的各个数据的各个属性值进行比较，提取样本最为相似的数据，选择前k个最相似的数据，并将k个相似的数据中，同一个类别数据出现最多的类别作为输入样本的类别。</p>
+<p>这里涉及了两个基本问题，一是什么叫和样本的数据相似，二是这个k值怎么选择。</p>
+<p>对于第一个问题，通用的解决方法是，把特征属性的值转化为数字，把一个数据样本作为空间中的一个点，计算输入样本与训练样本的空间欧氏距离（Euclidean distance）即最短的线段距离，</p>
+<blockquote>
+<p>$\sqrt{(\displaystyle\sum_{l=1}^{n} |x_i^l-x_j^l|^2)}​$</p>
+</blockquote>
+<p>距离的大小即可用来比较相似程度。衡量距离也可使用更为一般的Lp距离和Minkowski距离，具体的可以参照<a href="http://www.cnblogs.com/daniel-D/p/3244718.html" target="_blank" rel="external">漫谈：机器学习中距离和相似性度量方法</a> 。</p>
+<p>对于第二个问题，没有绝对有效的确定方法，k值较小则相当于较小的邻域进行训练，容易发生过拟合；选择较大的k值，学习的近似误差会增大，与输入样本相差较远和分类样本不相似的点也会对分类造成影响，一般k值选择较小，采用交叉验证法来选取最优的k值。</p>
+<h4 id="2-1-1-amp-2-简单实现kNN算法"><a href="#2-1-1-amp-2-简单实现kNN算法" class="headerlink" title="2.1.1&amp;2 简单实现kNN算法"></a>2.1.1&amp;2 简单实现kNN算法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</div><div class="line"><span class="keyword">import</span> operator</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">creatDataSet</span><span class="params">()</span>:</span></div><div class="line">    group = arrray([[<span class="number">1.0</span>,<span class="number">1.1</span>], [<span class="number">1.0</span>,<span class="number">1.0</span>], [<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0.0</span><span class="number">.1</span>]])</div><div class="line">    labels = [<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>]</div><div class="line">    <span class="keyword">return</span> group, labels</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify0</span><span class="params">(inX, dataSet, labels, k)</span>:</span></div><div class="line">    dataSize = dataSet.shape[<span class="number">0</span>]</div><div class="line">    diffMat = tile(inX, (dataSize,<span class="number">1</span>)) - dataSet</div><div class="line">    sqDiffMat = diffMat**<span class="number">2</span></div><div class="line">    sqDistance = sqDiffMat.sum(axis=<span class="number">1</span>)</div><div class="line">    distance = sqDistance**<span class="number">0.5</span></div><div class="line">    sortedDistance = distance.argsort()</div><div class="line">    </div><div class="line">    classCount = &#123;&#125;</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</div><div class="line">        VoteIlabel = labels[sortedDistance[i]]</div><div class="line">        classCount[voteIlabel] = classCount.get(voteIlabel,<span class="number">0</span>) + <span class="number">1</span></div><div class="line">    sortedClassCount = sorted(classCount.iteritems(), key=operator.itemgetter(<span class="number">1</span>),\ reverse=<span class="keyword">True</span>)</div><div class="line">    <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]</div></pre></td></tr></table></figure>
+<p>我们可以在代码文件夹下使用python交互窗口，通过导入模块调用函数的方法使用kNN算法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Python 2.7.12 (default, Nov 19 2016, 06:48:10) </div><div class="line">[GCC 5.4.0 20160609] on linux2</div><div class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> <span class="keyword">for</span> more information.</div><div class="line">&gt;&gt;&gt; import kNN <span class="comment">#导入模块</span></div><div class="line">&gt;&gt;&gt; group, labels = kNN.creatDataSet() <span class="comment">#调用函数</span></div><div class="line">&gt;&gt;&gt; kNN.classify0([0,0], group, labels, 3) <span class="comment">#调用函数</span></div><div class="line"><span class="string">'B</span></div></pre></td></tr></table></figure>
+<p>可以看到预测变量[0,0]的预测类别为B类</p>
+<h4 id="2-1-3-代码详解"><a href="#2-1-3-代码详解" class="headerlink" title="2.1.3 代码详解"></a>2.1.3 代码详解</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</div><div class="line"><span class="keyword">import</span> operator</div><div class="line"><span class="comment">#导入所需的包 </span></div><div class="line"><span class="comment">#更加规范的写法是 import numpy as np 这里依照原书代码</span></div><div class="line"><span class="comment">#operator是python中一些内置的操作函数 使用C语言实现 运行速度快</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">creatDataSet</span><span class="params">()</span>:</span></div><div class="line">	group = array([[<span class="number">1.0</span>,<span class="number">1</span>,<span class="number">1</span>],[<span class="number">1.0</span>,<span class="number">1.0</span>],[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0.1</span>]])</div><div class="line">    labels = [<span class="string">'A'</span>,<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'B'</span>]</div><div class="line">    <span class="keyword">return</span> group, labels</div><div class="line"><span class="comment">#这个函数创建了四个在二维坐标上的四个点，且每个点的分类已经指明</span></div></pre></td></tr></table></figure>
+<p><img src="http://oqia88p5q.bkt.clouddn.com/Screenshot%20from%202017-05-30%2000:05:42.png" alt="http://oqia88p5q.bkt.clouddn.com/Screenshot%20from%202017-05-30%2000:05:42.png0"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify0</span><span class="params">(inX, dataSet, labels, k)</span>:</span></div><div class="line">    dataSize  = dataSet.shape[<span class="number">0</span>]</div><div class="line">    <span class="string">"""</span></div><div class="line">    ataSet.shape[]返回array数据类型的dataSet的行和列数，shape[0]即为行数,在这里即</div><div class="line">    表示数据的个数</div><div class="line">    """</div><div class="line">    diffMat = tile(inX, (dataSize,<span class="number">1</span>)) - dataSet</div><div class="line">    <span class="string">"""</span></div><div class="line">    tile()函数用于生成矩阵，tile([0,0],(3,1))即生成一个型为</div><div class="line">    ([0,0]</div><div class="line">    [0,0]</div><div class="line">    [0,0])的矩阵</div><div class="line">    其目的是生成与训练样本数相同的矩阵元素个数，以方便接下来计算输入样本和各个训练样本的</div><div class="line">    距离</div><div class="line">    最后减dataSet即为计算距离的第一步</div><div class="line">    """</div><div class="line">    sqDiffMat = diffMat**<span class="number">2</span></div><div class="line">    sqDistance = sqDiffMat.sum(axis=<span class="number">1</span>)</div><div class="line">    distance = sqDistance**<span class="number">0.5</span></div><div class="line">    <span class="comment">#按照距离计算公式一步一步求出距离，得到的列表中的值即为和每个训练样本点的距离</span></div><div class="line">    </div><div class="line">    sortedDistance = distance.argsort()</div><div class="line">    <span class="comment">#以上代码求得了输入点和各个已知样本的距离，并且把距离每个样本的值排序，将排序值存储到</span></div><div class="line">    <span class="comment">#列表中</span></div></pre></td></tr></table></figure>
+<p>其中计算的部分可以在交互窗口逐行运行已变更清楚地查看结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tile([<span class="number">0</span>,<span class="number">0</span>],(<span class="number">4</span>,<span class="number">1</span>)) <span class="comment">#生成了矩阵</span></div><div class="line">array([[<span class="number">0</span>, <span class="number">0</span>],</div><div class="line">       [<span class="number">0</span>, <span class="number">0</span>],</div><div class="line">       [<span class="number">0</span>, <span class="number">0</span>],</div><div class="line">       [<span class="number">0</span>, <span class="number">0</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tile([<span class="number">0</span>,<span class="number">0</span>],(<span class="number">4</span>,<span class="number">1</span>)) - group <span class="comment">#矩阵相减</span></div><div class="line">array([[<span class="number">-1.</span> , <span class="number">-1.1</span>],</div><div class="line">       [<span class="number">-1.</span> , <span class="number">-1.</span> ],</div><div class="line">       [ <span class="number">0.</span> ,  <span class="number">0.</span> ],</div><div class="line">       [ <span class="number">0.</span> , <span class="number">-0.1</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>diffmat = tile([<span class="number">0</span>,<span class="number">0</span>], (<span class="number">4</span>,<span class="number">1</span>)) - group</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>diffmat</div><div class="line">array([[<span class="number">-1.</span> , <span class="number">-1.1</span>],</div><div class="line">       [<span class="number">-1.</span> , <span class="number">-1.</span> ],</div><div class="line">       [ <span class="number">0.</span> ,  <span class="number">0.</span> ],</div><div class="line">       [ <span class="number">0.</span> , <span class="number">-0.1</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>diffmat ** <span class="number">2</span> <span class="comment">#值平方</span></div><div class="line">array([[ <span class="number">1.</span>  ,  <span class="number">1.21</span>],</div><div class="line">       [ <span class="number">1.</span>  ,  <span class="number">1.</span>  ],</div><div class="line">       [ <span class="number">0.</span>  ,  <span class="number">0.</span>  ],</div><div class="line">       [ <span class="number">0.</span>  ,  <span class="number">0.01</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sqdiffmat = diffmat ** <span class="number">2</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sqdiffmat.sum(axis=<span class="number">1</span>) <span class="comment">#同一行求和</span></div><div class="line">array([ <span class="number">2.21</span>,  <span class="number">2.</span>  ,  <span class="number">0.</span>  ,  <span class="number">0.01</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sqdistance = sqdiffmat.sum(axis=<span class="number">1</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sqdistance**<span class="number">0.5</span> <span class="comment">#开根号</span></div><div class="line">array([ <span class="number">1.48660687</span>,  <span class="number">1.41421356</span>,  <span class="number">0.</span>        ,  <span class="number">0.1</span>       ])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>distance = sqdistance**<span class="number">0.5</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sortedDistance = distance.argsort() <span class="comment">#排序并把值替换为所在的顺序</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sortedDistance</div><div class="line">array([<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>])</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">classCount = &#123;&#125;</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(k):</div><div class="line"><span class="comment">#range(3)即0,1,2</span></div><div class="line">    voteLabel = labels[sortedDistance[i]]</div><div class="line">    <span class="string">"""</span></div><div class="line">    sortedDistance[0] = 2 ,labels[2] = 'B'</div><div class="line">    sortedDistance[1] = 3 ,labels[3] = 'B'</div><div class="line">    sortedDistance[2] = 1 ,labels[1] = 'A'</div><div class="line">    """</div><div class="line">    classCount[voteLabel] = classCount.get(voteLabel,<span class="number">0</span>) + <span class="number">1</span></div><div class="line">    <span class="comment">#字典的get方法，用于查询字典的key值对应的value，不存在时返回其后的值在这里是0</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    voteLabel = 'B', classCount['B'] = classCount.get(voteLabel,0) + 1 </div><div class="line">    此时classCount['B'] = 1</div><div class="line">    voteLabel = 'B', classCount['B'] = classCount.get(voteLable,0) + 1</div><div class="line">    此时classCount['B'] = 2</div><div class="line">    voteLabel = 'A', classCount['A'] = classCount.get(voteLabel,0) + 1</div><div class="line">    此时classCount['A'] = 1</div><div class="line">    </div><div class="line">    最后字典classCount = &#123;'B':2,'A':1&#125;</div><div class="line">    """</div><div class="line">sortedClassCount =\</div><div class="line">sorted(classCount.iteritems(),key=operator.itemgetter(<span class="number">1</span>),reverse = <span class="keyword">True</span>)</div><div class="line"><span class="comment">#排序结果为 [('B',2),('A',1)]</span></div><div class="line"><span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]</div><div class="line"><span class="comment">#在本例子中 返回列表中第一个元素即一个元组中的第一个元素 B 在本例子中即为输入变量的预测的分类值</span></div></pre></td></tr></table></figure>
+<p>使用该代码进行预测可以依旧通过导入库和调用函数的方法见上文。</p>
+<h3 id="2-2-判断喜不喜欢ta"><a href="#2-2-判断喜不喜欢ta" class="headerlink" title="2.2 判断喜不喜欢ta"></a>2.2 判断喜不喜欢ta</h3><p>刚刚的简单实现没有实际意义，现在通过一个现实实例，体验一下kNN的实现。在本例中，通过对交友网站上某位单身人士的三个特征即每年的飞行里程数，玩视频游戏所耗时间的百分比，每周消费的冰淇淋公升数的分析，输出目标用户对于该单身人士交往的可能性：not at all, in small doses, in large doses.</p>
+<h4 id="2-2-1从文本导入数据"><a href="#2-2-1从文本导入数据" class="headerlink" title="2.2.1从文本导入数据"></a>2.2.1从文本导入数据</h4><p>现有已经标记过的数据1000行</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">40920</span>	<span class="number">8.326976</span>	<span class="number">0.953952</span>	largeDoses</div><div class="line"><span class="number">14488</span>	<span class="number">7.153469</span>	<span class="number">1.673904</span>	smallDoses</div><div class="line"><span class="number">26052</span>	<span class="number">1.441871</span>	<span class="number">0.805124</span>	didntLike</div><div class="line"><span class="number">75136</span>	<span class="number">13.147394</span>	<span class="number">0.428964</span>	didntLike</div><div class="line"><span class="number">38344</span>	<span class="number">1.669788</span>	<span class="number">0.134296</span>	didntLike</div><div class="line"><span class="number">72993</span>	<span class="number">10.141740</span>	<span class="number">1.032955</span>	didntLike</div><div class="line"><span class="number">35948</span>	<span class="number">6.830792</span>	<span class="number">1.213192</span>	largeDoses</div><div class="line"><span class="number">42666</span>	<span class="number">13.276369</span>	<span class="number">0.543880</span>	largeDoses</div><div class="line"><span class="number">67497</span>	<span class="number">8.631577</span>	<span class="number">0.749278</span>	didntLike</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>我们可以将前三行作为特征值，输入变量，第四行作为标签labels，不过我们将第四行的字符换位数字可以简化代码</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="number">40920</span>	<span class="number">8.326976</span>	<span class="number">0.953952</span>	<span class="number">3</span></div><div class="line"><span class="number">14488</span>	<span class="number">7.153469</span>	<span class="number">1.673904</span>	<span class="number">2</span></div><div class="line"><span class="number">26052</span>	<span class="number">1.441871</span>	<span class="number">0.805124</span>	<span class="number">1</span></div><div class="line"><span class="number">75136</span>	<span class="number">13.147394</span>	<span class="number">0.428964</span>	<span class="number">1</span></div><div class="line"><span class="number">38344</span>	<span class="number">1.669788</span>	<span class="number">0.134296</span>	<span class="number">1</span></div><div class="line"><span class="number">72993</span>	<span class="number">10.141740</span>	<span class="number">1.032955</span>	<span class="number">1</span></div><div class="line"><span class="number">35948</span>	<span class="number">6.830792</span>	<span class="number">1.213192</span>	<span class="number">3</span></div><div class="line"><span class="number">42666</span>	<span class="number">13.276369</span>	<span class="number">0.543880</span>	<span class="number">3</span></div><div class="line"><span class="number">67497</span>	<span class="number">8.631577</span>	<span class="number">0.749278</span>	<span class="number">1</span></div><div class="line"><span class="number">35483</span>	<span class="number">12.273169</span>	<span class="number">1.508053</span>	<span class="number">3</span></div><div class="line"><span class="number">50242</span>	<span class="number">3.723498</span>	<span class="number">0.831917</span>	<span class="number">1</span></div><div class="line"><span class="number">63275</span>	<span class="number">8.385879</span>	<span class="number">1.669485</span>	<span class="number">1</span></div><div class="line">...</div></pre></td></tr></table></figure>
+<p>现在我们要把这些文本数据导入到python中，让其提取出特征值和对应的标签</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">file2matrix</span><span class="params">(filename)</span>:</span></div><div class="line">    fr = open(filename)</div><div class="line">    <span class="comment">#调用open函数打开文件</span></div><div class="line">    arrayOLines = fr.readlines()</div><div class="line">    <span class="comment">#调用readlines()读取文件内容 自动将文件内容解析成行的列表 </span></div><div class="line">    numberOfLines = len(arrayOLines)</div><div class="line">    <span class="comment">#len求得列表的元素数即为文件行的数目</span></div><div class="line">    returnMat = zeros((numberOfLines, <span class="number">3</span>))</div><div class="line">    <span class="comment">#zeros()函数生成矩阵三列 行数行，元素值为0，用于接下来存储特征值</span></div><div class="line">    classLabelVector = []</div><div class="line">    <span class="comment">#建一个列表用于存储标签</span></div><div class="line">    </div><div class="line">    index = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> arrayOLines:</div><div class="line">        line = line.strip()</div><div class="line">        <span class="comment">#使用strip函数删去回车换行符</span></div><div class="line">        listFromLine = line.split(<span class="string">'\t'</span>)</div><div class="line">        <span class="comment">#删去分隔符</span></div><div class="line">        returnMat[index,:] = listFromLine[<span class="number">0</span>:<span class="number">3</span>]</div><div class="line">        <span class="comment">#把一行内容中的前三个即特征值存储到returnMat的第index行中(index = 1,2,3,,,)</span></div><div class="line">        classLabelVector.append(int(listFromLine[<span class="number">-1</span>]))</div><div class="line">        <span class="comment">#把一行内容中的最后一个值存储到classLabelVector中</span></div><div class="line">        index += <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> returnMat, classLabelVector</div></pre></td></tr></table></figure>
+<p>调用该函数时，在代码路径下打开，并且保证数据集文件在同一个目录下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> kNN</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>datingDataMat, datingLabels = kNN.file2matrix(<span class="string">'datingTestSet2.txt'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>datingDataMat</div><div class="line">array([[  <span class="number">4.09200000e+04</span>,   <span class="number">8.32697600e+00</span>,   <span class="number">9.53952000e-01</span>],</div><div class="line">       [  <span class="number">1.44880000e+04</span>,   <span class="number">7.15346900e+00</span>,   <span class="number">1.67390400e+00</span>],</div><div class="line">       [  <span class="number">2.60520000e+04</span>,   <span class="number">1.44187100e+00</span>,   <span class="number">8.05124000e-01</span>],</div><div class="line">       ..., </div><div class="line">       [  <span class="number">2.65750000e+04</span>,   <span class="number">1.06501020e+01</span>,   <span class="number">8.66627000e-01</span>],</div><div class="line">       [  <span class="number">4.81110000e+04</span>,   <span class="number">9.13452800e+00</span>,   <span class="number">7.28045000e-01</span>],</div><div class="line">       [  <span class="number">4.37570000e+04</span>,   <span class="number">7.88260100e+00</span>,   <span class="number">1.33244600e+00</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>datingLabels</div><div class="line">[<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, ......</div></pre></td></tr></table></figure>
+<h4 id="2-2-2创建散点图"><a href="#2-2-2创建散点图" class="headerlink" title="2.2.2创建散点图"></a>2.2.2创建散点图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> matplotlib </div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">fig = plt.figure()</div><div class="line">ax = fig.add_subplot(<span class="number">111</span>)</div><div class="line">ax.scatter(datingDataMat[:,<span class="number">1</span>], datingDataMat[:,<span class="number">2</span>], <span class="number">15.0</span>*array(datingLabels), <span class="number">15.0</span>*array(datingLabels))</div></pre></td></tr></table></figure>
+<h4 id="2-2-3-归一化数值处理"><a href="#2-2-3-归一化数值处理" class="headerlink" title="2.2.3 归一化数值处理"></a>2.2.3 归一化数值处理</h4><p>在计算某两个样本间距离时$\sqrt{(0-67)^2+(20000-32000)^2+(1.1-0.1)^2}$ ，会发现这个值的大小受到差值最大的特征值的影响极大，也就是说在本例中每年的飞行里程数这个属性值的影响程度要远远大于另外两个属性，而其原因仅仅是因为其数值远大于其他值。不过目标用户认为该属性值应和其余属性值同等重要，不应该让里程数如此严重的影响到计算结果。</p>
+<p>在处理这种情况时，通常采取的措施是把<em>数值归一化</em> ，将数值处理到变为0~1或-1~1之间的一个数，公式为：</p>
+<p>$newValue = (oldValue-min)/(max - min)$ </p>
+<p>那么在实现时先得到每个属性值的max和min，再减一下除一下就好</p>
+<p>python代码实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">autoNorm</span><span class="params">(dataSet)</span>:</span></div><div class="line">    minVals = dataSet.min(<span class="number">0</span>)</div><div class="line">    maxVals = dataSet.max(<span class="number">0</span>)</div><div class="line">    <span class="comment">#返回dataSet每一列即每个属性特征值的最小值和最大值</span></div><div class="line">    ranges = maxVAls - minVals</div><div class="line">    normDataSet = zeros(shape(dataSet))</div><div class="line">    <span class="comment">#创建一个行数和列数与dataSet相同的零矩阵</span></div><div class="line">    m = dataSet.shape[<span class="number">0</span>]</div><div class="line">    <span class="comment">#m即为dataSet的行数即数据个数</span></div><div class="line">    normDataSet = dataSet - tile(minVals, (m,<span class="number">1</span>))</div><div class="line">    <span class="comment">#每个属性值减去对应属性的最小值</span></div><div class="line">    normDataSet = normDataSet / tile(ranges,(m,<span class="number">1</span>))</div><div class="line">    <span class="comment">#除去ranges得到归一值</span></div><div class="line">    <span class="keyword">return</span> normDataSet, ranges, minVals</div></pre></td></tr></table></figure>
+<h4 id="2-2-4-构建完整代码"><a href="#2-2-4-构建完整代码" class="headerlink" title="2.2.4 构建完整代码"></a>2.2.4 构建完整代码</h4><p>在让用户使用预测系统之前我们要测试我们的算法的准确程度，本例的测试要求相对简单，依据错误率即可简单衡量系统的可靠程度。</p>
+<p>错误率(error rate)，即如果在m个样本中有a个样本分类错误，则错误率为$E = a/m$ </p>
+<p>代码实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">datingClassTest</span><span class="params">()</span>:</span></div><div class="line">    hoRatio = <span class="number">0.10</span></div><div class="line">    <span class="comment">#把训练样本中的10%拿出来作为测试样本</span></div><div class="line">    datingDataMat, datingLabels = file2atrix(<span class="string">'datingTestSet2.txt'</span>)</div><div class="line">    normMat, ranges, minVals = autoNorm(datingDataMat)</div><div class="line">    <span class="comment">#调用之前的file2matrix和autoNorm得到处理过的数据</span></div><div class="line">    m = normMat.shape[<span class="number">0</span>]</div><div class="line">    <span class="comment">#m为数据总个数</span></div><div class="line">    numTestVecs = int(m*hoRatio)</div><div class="line">    errorCount = <span class="number">0.0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numTestVecs):</div><div class="line">        classfieResult = classify0(norMat[i,:], normMat[numTestVecs:m],\ datingLabels[numTestVecs:m],<span class="number">3</span>)</div><div class="line">        <span class="comment">#调用classfy0函数预测生成每一个样本数据的预测值</span></div><div class="line">        <span class="keyword">print</span> <span class="string">"The classifier came back with %d, the real answer is %d"</span>%\(classifierResult, datingLabels[i])</div><div class="line">        <span class="keyword">if</span> (classfierResult != datingLabels[i]) : errorCount += <span class="number">1.0</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"the total error rate is %f"</span>%(errorCount/float(numTestVecs))</div></pre></td></tr></table></figure>
+<p>可以看到我们的错误率为5%，可以用到实际中去。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">classifyPerson</span><span class="params">()</span>:</span></div><div class="line">    resultList = [<span class="string">'not at all'</span>, <span class="string">'in small doses'</span>, <span class="string">'in large doses'</span>]</div><div class="line">    percentTats = float(raw_input(<span class="string">"Percentage of time playing vedio games: "</span>))</div><div class="line">    ffMiles = float(raw_input(<span class="string">"Frequent flier miles earned per year: "</span>))</div><div class="line">    iceCream = float(raw_input(<span class="string">"Liters of ice cream consumed per week: "</span>))</div><div class="line">    datingDataMat, datingLabels = file2matrix(<span class="string">'datingTestSet2.txt'</span>)</div><div class="line">    norMat, ranges, minVals = autoNorm(datingDataMat)</div><div class="line">    inArr = array([ffMiles, percentTats, iceCream])</div><div class="line">    classfierResult = classify0((inArr-minVals)/ranges, norMat, datingLabels, <span class="number">3</span>)</div><div class="line">    <span class="keyword">print</span> <span class="string">"You will probably like this person : "</span>, resultList[classfierResult<span class="number">-1</span>]</div></pre></td></tr></table></figure>
+<p>在交互窗口进行如下交互即可获得预测结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>kNN.classifyPerson()</div><div class="line">percentage of time spent playing vedio games: <span class="number">1000</span></div><div class="line">frequent flier miles earned per year: <span class="number">10</span></div><div class="line">liters of iceCream consumed per year: <span class="number">0.5</span></div><div class="line"></div><div class="line">You will probably like this person:  <span class="keyword">not</span> at all</div></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-3手写数字识别系统"><a href="#2-3手写数字识别系统" class="headerlink" title="2.3手写数字识别系统"></a>2.3手写数字识别系统</h3><h4 id="2-3-1图像转换为测试向量"><a href="#2-3-1图像转换为测试向量" class="headerlink" title="2.3.1图像转换为测试向量"></a>2.3.1图像转换为测试向量</h4><h4 id="2-3-2识别手写数字"><a href="#2-3-2识别手写数字" class="headerlink" title="2.3.2识别手写数字"></a>2.3.2识别手写数字</h4>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Machine-Learning-in-Action/" rel="tag"># Machine Learning in Action</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/25/WEEK11/" rel="next" title="大数据分析导论_WEEK11">
+                <i class="fa fa-chevron-left"></i> 大数据分析导论_WEEK11
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oqia88p5q.bkt.clouddn.com/360%E5%8F%8D%E9%A6%88%E6%84%8F%E8%A7%81%E6%88%AA%E5%9B%BE16421027265035.png"
+               alt="chenxshuo" />
+          <p class="site-author-name" itemprop="name">chenxshuo</p>
+           
+              <p class="site-description motion-element" itemprop="description">For the future</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch02-kNN"><span class="nav-number">1.</span> <span class="nav-text">Ch02. kNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-kNN算法概述"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 kNN算法概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-amp-2-简单实现kNN算法"><span class="nav-number">1.1.1.</span> <span class="nav-text">2.1.1&2 简单实现kNN算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-代码详解"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.1.3 代码详解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-判断喜不喜欢ta"><span class="nav-number">1.2.</span> <span class="nav-text">2.2 判断喜不喜欢ta</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1从文本导入数据"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.2.1从文本导入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2创建散点图"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2.2创建散点图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-归一化数值处理"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.2.3 归一化数值处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-构建完整代码"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.2.4 构建完整代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3手写数字识别系统"><span class="nav-number">1.3.</span> <span class="nav-text">2.3手写数字识别系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1图像转换为测试向量"><span class="nav-number">1.3.1.</span> <span class="nav-text">2.3.1图像转换为测试向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2识别手写数字"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.3.2识别手写数字</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenxshuo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
