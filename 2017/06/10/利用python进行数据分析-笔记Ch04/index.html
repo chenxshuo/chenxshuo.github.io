@@ -1,0 +1,860 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="利用python进行数据分析," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="keywords" content="利用python进行数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用python进行数据分析_笔记Ch04">
+<meta property="og:url" content="http://yoursite.com/2017/06/10/利用python进行数据分析-笔记Ch04/index.html">
+<meta property="og:site_name" content="chenxshuo">
+<meta property="og:image" content="http://oqia88p5q.bkt.clouddn.com/numpy.jpg">
+<meta property="og:updated_time" content="2017-06-09T16:19:44.095Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用python进行数据分析_笔记Ch04">
+<meta name="twitter:image" content="http://oqia88p5q.bkt.clouddn.com/numpy.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/10/利用python进行数据分析-笔记Ch04/"/>
+
+
+
+
+
+  <title>利用python进行数据分析_笔记Ch04 | chenxshuo</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenxshuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">THINK WRITE PRICTICE</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/10/利用python进行数据分析-笔记Ch04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenxshuo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oqia88p5q.bkt.clouddn.com/360%E5%8F%8D%E9%A6%88%E6%84%8F%E8%A7%81%E6%88%AA%E5%9B%BE16421027265035.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxshuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">利用python进行数据分析_笔记Ch04</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-10T00:00:39+08:00">
+                2017-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/10/利用python进行数据分析-笔记Ch04/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/10/利用python进行数据分析-笔记Ch04/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://oqia88p5q.bkt.clouddn.com/numpy.jpg" alt=""></p>
+<a id="more"></a>
+<h3 id="NumPy的ndarray"><a href="#NumPy的ndarray" class="headerlink" title="NumPy的ndarray"></a>NumPy的ndarray</h3><h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><blockquote>
+<p>直接声明</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">In [<span class="number">2</span>]: data = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</div><div class="line"></div><div class="line">In [<span class="number">3</span>]: data</div><div class="line">Out[<span class="number">3</span>]: </div><div class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</div></pre></td></tr></table></figure>
+<blockquote>
+<p>使用np.array()转换</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">4</span>]: data = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]]</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: data_arr = np.array(data)</div><div class="line"></div><div class="line">In [<span class="number">6</span>]: data_arr</div><div class="line">Out[<span class="number">6</span>]: </div><div class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</div></pre></td></tr></table></figure>
+<blockquote>
+<p>使用函数创建</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">In [<span class="number">2</span>]: arr_zeros = np.zeros((<span class="number">3</span>,<span class="number">4</span>))</div><div class="line"></div><div class="line">In [<span class="number">3</span>]: arr_zeros <span class="comment">#全是0</span></div><div class="line">Out[<span class="number">3</span>]: </div><div class="line">array([[ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</div><div class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</div><div class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>]])</div><div class="line"></div><div class="line">In [<span class="number">4</span>]: arr_empty = np.empty((<span class="number">2</span>,<span class="number">3</span>))</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: arr_empty <span class="comment">#只分配内存 不分配值</span></div><div class="line">Out[<span class="number">5</span>]: </div><div class="line">array([[  <span class="number">0.00000000e+000</span>,   <span class="number">5.66041524e-317</span>,   <span class="number">4.65914971e-317</span>],</div><div class="line">       [  <span class="number">6.93887001e-310</span>,   <span class="number">6.93887001e-310</span>,   <span class="number">6.93887001e-310</span>]])</div><div class="line"></div><div class="line">In [<span class="number">6</span>]: arr_arange = np.arange(<span class="number">10</span>)</div><div class="line"></div><div class="line">In [<span class="number">7</span>]: arr_arange</div><div class="line">Out[<span class="number">7</span>]: array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</div></pre></td></tr></table></figure>
+<p>常用创建函数</p>
+<ol>
+<li>array</li>
+<li>asarray</li>
+<li>arange</li>
+<li>zeros, zeros_like</li>
+<li>ones, ones_like</li>
+<li>empty, empty_like</li>
+<li>eye , identity</li>
+</ol>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">11</span>]: arr1 = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], dtype=np.float64)</div><div class="line"></div><div class="line">In [<span class="number">12</span>]: arr1</div><div class="line">Out[<span class="number">12</span>]: array([ <span class="number">1.</span>,  <span class="number">2.</span>,  <span class="number">3.</span>])</div></pre></td></tr></table></figure>
+<blockquote>
+<p>astype转换数据类型</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">14</span>]: arr1_int = arr1.astype(np.int64)</div><div class="line"></div><div class="line">In [<span class="number">15</span>]: arr1_int.dtype</div><div class="line">Out[<span class="number">15</span>]: dtype(<span class="string">'int64'</span>)</div></pre></td></tr></table></figure>
+<h4 id="数组与标量运算"><a href="#数组与标量运算" class="headerlink" title="数组与标量运算"></a>数组与标量运算</h4><p>ndarray数组的算术运算都会应用到元素级</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">17</span>]: arr = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</div><div class="line"></div><div class="line">In [<span class="number">18</span>]: arr * <span class="number">2</span></div><div class="line">Out[<span class="number">18</span>]: </div><div class="line">array([[ <span class="number">2</span>,  <span class="number">4</span>,  <span class="number">6</span>],</div><div class="line">       [ <span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>]])</div><div class="line"></div><div class="line">In [<span class="number">19</span>]: arr</div><div class="line">Out[<span class="number">19</span>]: </div><div class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</div><div class="line"></div><div class="line">In [<span class="number">20</span>]: arr + arr</div><div class="line">Out[<span class="number">20</span>]: </div><div class="line">array([[ <span class="number">2</span>,  <span class="number">4</span>,  <span class="number">6</span>],</div><div class="line">       [ <span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>]])</div><div class="line"></div><div class="line">In [<span class="number">21</span>]: arr * arr</div><div class="line">Out[<span class="number">21</span>]: </div><div class="line">array([[ <span class="number">1</span>,  <span class="number">4</span>,  <span class="number">9</span>],</div><div class="line">       [<span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>]])</div><div class="line"></div><div class="line">In [<span class="number">22</span>]: arr -arr</div><div class="line">Out[<span class="number">22</span>]: </div><div class="line">array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]])</div><div class="line">In [<span class="number">23</span>]: <span class="number">1</span> / arr</div><div class="line">Out[<span class="number">23</span>]: </div><div class="line">array([[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]])</div><div class="line"></div><div class="line">In [<span class="number">24</span>]: arr ** <span class="number">2</span></div><div class="line">Out[<span class="number">24</span>]: </div><div class="line">array([[ <span class="number">1</span>,  <span class="number">4</span>,  <span class="number">9</span>],</div><div class="line">       [<span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>]])</div></pre></td></tr></table></figure>
+<h4 id="基本索引和切片"><a href="#基本索引和切片" class="headerlink" title="基本索引和切片"></a>基本索引和切片</h4><h5 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">In [<span class="number">2</span>]: arr = np.arange(<span class="number">10</span>)</div><div class="line"></div><div class="line">In [<span class="number">3</span>]: arr[:<span class="number">3</span>]</div><div class="line">Out[<span class="number">3</span>]: array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>])</div><div class="line"></div><div class="line">In [<span class="number">4</span>]: arr[<span class="number">-1</span>:]</div><div class="line">Out[<span class="number">4</span>]: array([<span class="number">9</span>])</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: arr[<span class="number">-1</span>:<span class="number">-7</span>]</div><div class="line">Out[<span class="number">5</span>]: array([], dtype=int64)</div><div class="line"></div><div class="line">In [<span class="number">6</span>]: arr[:<span class="number">-1</span>]</div><div class="line">Out[<span class="number">6</span>]: array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>])</div><div class="line"></div><div class="line">In [<span class="number">7</span>]: arr[:<span class="number">-3</span>]</div><div class="line">Out[<span class="number">7</span>]: array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</div><div class="line"></div><div class="line">In [<span class="number">8</span>]: arr[<span class="number">4</span>:<span class="number">6</span>]</div><div class="line">Out[<span class="number">8</span>]: array([<span class="number">4</span>, <span class="number">5</span>])</div></pre></td></tr></table></figure>
+<p>ndarray数组的一个特性，数组切片所得新数组数据不会被复制，而是使用内存中的同一个区域，所以所得数组改变原数组内容也会改变</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">9</span>]: arr_slice = arr[<span class="number">3</span>:<span class="number">7</span>]</div><div class="line"></div><div class="line">In [<span class="number">10</span>]: arr_slice[<span class="number">1</span>] = <span class="number">100</span></div><div class="line"></div><div class="line">In [<span class="number">11</span>]: arr</div><div class="line">Out[<span class="number">11</span>]: array([  <span class="number">0</span>,   <span class="number">1</span>,   <span class="number">2</span>,   <span class="number">3</span>, <span class="number">100</span>,   <span class="number">5</span>,   <span class="number">6</span>,   <span class="number">7</span>,   <span class="number">8</span>,   <span class="number">9</span>])</div></pre></td></tr></table></figure>
+<p>避免出现这种情况需要进行显式的copy操作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">12</span>]: arr_copy = arr[<span class="number">3</span>:<span class="number">7</span>].copy()</div><div class="line"></div><div class="line">In [<span class="number">13</span>]: arr_copy[<span class="number">1</span>] = <span class="number">999</span></div><div class="line"></div><div class="line">In [<span class="number">14</span>]: arr_copy</div><div class="line">Out[<span class="number">14</span>]: array([  <span class="number">3</span>, <span class="number">999</span>,   <span class="number">5</span>,   <span class="number">6</span>])</div><div class="line"></div><div class="line">In [<span class="number">15</span>]: arr</div><div class="line">Out[<span class="number">15</span>]: array([  <span class="number">0</span>,   <span class="number">1</span>,   <span class="number">2</span>,   <span class="number">3</span>, <span class="number">100</span>,   <span class="number">5</span>,   <span class="number">6</span>,   <span class="number">7</span>,   <span class="number">8</span>,   <span class="number">9</span>])</div></pre></td></tr></table></figure>
+<h5 id="高维数组"><a href="#高维数组" class="headerlink" title="高维数组"></a>高维数组</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">In [18]: arr2d = np.array([[1,2,3],[4,5,6]])</div><div class="line"></div><div class="line">In [19]: arr2d #二维数组</div><div class="line">Out[19]: </div><div class="line">array([[1, 2, 3],</div><div class="line">       [4, 5, 6]])</div><div class="line"></div><div class="line">In [20]: arr2d[0][2]</div><div class="line">Out[20]: 3</div><div class="line"></div><div class="line">In [21]: arr2d[0,1]</div><div class="line">Out[21]: 2</div><div class="line">    </div><div class="line"></div><div class="line">In [5]: arr3d = np.array([[[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]])</div><div class="line"></div><div class="line">In [6]: arr3d #三维数组</div><div class="line">Out[6]: </div><div class="line">array([[[ 1,  2,  3],</div><div class="line">        [ 4,  5,  6]],</div><div class="line"></div><div class="line">       [[ 7,  8,  9],</div><div class="line">        [10, 11, 12]]])</div><div class="line"></div><div class="line">In [7]: arr3d[0]</div><div class="line">Out[7]: </div><div class="line">array([[1, 2, 3],</div><div class="line">       [4, 5, 6]])</div><div class="line"></div><div class="line">In [8]: arr3d_copy = arr3d[0].copy()</div><div class="line"></div><div class="line">In [9]: arr3d_copy</div><div class="line">Out[9]: </div><div class="line">array([[1, 2, 3],</div><div class="line">       [4, 5, 6]])</div><div class="line"></div><div class="line">In [10]: arr3d[0] = 333</div><div class="line"></div><div class="line">In [11]: arr3d</div><div class="line">Out[11]: </div><div class="line">array([[[333, 333, 333],</div><div class="line">        [333, 333, 333]],</div><div class="line"></div><div class="line">       [[  7,   8,   9],</div><div class="line">        [ 10,  11,  12]]])</div><div class="line"></div><div class="line">In [12]: arr3d[0] = arr3d_copy</div><div class="line"></div><div class="line">In [13]: arr3d</div><div class="line">Out[13]: </div><div class="line">array([[[ 1,  2,  3],</div><div class="line">        [ 4,  5,  6]],</div><div class="line"></div><div class="line">       [[ 7,  8,  9],</div><div class="line">        [10, 11, 12]]])</div><div class="line"></div><div class="line">In [14]: arr3d[0,2]</div><div class="line">---------------------------------------------------------------------------</div><div class="line">IndexError                                Traceback (most recent call last)</div><div class="line">&lt;ipython-input-14-de5d2579e2c3&gt; in &lt;module&gt;()</div><div class="line">----&gt; 1 arr3d[0,2]</div><div class="line"></div><div class="line">IndexError: index 2 is out of bounds for axis 1 with size 2</div><div class="line"></div><div class="line">In [15]: arr3d[0,1,1]#对某个数字进行索引</div><div class="line">Out[15]: 5</div><div class="line"></div><div class="line">In [16]: arr3d[1,0,2]</div><div class="line">Out[16]: 9</div></pre></td></tr></table></figure>
+<h5 id="切片索引"><a href="#切片索引" class="headerlink" title="切片索引"></a>切片索引</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">28</span>]: arr2d = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]])</div><div class="line"></div><div class="line">In [<span class="number">29</span>]: arr2d</div><div class="line">Out[<span class="number">29</span>]: </div><div class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],</div><div class="line">       [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</div><div class="line"></div><div class="line">In [<span class="number">30</span>]: arr2d[:<span class="number">2</span>]</div><div class="line">Out[<span class="number">30</span>]: </div><div class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</div><div class="line"></div><div class="line">In [<span class="number">31</span>]: arr2d[:<span class="number">0</span>]</div><div class="line">Out[<span class="number">31</span>]: array([], shape=(<span class="number">0</span>, <span class="number">3</span>), dtype=int64)</div><div class="line"></div><div class="line">In [<span class="number">32</span>]: arr2d[:<span class="number">1</span>]</div><div class="line">Out[<span class="number">32</span>]: array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]])</div><div class="line"></div><div class="line">In [<span class="number">33</span>]: arr2d[:<span class="number">2</span>,:<span class="number">2</span>]</div><div class="line">Out[<span class="number">33</span>]: </div><div class="line">array([[<span class="number">1</span>, <span class="number">2</span>],</div><div class="line">       [<span class="number">4</span>, <span class="number">5</span>]])</div><div class="line"></div><div class="line">In [<span class="number">34</span>]: arr2d[:<span class="number">2</span>,:<span class="number">1</span>]</div><div class="line">Out[<span class="number">34</span>]: </div><div class="line">array([[<span class="number">1</span>],</div><div class="line">       [<span class="number">4</span>]])</div><div class="line"></div><div class="line">In [<span class="number">35</span>]: arr2d[:,:<span class="number">1</span>]</div><div class="line">Out[<span class="number">35</span>]: </div><div class="line">array([[<span class="number">1</span>],</div><div class="line">       [<span class="number">4</span>],</div><div class="line">       [<span class="number">7</span>]])</div><div class="line"></div><div class="line">In [<span class="number">36</span>]: arr2d[<span class="number">1</span>,<span class="number">2</span>]</div><div class="line">Out[<span class="number">36</span>]: <span class="number">6</span></div></pre></td></tr></table></figure>
+<h5 id="布尔型索引"><a href="#布尔型索引" class="headerlink" title="布尔型索引"></a>布尔型索引</h5><p>使用True和False索引所需的数据，其中True对应的数据被索引到</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">44</span>]: <span class="keyword">from</span> numpy.random <span class="keyword">import</span> randn</div><div class="line"></div><div class="line">In [<span class="number">45</span>]: names = np.array([<span class="string">'Bob'</span>,<span class="string">'Joe'</span>, <span class="string">'Will'</span>, <span class="string">'Joe'</span>, <span class="string">'Joe'</span>])</div><div class="line"></div><div class="line">In [<span class="number">46</span>]: data = randn(<span class="number">7</span>,<span class="number">4</span>)</div><div class="line"></div><div class="line">In [<span class="number">47</span>]: data</div><div class="line">Out[<span class="number">47</span>]: </div><div class="line">array([[<span class="number">-0.97498804</span>,  <span class="number">1.34113653</span>,  <span class="number">1.40483206</span>,  <span class="number">0.27149765</span>],</div><div class="line">       [<span class="number">-0.25168174</span>, <span class="number">-0.5871523</span> ,  <span class="number">0.18575152</span>,  <span class="number">2.02151292</span>],</div><div class="line">       [ <span class="number">0.82450405</span>,  <span class="number">0.31202726</span>, <span class="number">-1.42417463</span>, <span class="number">-0.18870524</span>],</div><div class="line">       [ <span class="number">0.56847887</span>, <span class="number">-0.25381816</span>, <span class="number">-2.49085627</span>, <span class="number">-0.79043543</span>],</div><div class="line">       [<span class="number">-0.71042809</span>,  <span class="number">0.44850353</span>,  <span class="number">1.31227212</span>,  <span class="number">0.72675884</span>],</div><div class="line">       [<span class="number">-0.84179841</span>, <span class="number">-0.46132436</span>,  <span class="number">1.74836142</span>,  <span class="number">1.30293878</span>],</div><div class="line">       [<span class="number">-0.7630344</span> ,  <span class="number">0.0113255</span> , <span class="number">-0.12792845</span>,  <span class="number">2.13596095</span>]])</div><div class="line"></div><div class="line">In [<span class="number">48</span>]: names == <span class="string">'Bob'</span></div><div class="line">Out[<span class="number">48</span>]: array([ <span class="keyword">True</span>, <span class="keyword">False</span>, <span class="keyword">False</span>, <span class="keyword">False</span>, <span class="keyword">False</span>], dtype=bool)</div><div class="line"></div><div class="line">In [<span class="number">49</span>]: data[names == <span class="string">'Bob'</span>]</div><div class="line">/usr/bin/ipython:<span class="number">1</span>: VisibleDeprecationWarning: boolean index did <span class="keyword">not</span> match indexed array along dimension <span class="number">0</span>; dimension <span class="keyword">is</span> <span class="number">7</span> but corresponding boolean dimension <span class="keyword">is</span> <span class="number">5</span></div><div class="line">  <span class="comment">#! /usr/bin/python</span></div><div class="line">Out[<span class="number">49</span>]: array([[<span class="number">-0.97498804</span>,  <span class="number">1.34113653</span>,  <span class="number">1.40483206</span>,  <span class="number">0.27149765</span>]])</div><div class="line">In [<span class="number">50</span>]: data[names == <span class="string">'Bob'</span>, :<span class="number">1</span>]</div><div class="line">Out[<span class="number">50</span>]: array([[<span class="number">-0.97498804</span>]])</div><div class="line"></div><div class="line">In [<span class="number">51</span>]: data[names == <span class="string">'Bob'</span>, :<span class="number">3</span>]</div><div class="line">Out[<span class="number">51</span>]: array([[<span class="number">-0.97498804</span>,  <span class="number">1.34113653</span>,  <span class="number">1.40483206</span>]])</div><div class="line"></div><div class="line">In [<span class="number">52</span>]: data[names == <span class="string">'Bob'</span>, <span class="number">2</span>:]</div><div class="line">Out[<span class="number">52</span>]: array([[ <span class="number">1.40483206</span>,  <span class="number">0.27149765</span>]])</div><div class="line"></div><div class="line">In [<span class="number">53</span>]: data[names != <span class="string">'Bob'</span>] <span class="comment">#非运算</span></div><div class="line">Out[<span class="number">53</span>]: </div><div class="line">array([[<span class="number">-0.25168174</span>, <span class="number">-0.5871523</span> ,  <span class="number">0.18575152</span>,  <span class="number">2.02151292</span>],</div><div class="line">       [ <span class="number">0.82450405</span>,  <span class="number">0.31202726</span>, <span class="number">-1.42417463</span>, <span class="number">-0.18870524</span>],</div><div class="line">       [ <span class="number">0.56847887</span>, <span class="number">-0.25381816</span>, <span class="number">-2.49085627</span>, <span class="number">-0.79043543</span>],</div><div class="line">       [<span class="number">-0.71042809</span>,  <span class="number">0.44850353</span>,  <span class="number">1.31227212</span>,  <span class="number">0.72675884</span>]])</div><div class="line"></div><div class="line"></div><div class="line">In [<span class="number">56</span>]: data[(names == <span class="string">'Joe'</span>)|(names == <span class="string">'Bob'</span>)] <span class="comment">#支持与运算&amp;和或运算|</span></div><div class="line">Out[<span class="number">56</span>]: </div><div class="line">array([[<span class="number">-0.97498804</span>,  <span class="number">1.34113653</span>,  <span class="number">1.40483206</span>,  <span class="number">0.27149765</span>],</div><div class="line">       [<span class="number">-0.25168174</span>, <span class="number">-0.5871523</span> ,  <span class="number">0.18575152</span>,  <span class="number">2.02151292</span>],</div><div class="line">       [ <span class="number">0.56847887</span>, <span class="number">-0.25381816</span>, <span class="number">-2.49085627</span>, <span class="number">-0.79043543</span>],</div><div class="line">       [<span class="number">-0.71042809</span>,  <span class="number">0.44850353</span>,  <span class="number">1.31227212</span>,  <span class="number">0.72675884</span>]])</div><div class="line"></div><div class="line">In [<span class="number">57</span>]: data</div><div class="line">Out[<span class="number">57</span>]: </div><div class="line">array([[<span class="number">-0.97498804</span>,  <span class="number">1.34113653</span>,  <span class="number">1.40483206</span>,  <span class="number">0.27149765</span>],</div><div class="line">       [<span class="number">-0.25168174</span>, <span class="number">-0.5871523</span> ,  <span class="number">0.18575152</span>,  <span class="number">2.02151292</span>],</div><div class="line">       [ <span class="number">0.82450405</span>,  <span class="number">0.31202726</span>, <span class="number">-1.42417463</span>, <span class="number">-0.18870524</span>],</div><div class="line">       [ <span class="number">0.56847887</span>, <span class="number">-0.25381816</span>, <span class="number">-2.49085627</span>, <span class="number">-0.79043543</span>],</div><div class="line">       [<span class="number">-0.71042809</span>,  <span class="number">0.44850353</span>,  <span class="number">1.31227212</span>,  <span class="number">0.72675884</span>],</div><div class="line">       [<span class="number">-0.84179841</span>, <span class="number">-0.46132436</span>,  <span class="number">1.74836142</span>,  <span class="number">1.30293878</span>],</div><div class="line">       [<span class="number">-0.7630344</span> ,  <span class="number">0.0113255</span> , <span class="number">-0.12792845</span>,  <span class="number">2.13596095</span>]])</div><div class="line"></div><div class="line">In [<span class="number">58</span>]: data[data &lt; <span class="number">0</span>] = <span class="number">0</span> <span class="comment">#使用布尔索引快速设置值</span></div><div class="line"></div><div class="line">In [<span class="number">59</span>]: data</div><div class="line">Out[<span class="number">59</span>]: </div><div class="line">array([[ <span class="number">0.</span>        ,  <span class="number">1.34113653</span>,  <span class="number">1.40483206</span>,  <span class="number">0.27149765</span>],</div><div class="line">       [ <span class="number">0.</span>        ,  <span class="number">0.</span>        ,  <span class="number">0.18575152</span>,  <span class="number">2.02151292</span>],</div><div class="line">       [ <span class="number">0.82450405</span>,  <span class="number">0.31202726</span>,  <span class="number">0.</span>        ,  <span class="number">0.</span>        ],</div><div class="line">       [ <span class="number">0.56847887</span>,  <span class="number">0.</span>        ,  <span class="number">0.</span>        ,  <span class="number">0.</span>        ],</div><div class="line">       [ <span class="number">0.</span>        ,  <span class="number">0.44850353</span>,  <span class="number">1.31227212</span>,  <span class="number">0.72675884</span>],</div><div class="line">       [ <span class="number">0.</span>        ,  <span class="number">0.</span>        ,  <span class="number">1.74836142</span>,  <span class="number">1.30293878</span>],</div><div class="line">       [ <span class="number">0.</span>        ,  <span class="number">0.0113255</span> ,  <span class="number">0.</span>        ,  <span class="number">2.13596095</span>]])</div></pre></td></tr></table></figure>
+<h5 id="花式索引"><a href="#花式索引" class="headerlink" title="花式索引"></a>花式索引</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">64</span>]: arr</div><div class="line">Out[<span class="number">64</span>]: </div><div class="line">array([[ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</div><div class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</div><div class="line">       [ <span class="number">2.</span>,  <span class="number">2.</span>,  <span class="number">2.</span>,  <span class="number">2.</span>],</div><div class="line">       [ <span class="number">3.</span>,  <span class="number">3.</span>,  <span class="number">3.</span>,  <span class="number">3.</span>],</div><div class="line">       [ <span class="number">4.</span>,  <span class="number">4.</span>,  <span class="number">4.</span>,  <span class="number">4.</span>],</div><div class="line">       [ <span class="number">5.</span>,  <span class="number">5.</span>,  <span class="number">5.</span>,  <span class="number">5.</span>],</div><div class="line">       [ <span class="number">6.</span>,  <span class="number">6.</span>,  <span class="number">6.</span>,  <span class="number">6.</span>],</div><div class="line">       [ <span class="number">7.</span>,  <span class="number">7.</span>,  <span class="number">7.</span>,  <span class="number">7.</span>]])</div><div class="line"></div><div class="line">In [<span class="number">65</span>]: arr[[<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]] <span class="comment">#传入一个索引列表 依照顺序输出对应数据</span></div><div class="line">Out[<span class="number">65</span>]: </div><div class="line">array([[ <span class="number">4.</span>,  <span class="number">4.</span>,  <span class="number">4.</span>,  <span class="number">4.</span>],</div><div class="line">       [ <span class="number">3.</span>,  <span class="number">3.</span>,  <span class="number">3.</span>,  <span class="number">3.</span>],</div><div class="line">       [ <span class="number">2.</span>,  <span class="number">2.</span>,  <span class="number">2.</span>,  <span class="number">2.</span>],</div><div class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>]])</div><div class="line"></div><div class="line">In [<span class="number">66</span>]: arr[[<span class="number">-3</span>,<span class="number">-5</span>,<span class="number">-7</span>]] <span class="comment">#负数代表从后向前计数</span></div><div class="line">Out[<span class="number">66</span>]: </div><div class="line">array([[ <span class="number">5.</span>,  <span class="number">5.</span>,  <span class="number">5.</span>,  <span class="number">5.</span>],</div><div class="line">       [ <span class="number">3.</span>,  <span class="number">3.</span>,  <span class="number">3.</span>,  <span class="number">3.</span>],</div><div class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>]])</div><div class="line"></div><div class="line">In [<span class="number">67</span>]: arr[[<span class="number">-3</span>,<span class="number">-5</span>,<span class="number">2</span>]]</div><div class="line">Out[<span class="number">67</span>]: </div><div class="line">array([[ <span class="number">5.</span>,  <span class="number">5.</span>,  <span class="number">5.</span>,  <span class="number">5.</span>],</div><div class="line">       [ <span class="number">3.</span>,  <span class="number">3.</span>,  <span class="number">3.</span>,  <span class="number">3.</span>],</div><div class="line">       [ <span class="number">2.</span>,  <span class="number">2.</span>,  <span class="number">2.</span>,  <span class="number">2.</span>]])</div><div class="line"></div><div class="line">In [<span class="number">68</span>]: arr = np.arange(<span class="number">32</span>).reshape(<span class="number">8</span>,<span class="number">4</span>)</div><div class="line"></div><div class="line">In [<span class="number">69</span>]: arr</div><div class="line">Out[<span class="number">69</span>]: </div><div class="line">array([[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>],</div><div class="line">       [ <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>],</div><div class="line">       [ <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>],</div><div class="line">       [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>],</div><div class="line">       [<span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>],</div><div class="line">       [<span class="number">20</span>, <span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>],</div><div class="line">       [<span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>],</div><div class="line">       [<span class="number">28</span>, <span class="number">29</span>, <span class="number">30</span>, <span class="number">31</span>]])</div><div class="line"></div><div class="line">In [<span class="number">70</span>]: arr[[<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>]] <span class="comment">#传入两个列表得到的是对应的值例如 (1,0)(5,3)(2,2)</span></div><div class="line">Out[<span class="number">70</span>]: array([ <span class="number">4</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">10</span>])</div><div class="line"></div><div class="line">In [<span class="number">71</span>]: arr[[<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">2</span>]][:,[<span class="number">0</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>]]</div><div class="line">Out[<span class="number">71</span>]: </div><div class="line">array([[ <span class="number">4</span>,  <span class="number">7</span>,  <span class="number">5</span>,  <span class="number">6</span>],</div><div class="line">       [<span class="number">20</span>, <span class="number">23</span>, <span class="number">21</span>, <span class="number">22</span>],</div><div class="line">       [<span class="number">28</span>, <span class="number">31</span>, <span class="number">29</span>, <span class="number">30</span>],</div><div class="line">       [ <span class="number">8</span>, <span class="number">11</span>,  <span class="number">9</span>, <span class="number">10</span>]])</div><div class="line">In [<span class="number">72</span>]: arr[np.ix_([<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>])]</div><div class="line">Out[<span class="number">72</span>]: </div><div class="line">array([[ <span class="number">4</span>,  <span class="number">7</span>,  <span class="number">5</span>,  <span class="number">6</span>],</div><div class="line">       [<span class="number">20</span>, <span class="number">23</span>, <span class="number">21</span>, <span class="number">22</span>],</div><div class="line">       [<span class="number">28</span>, <span class="number">31</span>, <span class="number">29</span>, <span class="number">30</span>],</div><div class="line">       [ <span class="number">8</span>, <span class="number">11</span>,  <span class="number">9</span>, <span class="number">10</span>]])</div></pre></td></tr></table></figure>
+<p>花式索引总是将数据复制到新数组中</p>
+<h4 id="转置和轴对换"><a href="#转置和轴对换" class="headerlink" title="转置和轴对换"></a>转置和轴对换</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">4</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: arr = np.arange(<span class="number">15</span>).reshape(<span class="number">3</span>,<span class="number">5</span>)</div><div class="line"></div><div class="line">In [<span class="number">6</span>]: arr</div><div class="line">Out[<span class="number">6</span>]: </div><div class="line">array([[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>,  <span class="number">4</span>],</div><div class="line">       [ <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>],</div><div class="line">       [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>]])</div><div class="line"></div><div class="line">In [<span class="number">7</span>]: arr.T <span class="comment">#二维矩阵转置操作直接轴对换</span></div><div class="line">Out[<span class="number">7</span>]: </div><div class="line">array([[ <span class="number">0</span>,  <span class="number">5</span>, <span class="number">10</span>],</div><div class="line">       [ <span class="number">1</span>,  <span class="number">6</span>, <span class="number">11</span>],</div><div class="line">       [ <span class="number">2</span>,  <span class="number">7</span>, <span class="number">12</span>],</div><div class="line">       [ <span class="number">3</span>,  <span class="number">8</span>, <span class="number">13</span>],</div><div class="line">       [ <span class="number">4</span>,  <span class="number">9</span>, <span class="number">14</span>]])</div><div class="line"></div><div class="line">In [<span class="number">13</span>]: arr = np.arange(<span class="number">16</span>).reshape((<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>))</div><div class="line"></div><div class="line">In [<span class="number">14</span>]: arr</div><div class="line">Out[<span class="number">14</span>]: </div><div class="line">array([[[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>],</div><div class="line">        [ <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>]],</div><div class="line"></div><div class="line">       [[ <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>],</div><div class="line">        [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>]]])</div><div class="line"></div><div class="line">In [<span class="number">15</span>]: arr.transpose((<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>)) <span class="comment">#transpose方法</span></div><div class="line">Out[<span class="number">15</span>]: </div><div class="line">array([[[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>],</div><div class="line">        [ <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>]],</div><div class="line"></div><div class="line">       [[ <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>],</div><div class="line">        [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>]]])</div><div class="line"></div><div class="line">In [<span class="number">2</span>]: arr = np.arange(<span class="number">16</span>).reshape(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</div><div class="line"></div><div class="line">In [<span class="number">3</span>]: arr</div><div class="line">Out[<span class="number">3</span>]: </div><div class="line">array([[[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>],</div><div class="line">        [ <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>]],</div><div class="line"></div><div class="line">       [[ <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>],</div><div class="line">        [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>]]])</div><div class="line"></div><div class="line">In [<span class="number">4</span>]: arr.swapaxes(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">Out[<span class="number">4</span>]: </div><div class="line">array([[[ <span class="number">0</span>,  <span class="number">4</span>],</div><div class="line">        [ <span class="number">1</span>,  <span class="number">5</span>],</div><div class="line">        [ <span class="number">2</span>,  <span class="number">6</span>],</div><div class="line">        [ <span class="number">3</span>,  <span class="number">7</span>]],</div><div class="line"></div><div class="line">       [[ <span class="number">8</span>, <span class="number">12</span>],</div><div class="line">        [ <span class="number">9</span>, <span class="number">13</span>],</div><div class="line">        [<span class="number">10</span>, <span class="number">14</span>],</div><div class="line">        [<span class="number">11</span>, <span class="number">15</span>]]])</div></pre></td></tr></table></figure>
+<h3 id="通用函数：-快速的元素级数组函数"><a href="#通用函数：-快速的元素级数组函数" class="headerlink" title="通用函数： 快速的元素级数组函数"></a>通用函数： 快速的元素级数组函数</h3><blockquote>
+<p>abs fabs #绝对值 及非复数的绝对值</p>
+<p>sqrt # arr ** 0.5</p>
+<p>square  # arr ** 2</p>
+<p>exp #e^x</p>
+<p>log log10 log2 log1p</p>
+<p>sign #符号函数 计算正负号 1正数 0零 -1为负数</p>
+<p>ceil #大于该数的最小正整数</p>
+<p>floor # 小于该数的最大正整数</p>
+<p>rint #四舍五入到最接近的整数</p>
+<p>modf #将数组的小数和整数部分以两个独立的数组形式返回</p>
+<p>isnan #是数字的返回False</p>
+<p>isfinite isinf #返回</p>
+<p>cos  cosh sin sinh tan tanh</p>
+<p>add subtract</p>
+<p>multiply </p>
+<p>divide ，floor_divide</p>
+<p>power </p>
+<p>maximum fmax #fmax将忽略NaN</p>
+<p>minimum fmin</p>
+<p>mod</p>
+<p>copysign #将第二个数组中的符号复制给第一个数组中的</p>
+<p>greater greater_equal</p>
+<p>less less_equal</p>
+<p>equal not_equal</p>
+<p>logical_and  logical_or  logical_xor</p>
+</blockquote>
+<h3 id="利用数组进行数据处理"><a href="#利用数组进行数据处理" class="headerlink" title="利用数组进行数据处理"></a>利用数组进行数据处理</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">In [<span class="number">2</span>]: points = np.arange(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">0.01</span>) <span class="comment">#0.01是步长</span></div><div class="line"></div><div class="line">In [<span class="number">4</span>]: xs, ys = np.meshgrid(points, points)</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: xs</div><div class="line">Out[<span class="number">5</span>]: </div><div class="line">array([[<span class="number">-5.</span>  , <span class="number">-4.99</span>, <span class="number">-4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>],</div><div class="line">       [<span class="number">-5.</span>  , <span class="number">-4.99</span>, <span class="number">-4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>],</div><div class="line">       [<span class="number">-5.</span>  , <span class="number">-4.99</span>, <span class="number">-4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>],</div><div class="line">       ..., </div><div class="line">       [<span class="number">-5.</span>  , <span class="number">-4.99</span>, <span class="number">-4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>],</div><div class="line">       [<span class="number">-5.</span>  , <span class="number">-4.99</span>, <span class="number">-4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>],</div><div class="line">       [<span class="number">-5.</span>  , <span class="number">-4.99</span>, <span class="number">-4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>]])</div><div class="line"></div><div class="line">In [<span class="number">6</span>]: z = np.sqrt(xs**<span class="number">2</span>, ys**<span class="number">2</span>)</div><div class="line"></div><div class="line">In [<span class="number">7</span>]: z</div><div class="line">Out[<span class="number">7</span>]: </div><div class="line">array([[ <span class="number">5.</span>  ,  <span class="number">4.99</span>,  <span class="number">4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>],</div><div class="line">       [ <span class="number">5.</span>  ,  <span class="number">4.99</span>,  <span class="number">4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>],</div><div class="line">       [ <span class="number">5.</span>  ,  <span class="number">4.99</span>,  <span class="number">4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>],</div><div class="line">       ..., </div><div class="line">       [ <span class="number">5.</span>  ,  <span class="number">4.99</span>,  <span class="number">4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>],</div><div class="line">       [ <span class="number">5.</span>  ,  <span class="number">4.99</span>,  <span class="number">4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>],</div><div class="line">       [ <span class="number">5.</span>  ,  <span class="number">4.99</span>,  <span class="number">4.98</span>, ...,  <span class="number">4.97</span>,  <span class="number">4.98</span>,  <span class="number">4.99</span>]])</div></pre></td></tr></table></figure>
+<h5 id="将条件逻辑表达式表述为数组运算"><a href="#将条件逻辑表达式表述为数组运算" class="headerlink" title="将条件逻辑表达式表述为数组运算"></a>将条件逻辑表达式表述为数组运算</h5><blockquote>
+<p>numpy.where</p>
+<p>np.where(condition, x, y) 如果condition成立则输出x，否则输出y</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">10</span>]: xarr = np.arange(<span class="number">1</span>,<span class="number">1.5</span>,<span class="number">0.1</span>)</div><div class="line"></div><div class="line">In [<span class="number">11</span>]: xarr</div><div class="line">Out[<span class="number">11</span>]: array([ <span class="number">1.</span> ,  <span class="number">1.1</span>,  <span class="number">1.2</span>,  <span class="number">1.3</span>,  <span class="number">1.4</span>])</div><div class="line"></div><div class="line">In [<span class="number">12</span>]: xarr = np.arange(<span class="number">1.1</span>,<span class="number">1.6</span>,<span class="number">0.1</span>)</div><div class="line"></div><div class="line">In [<span class="number">13</span>]: xarr</div><div class="line">Out[<span class="number">13</span>]: array([ <span class="number">1.1</span>,  <span class="number">1.2</span>,  <span class="number">1.3</span>,  <span class="number">1.4</span>,  <span class="number">1.5</span>])</div><div class="line"></div><div class="line">In [<span class="number">15</span>]: yarr = np.arange(<span class="number">2.1</span>,<span class="number">2.6</span>,<span class="number">0.1</span>)</div><div class="line"></div><div class="line">In [<span class="number">16</span>]: yarr</div><div class="line">Out[<span class="number">16</span>]: array([ <span class="number">2.1</span>,  <span class="number">2.2</span>,  <span class="number">2.3</span>,  <span class="number">2.4</span>,  <span class="number">2.5</span>])</div><div class="line"></div><div class="line">In [<span class="number">17</span>]: cond = np.array([<span class="keyword">True</span>, <span class="keyword">False</span>, <span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">False</span>])</div><div class="line"></div><div class="line">In [<span class="number">18</span>]: np.where(cond, xarr, yarr)</div><div class="line">Out[<span class="number">18</span>]: array([ <span class="number">1.1</span>,  <span class="number">2.2</span>,  <span class="number">1.3</span>,  <span class="number">1.4</span>,  <span class="number">2.5</span>])</div></pre></td></tr></table></figure>
+<h5 id="数学和统计方法"><a href="#数学和统计方法" class="headerlink" title="数学和统计方法"></a>数学和统计方法</h5><p>可以对整个数组或是某个轴向的数据进行统计计算，使用axis参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">31</span>]: arr = np.arange(<span class="number">16</span>).reshape(<span class="number">4</span>,<span class="number">4</span>)</div><div class="line"></div><div class="line">In [<span class="number">32</span>]: arr</div><div class="line">Out[<span class="number">32</span>]: </div><div class="line">array([[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>],</div><div class="line">       [ <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>],</div><div class="line">       [ <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>],</div><div class="line">       [<span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>]])</div><div class="line"></div><div class="line">In [<span class="number">33</span>]: arr.sum()</div><div class="line">Out[<span class="number">33</span>]: <span class="number">120</span></div><div class="line"></div><div class="line">In [<span class="number">34</span>]: arr.sum(axis=<span class="number">1</span>)</div><div class="line">Out[<span class="number">34</span>]: array([ <span class="number">6</span>, <span class="number">22</span>, <span class="number">38</span>, <span class="number">54</span>])</div><div class="line"></div><div class="line"></div><div class="line">In [<span class="number">36</span>]: arr.mean()</div><div class="line">Out[<span class="number">36</span>]: <span class="number">7.5</span></div><div class="line"></div><div class="line">In [<span class="number">37</span>]: arr.argmin()</div><div class="line">Out[<span class="number">37</span>]: <span class="number">0</span></div><div class="line"></div><div class="line">In [<span class="number">38</span>]: arr.argmax()</div><div class="line">Out[<span class="number">38</span>]: <span class="number">15</span></div><div class="line"></div><div class="line">In [<span class="number">40</span>]: arr.cumsum()</div><div class="line">Out[<span class="number">40</span>]: </div><div class="line">array([  <span class="number">0</span>,   <span class="number">1</span>,   <span class="number">3</span>,   <span class="number">6</span>,  <span class="number">10</span>,  <span class="number">15</span>,  <span class="number">21</span>,  <span class="number">28</span>,  <span class="number">36</span>,  <span class="number">45</span>,  <span class="number">55</span>,  <span class="number">66</span>,  <span class="number">78</span>,</div><div class="line">        <span class="number">91</span>, <span class="number">105</span>, <span class="number">120</span>])</div><div class="line"></div><div class="line">In [<span class="number">41</span>]: arr.cumprod()</div><div class="line">Out[<span class="number">41</span>]: array([<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>])</div><div class="line"></div><div class="line"></div><div class="line">In [<span class="number">43</span>]: arr.var()</div><div class="line">Out[<span class="number">43</span>]: <span class="number">21.25</span></div><div class="line"></div><div class="line">In [<span class="number">44</span>]: arr.var(axis=<span class="number">1</span>)</div><div class="line">Out[<span class="number">44</span>]: array([ <span class="number">1.25</span>,  <span class="number">1.25</span>,  <span class="number">1.25</span>,  <span class="number">1.25</span>])</div></pre></td></tr></table></figure>
+<blockquote>
+<p>sum求和 mean算术平均数 std标准差 var方差 min最小值 max最大值 </p>
+<p>argmin最小值的索引数 argmax最大值的索引数 </p>
+<p>cumsum累计和 cumprod累计积</p>
+</blockquote>
+<h5 id="用于布尔型数组的方法"><a href="#用于布尔型数组的方法" class="headerlink" title="用于布尔型数组的方法"></a>用于布尔型数组的方法</h5><p>对布尔型数组中的True值计数：sum</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">45</span>]: arr = np.random.randn(<span class="number">100</span>)</div><div class="line"></div><div class="line">In [<span class="number">46</span>]: (arr &gt; <span class="number">0</span> ).sum()</div><div class="line">Out[<span class="number">46</span>]: <span class="number">47</span></div></pre></td></tr></table></figure>
+<p>any方法：用于测试布尔型数组中是否存在一个或多个True</p>
+<p>all方法：由于测试数组中所有值是否都是True</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">48</span>]: bools = np.array([<span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">False</span>])</div><div class="line"></div><div class="line">In [<span class="number">49</span>]: bools.any()</div><div class="line">Out[<span class="number">49</span>]: <span class="keyword">True</span></div><div class="line"></div><div class="line">In [<span class="number">50</span>]: bools.all()</div><div class="line">Out[<span class="number">50</span>]: <span class="keyword">False</span></div></pre></td></tr></table></figure>
+<h5 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h5><p>arr.sort() 直接操作原数组</p>
+<p>np.sort(arr) 不直接操作原数组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">56</span>]: arr = np.random.randn(<span class="number">9</span>)</div><div class="line"></div><div class="line">In [<span class="number">57</span>]: arr</div><div class="line">Out[<span class="number">57</span>]: </div><div class="line">array([ <span class="number">0.43159571</span>,  <span class="number">0.17274352</span>, <span class="number">-0.77111466</span>,  <span class="number">1.34856683</span>, <span class="number">-1.15193508</span>,</div><div class="line">       <span class="number">-0.33634899</span>, <span class="number">-0.97308025</span>, <span class="number">-1.32999343</span>, <span class="number">-0.59900632</span>])</div><div class="line"></div><div class="line">In [<span class="number">58</span>]: arr.sort()</div><div class="line"></div><div class="line">In [<span class="number">59</span>]: arr</div><div class="line">Out[<span class="number">59</span>]: </div><div class="line">array([<span class="number">-1.32999343</span>, <span class="number">-1.15193508</span>, <span class="number">-0.97308025</span>, <span class="number">-0.77111466</span>, <span class="number">-0.59900632</span>,</div><div class="line">       <span class="number">-0.33634899</span>,  <span class="number">0.17274352</span>,  <span class="number">0.43159571</span>,  <span class="number">1.34856683</span>])</div><div class="line"></div><div class="line">In [<span class="number">60</span>]: arr = np.random.randn(<span class="number">9</span>)</div><div class="line"></div><div class="line">In [<span class="number">61</span>]: np.sort(arr)</div><div class="line">Out[<span class="number">61</span>]: </div><div class="line">array([<span class="number">-0.86198074</span>, <span class="number">-0.52458159</span>, <span class="number">-0.4408541</span> ,  <span class="number">0.15134182</span>,  <span class="number">0.38165628</span>,</div><div class="line">        <span class="number">0.80143293</span>,  <span class="number">0.82852138</span>,  <span class="number">2.10567921</span>,  <span class="number">2.34282711</span>])</div></pre></td></tr></table></figure>
+<h5 id="唯一化以及其他的集合逻辑"><a href="#唯一化以及其他的集合逻辑" class="headerlink" title="唯一化以及其他的集合逻辑"></a>唯一化以及其他的集合逻辑</h5><blockquote>
+<p>np.unique() 用于找出数组中的唯一值并返回排序的结果</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">In [<span class="number">2</span>]: names = np.array([<span class="string">'Bob'</span>,<span class="string">'Joe'</span>,<span class="string">'Will'</span>,<span class="string">'Bob'</span>,<span class="string">'Joe'</span>])</div><div class="line"></div><div class="line">In [<span class="number">4</span>]: np.unique(names)</div><div class="line">Out[<span class="number">4</span>]: </div><div class="line">array([<span class="string">'Bob'</span>, <span class="string">'Joe'</span>, <span class="string">'Will'</span>], </div><div class="line">      dtype=<span class="string">'|S4'</span>)</div></pre></td></tr></table></figure>
+<p>NumPy的集合函数常用的还有：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">unique(x)</div><div class="line">intersect(x,y) <span class="comment">#公共元素 返回有序结果</span></div><div class="line">union1d(x,y) <span class="comment">#并集 返回有序结果</span></div><div class="line">in1d(x,y) <span class="comment">#得到一个表示x中的元素是否在y中的布尔型数组</span></div><div class="line">setdiff1d(x,y) <span class="comment">#集合的差 在x而不在y中</span></div><div class="line">setxor1d(x,y) <span class="comment">#存在于其中一个但不在两个的元素 异或</span></div></pre></td></tr></table></figure>
+<h3 id="用于数组的文件输入输出"><a href="#用于数组的文件输入输出" class="headerlink" title="用于数组的文件输入输出"></a>用于数组的文件输入输出</h3><h5 id="将数据以二进制的格式保存到磁盘"><a href="#将数据以二进制的格式保存到磁盘" class="headerlink" title="将数据以二进制的格式保存到磁盘"></a>将数据以二进制的格式保存到磁盘</h5><p>np.save, np.load 是常用的读写数据的参数，数据以未压缩的二进制文件保存在.npy文件中</p>
+<p>np.savez得到一个压缩文件.npz 加载后得到一个类似字典的对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">3</span>]: arr = np.arange(<span class="number">10</span>)</div><div class="line"></div><div class="line">In [<span class="number">4</span>]: np.save(<span class="string">'arr'</span>, arr)</div><div class="line"></div><div class="line">In [<span class="number">6</span>]: arr2 = np.load(<span class="string">'arr.npy'</span>)</div><div class="line"></div><div class="line">In [<span class="number">7</span>]: arr2</div><div class="line">Out[<span class="number">7</span>]: array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</div><div class="line">    </div><div class="line">In [<span class="number">2</span>]: arr = np.arange(<span class="number">5</span>)</div><div class="line"></div><div class="line">In [<span class="number">3</span>]: arr2 = np.arange(<span class="number">5</span>,<span class="number">10</span>,<span class="number">1</span>)</div><div class="line"></div><div class="line">In [<span class="number">4</span>]: np.savez(<span class="string">'array_archive'</span>, a = arr, b = arr2)</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: arr3 = np.load(<span class="string">'array_archive.npz'</span>)</div><div class="line"></div><div class="line">In [<span class="number">7</span>]: arr3[<span class="string">'a'</span>]</div><div class="line">Out[<span class="number">7</span>]: array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</div></pre></td></tr></table></figure>
+<h5 id="存取文本文件"><a href="#存取文本文件" class="headerlink" title="存取文本文件"></a>存取文本文件</h5><p>loadtxt savetxt </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">In [<span class="number">2</span>]: arr = np.loadtxt(<span class="string">'array_ex.txt'</span>, delimiter=<span class="string">','</span>)</div><div class="line"></div><div class="line">In [<span class="number">3</span>]: arr</div><div class="line">Out[<span class="number">3</span>]: </div><div class="line">array([[ <span class="number">0.580052</span>,  <span class="number">0.18673</span> ,  <span class="number">1.040717</span>,  <span class="number">1.134411</span>],</div><div class="line">       [ <span class="number">0.194163</span>, <span class="number">-0.636917</span>, <span class="number">-0.938659</span>,  <span class="number">0.124094</span>],</div><div class="line">       [<span class="number">-0.12641</span> ,  <span class="number">0.268607</span>, <span class="number">-0.695724</span>,  <span class="number">0.047428</span>],</div><div class="line">       [<span class="number">-1.484413</span>,  <span class="number">0.004176</span>, <span class="number">-0.744203</span>,  <span class="number">0.005487</span>],</div><div class="line">       [ <span class="number">2.302869</span>,  <span class="number">0.200131</span>,  <span class="number">1.670238</span>, <span class="number">-1.88109</span> ],</div><div class="line">       [<span class="number">-0.19323</span> ,  <span class="number">1.047233</span>,  <span class="number">0.482803</span>,  <span class="number">0.960334</span>]])</div></pre></td></tr></table></figure>
+<h3 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h3><blockquote>
+<p>等学了线代再补</p>
+</blockquote>
+<h3 id="随机数生成"><a href="#随机数生成" class="headerlink" title="随机数生成"></a>随机数生成</h3><p>使用normal快速得到标准正态分布</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">4</span>]: sample = np.random.normal(size=(<span class="number">4</span>,<span class="number">4</span>))</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: sample</div><div class="line">Out[<span class="number">5</span>]: </div><div class="line">array([[ <span class="number">0.74457397</span>, <span class="number">-0.70706293</span>, <span class="number">-0.9581483</span> , <span class="number">-0.48957992</span>],</div><div class="line">       [<span class="number">-0.20970388</span>, <span class="number">-0.10358557</span>,  <span class="number">0.34802925</span>,  <span class="number">0.41314517</span>],</div><div class="line">       [<span class="number">-0.12728663</span>, <span class="number">-1.81397115</span>, <span class="number">-1.45429602</span>, <span class="number">-0.99358201</span>],</div><div class="line">       [<span class="number">-0.83018937</span>,  <span class="number">1.60566518</span>, <span class="number">-0.33059382</span>, <span class="number">-1.68959384</span>]])</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/利用python进行数据分析/" rel="tag"># 利用python进行数据分析</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/08/大数据分析导论-week17/" rel="next" title="大数据分析导论_WEEK17">
+                <i class="fa fa-chevron-left"></i> 大数据分析导论_WEEK17
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oqia88p5q.bkt.clouddn.com/360%E5%8F%8D%E9%A6%88%E6%84%8F%E8%A7%81%E6%88%AA%E5%9B%BE16421027265035.png"
+               alt="chenxshuo" />
+          <p class="site-author-name" itemprop="name">chenxshuo</p>
+           
+              <p class="site-description motion-element" itemprop="description">For the future</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NumPy的ndarray"><span class="nav-number">1.</span> <span class="nav-text">NumPy的ndarray</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建"><span class="nav-number">1.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">1.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组与标量运算"><span class="nav-number">1.3.</span> <span class="nav-text">数组与标量运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本索引和切片"><span class="nav-number">1.4.</span> <span class="nav-text">基本索引和切片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一维数组"><span class="nav-number">1.4.1.</span> <span class="nav-text">一维数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#高维数组"><span class="nav-number">1.4.2.</span> <span class="nav-text">高维数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#切片索引"><span class="nav-number">1.4.3.</span> <span class="nav-text">切片索引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#布尔型索引"><span class="nav-number">1.4.4.</span> <span class="nav-text">布尔型索引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#花式索引"><span class="nav-number">1.4.5.</span> <span class="nav-text">花式索引</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转置和轴对换"><span class="nav-number">1.5.</span> <span class="nav-text">转置和轴对换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用函数：-快速的元素级数组函数"><span class="nav-number">2.</span> <span class="nav-text">通用函数： 快速的元素级数组函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用数组进行数据处理"><span class="nav-number">3.</span> <span class="nav-text">利用数组进行数据处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#将条件逻辑表达式表述为数组运算"><span class="nav-number">3.0.1.</span> <span class="nav-text">将条件逻辑表达式表述为数组运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数学和统计方法"><span class="nav-number">3.0.2.</span> <span class="nav-text">数学和统计方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用于布尔型数组的方法"><span class="nav-number">3.0.3.</span> <span class="nav-text">用于布尔型数组的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#排序"><span class="nav-number">3.0.4.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#唯一化以及其他的集合逻辑"><span class="nav-number">3.0.5.</span> <span class="nav-text">唯一化以及其他的集合逻辑</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用于数组的文件输入输出"><span class="nav-number">4.</span> <span class="nav-text">用于数组的文件输入输出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#将数据以二进制的格式保存到磁盘"><span class="nav-number">4.0.1.</span> <span class="nav-text">将数据以二进制的格式保存到磁盘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存取文本文件"><span class="nav-number">4.0.2.</span> <span class="nav-text">存取文本文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性代数"><span class="nav-number">5.</span> <span class="nav-text">线性代数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机数生成"><span class="nav-number">6.</span> <span class="nav-text">随机数生成</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenxshuo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://chenxshuo-cn.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/06/10/利用python进行数据分析-笔记Ch04/';
+          this.page.identifier = '2017/06/10/利用python进行数据分析-笔记Ch04/';
+          this.page.title = '利用python进行数据分析_笔记Ch04';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://chenxshuo-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
