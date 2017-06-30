@@ -1,0 +1,1027 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/siteicon.png?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="The last document for this class in this semester , fighting  You can scan the QR code under this passage if you like this document thx ! :-)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Key Knowledge Points for Big Data Analysis">
+<meta property="og:url" content="http://yoursite.com/posts/41992/index.html">
+<meta property="og:site_name" content="chenxshuo">
+<meta property="og:description" content="The last document for this class in this semester , fighting  You can scan the QR code under this passage if you like this document thx ! :-)">
+<meta property="og:image" content="https://dn-anything-about-doc.qbox.me/linux_base/3-10.png/logoblackfont">
+<meta property="og:image" content="https://dn-anything-about-doc.qbox.me/linux_base/3-14.png/logoblackfont">
+<meta property="og:image" content="http://oqia88p5q.bkt.clouddn.com/ML%20process.png">
+<meta property="og:image" content="http://oqia88p5q.bkt.clouddn.com/hadoop_structure.jpg">
+<meta property="og:image" content="http://oqia88p5q.bkt.clouddn.com/k-means.png">
+<meta property="og:updated_time" content="2017-06-30T12:03:11.963Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Key Knowledge Points for Big Data Analysis">
+<meta name="twitter:description" content="The last document for this class in this semester , fighting  You can scan the QR code under this passage if you like this document thx ! :-)">
+<meta name="twitter:image" content="https://dn-anything-about-doc.qbox.me/linux_base/3-10.png/logoblackfont">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/posts/41992/"/>
+
+
+
+
+
+  <title>Key Knowledge Points for Big Data Analysis | chenxshuo</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-100979267-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenxshuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">THINK WRITE PRICTICE</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/41992/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenxshuo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oqia88p5q.bkt.clouddn.com/360%E5%8F%8D%E9%A6%88%E6%84%8F%E8%A7%81%E6%88%AA%E5%9B%BE16421027265035.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxshuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Key Knowledge Points for Big Data Analysis</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-30T19:51:39+08:00">
+                2017-06-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-06-30T20:03:11+08:00">
+                2017-06-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/期末复习/" itemprop="url" rel="index">
+                    <span itemprop="name">期末复习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/41992/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/41992/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3,647
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>The last document for this class in this semester , fighting </p>
+<p>You can scan the QR code under this passage if you like this document thx ! :-)</p>
+<a id="more"></a>
+<h2 id="Key-Knowledge-Points-for-Big-Data-Analysis"><a href="#Key-Knowledge-Points-for-Big-Data-Analysis" class="headerlink" title="Key Knowledge-Points for Big Data Analysis"></a>Key Knowledge-Points for Big Data Analysis</h2><h3 id="1-Definition-of-Big-Data"><a href="#1-Definition-of-Big-Data" class="headerlink" title="1. Definition of Big Data"></a>1. Definition of Big Data</h3><p>Big data is the term for a collection of data sets so large and complex that it becomes difficult to process using on-hand database management tools or traditional data processing applications.</p>
+<p><em>Just recite</em></p>
+<h3 id="2-The-characters-of-Linux"><a href="#2-The-characters-of-Linux" class="headerlink" title="2. The characters of Linux"></a>2. The characters of Linux</h3><p>Answer:</p>
+<blockquote>
+<ol>
+<li>Multi-User Multi-Mission, Multi-Thread</li>
+<li>Mainly based on POSIX and UNIX</li>
+<li>Can support different hardware platform</li>
+</ol>
+</blockquote>
+<p>解释：</p>
+<blockquote>
+<p>GNU is a  free operation system</p>
+<p>POSIX: Portable Operating System Interface</p>
+<p>上课时登录到Linux上各自执行各自的代码与任务，就体现了Linux的多用户，多任务，多进程的特点</p>
+<p>Linux基于POSIX和UNIX，UNIX是更早的一种操作系统，POSIX是针对UNIX制定的一套标准机制用于规范不同的软件之间的兼容</p>
+<p>能够支持不同的硬件平台，比如把Linux安装到普通的笔记本电脑也可以放到树莓派上，或者安卓手机上，比较来讲，你无法把Windows安装到你的安卓手机上对吧:-)</p>
+</blockquote>
+<h3 id="3-Basic-Shell-Grammar"><a href="#3-Basic-Shell-Grammar" class="headerlink" title="3. Basic Shell Grammar"></a>3. Basic Shell Grammar</h3><p>掌握基本的shell语法，比如比大小 if else语句 输出字符 数值计算</p>
+<p>大家回看一下大作业一的代码实现 熟悉里面的shell脚本命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>!/bin/bash</div><div class="line">rnk=$1 #获取输入的执行文件（即该文件）后跟着的第一个参数 by 煎鱼</div><div class="line">kk=0</div><div class="line"></div><div class="line">if [[ $&#123;rnk&#125; = "shw"]]</div><div class="line">then </div><div class="line">    kk=2;</div><div class="line">    echo $&#123;kk&#125; # kk是变量名 $是专门用在变量名前的符号 &#123;&#125;是用来明确变量名的界限</div><div class="line">elif [[ $&#123;rnk&#125; = "clk"]]</div><div class="line">then</div><div class="line">    kk=3;</div><div class="line">    echo $&#123;kk&#125;</div><div class="line">else</div><div class="line">echo "Wrong input"</div><div class="line">exit </div><div class="line">fi</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>!/bin/bash</div><div class="line">c=0</div><div class="line">for file in `ls /usr/tmp/bigData_Homework/zx_log.txt`</div><div class="line">    do filelist[$C]=$file #filelist就是一个array 例如a = [1,2,3,4] 则a[0]=1</div><div class="line">    c=`expr $c + 1` #expr是声明在算术运算符前的符号 </div><div class="line">done</div></pre></td></tr></table></figure>
+<h3 id="4-The-definition-the-main-type-the-characters-and-the-risks-of-Cloud-Computing"><a href="#4-The-definition-the-main-type-the-characters-and-the-risks-of-Cloud-Computing" class="headerlink" title="4. The definition , the main type, the characters and the risks of Cloud Computing"></a>4. The definition , the main type, the characters and the risks of Cloud Computing</h3><p>Answer:</p>
+<blockquote>
+<p>Cloud computing is a style of computing in which dynamically scalable and often virtual resources are provided as a service over the Internet.</p>
+<p>Cloud computing is a combination of distributed computing, utility computing, network storage, virtualization, load balance, high available and other advanced technologies.</p>
+<p>The characters include:</p>
+<p>(a)Super large-scale. (b) Virtualization. (c) High reliable. (d) Generality. (e) Extendibility (f)Service on Demand. (g) Extremely cheap. </p>
+<p>Potential risks.</p>
+<p>a)       Public Cloud: Computing infrastructure is hosted at the vendor’s premises.</p>
+<p>b)       Private Cloud: Computing architecture is dedicated to the customer and is not shared with other organizations.</p>
+<p>c)       Hybrid Cloud: Organizations host some critical, secure applications in private clouds. The not so critical applications are hosted in the public cloud.</p>
+<p>d)       Community Cloud: Cloud is built based on Common Demands and Common Resources Sharing of communities.</p>
+</blockquote>
+<p><em>Just recite</em></p>
+<h3 id="5-Big-data-has-shifted-from-structured-to-unstructured-重要"><a href="#5-Big-data-has-shifted-from-structured-to-unstructured-重要" class="headerlink" title="5. Big data has shifted from structured to unstructured (重要)"></a>5. Big data has shifted from structured to unstructured (重要)</h3><p>大数据的数据结构从之前的结构型数据转变成非结构型数据，结构化的数据就像Excel表格，例如一个网站的所有用户的邮箱 用户名 登录密码等数据，非结构化的数据无法简单的抽取对应例如一段视频，音频等。</p>
+<h3 id="6-3V-of-Big-Data"><a href="#6-3V-of-Big-Data" class="headerlink" title="6. 3V of Big Data"></a>6. 3V of Big Data</h3><p>Answer:</p>
+<blockquote>
+<p>Volume Velocity Variety</p>
+</blockquote>
+<p>解释：</p>
+<blockquote>
+<p>大容量 速度快 数据类型多样如视频文本等</p>
+</blockquote>
+<p><em>7,8两点为GNU和GPL的含义 和开源的优势</em></p>
+<h3 id="7-The-meaning-of-GNU"><a href="#7-The-meaning-of-GNU" class="headerlink" title="7. The meaning of GNU"></a>7. The meaning of GNU</h3><p>GNU is an operating system and an extensive collection of computer software. GNU is composed wholly of free software .GNU is a recursive acronym of “GNU is not Unix”,chosen because GNU’s design is Unix-like, but differs from Unix by being free software and containing no Unix code</p>
+<p><a href="https://en.wikipedia.org/wiki/GNU" target="_blank" rel="external">wiki</a></p>
+<p>简单说下方便理解，Unix出来之后很多公司希望通过软件赚钱，不再免费，不再开放源代码，这让崇尚开放，自由的一众技术人员很不满，其中一个Richard Matthew Stallman博士雄心勃勃的提出了一项计划GNU，其名称是GNU is not Unix的缩写（这里起名用到了一个递归，就是自己调用自己），他目标创建一个自由的，免费的，开源的并且像Unix一样好用的系统。</p>
+<p>GNU项目一开始进展顺利不过到后来系统的内核部分迟迟不能令人满意，后来芬兰的一个大学学生Linus受GNU项目的启发，开发了一个简易的操作系统Linux即（Linus’s Unix), 放到网上吸引了许多程序员参与维护修改更新，最终发展成为今天的Linux。</p>
+<p><a href="http://www.jianshu.com/p/a6a594a00b5b" target="_blank" rel="external">参考</a></p>
+<h3 id="8-The-meaning-of-GPL"><a href="#8-The-meaning-of-GPL" class="headerlink" title="8.  The meaning of GPL"></a>8.  The meaning of GPL</h3><p>General Public License is a widely used free software license which guarantees end users the freedom to run, study, share and modify the software. </p>
+<p><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License" target="_blank" rel="external">wiki</a></p>
+<p>GPL协议就是一个开放源代码协议，软件的初始开发者使用了GPL协议并公开软件的源程序后，后续使用该软件源程序开发软件者亦应当根据GPL协议把自己编写的源程序进行公开。GPL协议要求的关键在于开放源程序，但并不排斥软件作者向用户收费。虽然如此，很多大公司对GPL协议还是又爱又恨，爱的是这个协议项下的软件历经众多程序员千锤百炼的修改，已经非常成熟完善，恨的是必须开放自己后续的源程序，导致竞争对手也可以根据自己修改的源程序开发竞争产品。﻿﻿</p>
+<p><a href="http://www.jianshu.com/p/bdca101d505e" target="_blank" rel="external">参考</a></p>
+<h4 id="The-benefits-of-Open-Source"><a href="#The-benefits-of-Open-Source" class="headerlink" title="The benefits of Open Source"></a>The benefits of Open Source</h4><ul>
+<li>More Security </li>
+<li>Fewer bugs and faster fixes</li>
+<li>Excellent support options</li>
+<li>Low cost and added value</li>
+<li>Customizability</li>
+<li>Has a high quality</li>
+</ul>
+<p>just chose some keywords from these words and use your freestyle to write more :-)</p>
+<h3 id="9-Basic-Operation-of-Linux"><a href="#9-Basic-Operation-of-Linux" class="headerlink" title="9. Basic Operation of Linux"></a>9. Basic Operation of Linux</h3><p>Examples:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mkdir #创建文件夹</div><div class="line">rm -r #删除文件夹</div><div class="line">mv  #移动文件夹 重命名文件夹</div><div class="line">cd  #进入文件夹</div><div class="line">pwd #查看当前文件夹位置</div><div class="line">ll  # ls -l</div><div class="line">wc -l #统计行数</div><div class="line">cp -r ./aaa ../ #复制当前目录下下的aaa文件夹到 上一层文件夹下</div><div class="line"><span class="meta"></span></div><div class="line">#注意，诸如'./aaa'或者'../bbb'这样的开头为'.'的路径表示为相对路径，是以目前所在的文件夹目录作为出发点。</div><div class="line"><span class="meta">#</span>而'/var/tmp/website/'这样开头为'/'的路径表示为绝对路径，是以linux系统的根目录为出发点。by 煎鱼</div></pre></td></tr></table></figure>
+<h3 id="10-Basic-Operation-of-vim-editor"><a href="#10-Basic-Operation-of-vim-editor" class="headerlink" title="10. Basic Operation of vim editor"></a>10. Basic Operation of vim editor</h3><p>Examples:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vi aaa.txt</div><div class="line">:wq! #保存修改并推出</div><div class="line">:q! #强制退出</div><div class="line">a #进入编辑模式 如果你想知道和i的区别的话 那么a是在当前光标的后一个位置插入字符</div><div class="line">i #进入编辑模式 在当前光标的位置插入字符</div></pre></td></tr></table></figure>
+<p><a href="http://www.runoob.com/linux/linux-vim.html" target="_blank" rel="external">if you want to know more about Vim</a></p>
+<h3 id="11-What-is-the-usage-of-NumPy-sklearn"><a href="#11-What-is-the-usage-of-NumPy-sklearn" class="headerlink" title="11. What is the usage of  NumPy ,  sklearn"></a>11. What is the usage of  NumPy ,  sklearn</h3><p>要求知道用处也就是定义，导入方法</p>
+<p>Definition:</p>
+<blockquote>
+<p>Numpy : a numerical calculation package,which can support array, matrix computation. Provide more efficient way to process array and matrix.</p>
+<p>Sklearn : a machine learning package, which includes almost all kinds of ml models, and will keep updated.</p>
+</blockquote>
+<p>Methods:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment">#导入numpy包，并将其重命名为np（便于后面使用的时候代码更简洁）</span></div><div class="line"><span class="keyword">import</span> sklearn <span class="keyword">as</span> sk</div><div class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm <span class="comment"># 从sklearn包中导入svm子模块（这里仅仅导入了svm模块，sklearn中的其他模块并没有导入 by 煎鱼</span></div></pre></td></tr></table></figure>
+<h3 id="12-The-container-of-Python-list-dict-array"><a href="#12-The-container-of-Python-list-dict-array" class="headerlink" title="12. The container of Python: list  dict  array"></a>12. The container of Python: list  dict  array</h3><p>list和dict是python用来存储数据的两个类型的数据容器，两个有不同的样子，不同的操作方法</p>
+<p>array是numpy包里的一个数据容器</p>
+<ul>
+<li>list用法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>list1 = [<span class="string">"physics"</span>, <span class="string">"chemistry"</span>, <span class="string">"math"</span>, <span class="number">1234</span>, <span class="number">5678</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list3 = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list4 = [<span class="keyword">True</span>, <span class="keyword">False</span>]</div><div class="line"><span class="comment">#以上体现了列表容器的元素内容可以为字符串，字符串需要用双引号，数字，布尔值</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> list1[<span class="number">0</span>:]</div><div class="line">[<span class="string">'physics'</span>, <span class="string">'chemistry'</span>, <span class="string">'math'</span>, <span class="number">1234</span>, <span class="number">5678</span>]</div><div class="line"><span class="comment">#索引 输出第一个元素及其之后的元素 </span></div><div class="line"><span class="comment">#注意 第一个元素是从0开始计数 不过倒数第一个是-1</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> list2[<span class="number">3</span>]</div><div class="line"><span class="number">4</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> list4</div><div class="line">[<span class="keyword">True</span>, <span class="keyword">False</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> list2[<span class="number">-1</span>]</div><div class="line"><span class="number">5</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> list1[<span class="number">0</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list1</div><div class="line">[<span class="string">'chemistry'</span>, <span class="string">'math'</span>, <span class="number">1234</span>, <span class="number">5678</span>]</div><div class="line"><span class="comment"># 删除以第一元素</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>len(list1)</div><div class="line"><span class="number">4</span></div><div class="line"><span class="comment">#输出元素的个数</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list1.append(<span class="string">"adddddd"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list1</div><div class="line">[<span class="string">'chemistry'</span>, <span class="string">'math'</span>, <span class="number">1234</span>, <span class="number">5678</span>, <span class="string">'adddddd'</span>]</div><div class="line"><span class="comment">#在后面添加一个元素</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list2.extend(<span class="string">"adddd"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list2</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'a'</span>, <span class="string">'d'</span>, <span class="string">'d'</span>, <span class="string">'d'</span>, <span class="string">'d'</span>]</div><div class="line"><span class="comment">#一个一个元素的添加进末尾</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list2.remove(<span class="number">1</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>list2</div><div class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'a'</span>, <span class="string">'d'</span>, <span class="string">'d'</span>, <span class="string">'d'</span>]</div><div class="line"><span class="comment">#删除元素</span></div></pre></td></tr></table></figure>
+<ul>
+<li>dict用法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>dict = &#123;<span class="string">'Alice'</span>:<span class="string">'1234'</span>, <span class="string">'Bob'</span>:<span class="string">'5678'</span>, <span class="string">'Tom'</span>:<span class="string">'9876'</span>&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> dict[<span class="string">'Alice'</span>]</div><div class="line"><span class="number">1234</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dict[<span class="string">'Alice'</span>] = <span class="number">4321</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dict</div><div class="line">&#123;<span class="string">'Bob'</span>: <span class="string">'5678'</span>, <span class="string">'Alice'</span>: <span class="number">4321</span>, <span class="string">'Tom'</span>: <span class="string">'9876'</span>&#125;</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> dict[<span class="string">'Bob'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dict</div><div class="line">&#123;<span class="string">'Alice'</span>: <span class="number">4321</span>, <span class="string">'Tom'</span>: <span class="string">'9876'</span>&#125;</div><div class="line"><span class="comment">#删除一个元素</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dict.pop(<span class="string">'Tom'</span>)</div><div class="line"><span class="string">'9876'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dict</div><div class="line">&#123;<span class="string">'Alice'</span>: <span class="number">4321</span>&#125;</div><div class="line"><span class="comment">#删除一个key及answer 并且输出其answer</span></div></pre></td></tr></table></figure>
+<ul>
+<li>array用法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>data = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>data</div><div class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</div><div class="line"><span class="comment">#一个二维的数组</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr_zeros = np.zeros((<span class="number">3</span>,<span class="number">4</span>))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr_zeros</div><div class="line">array([[ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</div><div class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>],</div><div class="line">       [ <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>,  <span class="number">0.</span>]])</div><div class="line"><span class="comment">#一个全是0的3*4的二维数组</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr_range = np.arange(<span class="number">10</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr_range</div><div class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</div><div class="line"><span class="comment">#输出0-10的一个array</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr_ones = np.ones((<span class="number">2</span>,<span class="number">3</span>))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr_ones</div><div class="line">array([[ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>],</div><div class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>,  <span class="number">1.</span>]])</div><div class="line"><span class="comment">#一个全是1的2*3的数组</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr</div><div class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">       [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr * <span class="number">2</span></div><div class="line">array([[ <span class="number">2</span>,  <span class="number">4</span>,  <span class="number">6</span>],</div><div class="line">       [ <span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr + arr</div><div class="line">array([[ <span class="number">2</span>,  <span class="number">4</span>,  <span class="number">6</span>],</div><div class="line">       [ <span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr - arr</div><div class="line">array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</div><div class="line">       [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr ** <span class="number">2</span></div><div class="line">array([[ <span class="number">1</span>,  <span class="number">4</span>,  <span class="number">9</span>],</div><div class="line">       [<span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>]])</div><div class="line"><span class="comment">#数组之间的运算 加减乘除乘方</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr = np.arange(<span class="number">10</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr</div><div class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr[:<span class="number">3</span>]</div><div class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr[<span class="number">-1</span>:]</div><div class="line">array([<span class="number">9</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr[:<span class="number">-1</span>]</div><div class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr[<span class="number">4</span>:<span class="number">6</span>]</div><div class="line">array([<span class="number">4</span>, <span class="number">5</span>])</div><div class="line"><span class="comment">#索引</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr = np.arange(<span class="number">10</span>).reshape((<span class="number">2</span>,<span class="number">5</span>))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>arr</div><div class="line">array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</div><div class="line">       [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</div><div class="line"><span class="comment">#reshape方法变换形状把一个 1*10 的转换为一个 2*5 的</span></div><div class="line"></div><div class="line">arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</div><div class="line">arr = np.array(lis).reshape(<span class="number">2</span>,<span class="number">3</span>) <span class="comment"># 将lis列表转换为名为arr，行数为2，列数为3的array数组</span></div></pre></td></tr></table></figure>
+<p>if you want to know more about <a href="http://www.runoob.com/python/python-lists.html" target="_blank" rel="external">list</a> <a href="http://www.runoob.com/python/python-dictionary.html" target="_blank" rel="external">dictionary</a> <a href="http://chenxshuo.cn/posts/35840/" target="_blank" rel="external">array</a> </p>
+<h3 id="13-Debugging-methods"><a href="#13-Debugging-methods" class="headerlink" title="13. Debugging methods"></a>13. Debugging methods</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> log.txt 2&gt;&amp;1</div></pre></td></tr></table></figure>
+<p>输出任务执行的正确输出和错误信息</p>
+<h3 id="14-Change-Permissions"><a href="#14-Change-Permissions" class="headerlink" title="14. Change Permissions"></a>14. Change Permissions</h3><p>更改文件夹权限 更改文件权限</p>
+<p>下面两个图片只是方便大家理解命令的意思</p>
+<p><img src="https://dn-anything-about-doc.qbox.me/linux_base/3-10.png/logoblackfont" alt="img"></p>
+<p><img src="https://dn-anything-about-doc.qbox.me/linux_base/3-14.png/logoblackfont" alt="img"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod 777 /home/chenshuo/aaa.txt</div><div class="line">hadoop dfs -chown -r apache /user/sam/apache_data  #更改文件夹的所属用户</div></pre></td></tr></table></figure>
+<h3 id="15-The-definition-of-Machine-Learning"><a href="#15-The-definition-of-Machine-Learning" class="headerlink" title="15. The definition of Machine Learning"></a>15. The definition of Machine Learning</h3><p>A computer program is said to learn from experience E with respect to some class<br>of tasks T and performance measure P, if its performance at tasks in T, as<br>measured by P, improves with experience E. </p>
+<h3 id="16-The-basic-procedures-of-machine-learning"><a href="#16-The-basic-procedures-of-machine-learning" class="headerlink" title="16. The basic procedures of machine learning"></a>16. The basic procedures of machine learning</h3><p><img src="http://oqia88p5q.bkt.clouddn.com/ML%20process.png" alt=""></p>
+<p>Raw Data &gt; Sample Selection &gt; Feature Selection &gt; Engineering &gt; Model Selection and Training &gt; Result Evaluation and Optimization</p>
+<ul>
+<li>List several popular models:</li>
+</ul>
+<blockquote>
+<p>LR Linear Regression 线性回归</p>
+<p>GBDT Gradient Boosting Decision Tree 迭代决策树</p>
+<p>SVM  Support Vector Machine 支持向量机</p>
+<p>CRF Condition Random Fields 条件随机场</p>
+<p>DNN Deep Neural Network 深度神经网络</p>
+</blockquote>
+<ul>
+<li>List some Evaluation standards:</li>
+</ul>
+<blockquote>
+<p>Precision 查准率</p>
+<p>Recall 查全率</p>
+<p>F1-measure  $1/F_1 = 1/P + 1/R$</p>
+</blockquote>
+<p>The code of machine learning from <strong>the second project</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> csv</div><div class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> * <span class="comment"># 导入numpy包中的全部子模块（使用子模块的时候就不需要在前面加上'numpy.'了</span></div><div class="line"></div><div class="line"><span class="comment">#Step 1 Load Train Data</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_train_data</span><span class="params">()</span>:</span></div><div class="line">    l=[]</div><div class="line">    i=<span class="number">0</span></div><div class="line">    <span class="keyword">with</span> open(<span class="string">'/train_data/train.txt'</span>) <span class="keyword">as</span> file: <span class="comment"># 变量file的值便是'train.txt'包含的文本内容</span></div><div class="line">        lines = csv.read(file)</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> lines:</div><div class="line">            l.append(line)</div><div class="line">            i += <span class="number">1</span></div><div class="line">        <span class="comment">#for 循环把文件每一行的内容输入进列表</span></div><div class="line">    l.remove(l[<span class="number">0</span>])</div><div class="line">    l = array(l)</div><div class="line">    label = l[:<span class="number">0</span>]</div><div class="line">    data = l[:,<span class="number">1</span>:]</div><div class="line">    <span class="keyword">return</span> toInt(data),toInt(label)</div><div class="line"></div><div class="line"><span class="comment">#Step 2 Train Data and dump the model</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">svcClassify</span><span class="params">(trainData, trainLabel, testData)</span>:</span></div><div class="line">    svcClf = svm.SVC(C=<span class="number">5.0</span>)</div><div class="line">    svcClf.fit(trainData,ravel(trainLabel)) <span class="comment">#使用fit的方法训练数据</span></div><div class="line">    testLabel = svcClf.predict(testData) <span class="comment">#使用predict的方法预测</span></div><div class="line">    joblib.dump(svcClf, <span class="string">'./class_new_svmModel.pkl'</span>) <span class="comment">#使用dump的方法输出模型文件</span></div><div class="line">    <span class="keyword">return</span> testLabel</div><div class="line"></div><div class="line"><span class="comment">#Step 3 Integrate Step1 and Step2 then make evaluation </span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">digitRecognition</span><span class="params">()</span>:</span></div><div class="line">    trainData, trainLabel = load_train_data()</div><div class="line">    X_train, X_test, Y_train, Y_test = \</div><div class="line">    train_test_split(trainData, trainLabel[<span class="number">0</span>,:], test_size=<span class="number">0.3</span>, random_state=<span class="number">0</span>)</div><div class="line">    <span class="comment">#使用一个train_test_split方法截取数据</span></div><div class="line">    </div><div class="line">    result = svcClassify(X_train, Y_train, X_test)</div><div class="line">    target_names = [<span class="string">'0'</span>, <span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>, <span class="string">'7'</span>, <span class="string">'8'</span>, <span class="string">'9'</span>]</div><div class="line">    <span class="keyword">print</span> (classification_report(Y_test, result, target_names=target_names))</div><div class="line">    <span class="comment">#调用classification_report方法输出对预测模型的衡量标准例如recall precision </span></div><div class="line"> </div><div class="line"><span class="comment">#Step 4 Run main function to get final results</span></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    digitRecognition()</div></pre></td></tr></table></figure>
+<h3 id="17-The-two-important-components-of-Hadoop"><a href="#17-The-two-important-components-of-Hadoop" class="headerlink" title="17. The two important components of Hadoop"></a>17. The two important components of Hadoop</h3><ul>
+<li>HDFS Hadoop distribution file system</li>
+<li>MapReduce : a programming model and an associated implementation for processing and generating big data sets with a parallel, distributed algorithm on a cluster.</li>
+</ul>
+<p>We can find configuration by executing </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/hosts</div></pre></td></tr></table></figure>
+<p>解释：</p>
+<blockquote>
+<p>HDFS是用来存储文件的文件系统，MapReduce是用来进行大数据并行分布式运算的软件架构</p>
+<p>hadoop控制的机器的ip地址可以从 /etc/hosts这个文件中看到,在我们的master下即可用命令看一下</p>
+</blockquote>
+<h3 id="18-The-structure-of-HDFS-How-does-NameNode-monitor-the-working-status-of-each-Data-Nodes"><a href="#18-The-structure-of-HDFS-How-does-NameNode-monitor-the-working-status-of-each-Data-Nodes" class="headerlink" title="18. The structure of HDFS. How does NameNode monitor the working status of each Data Nodes"></a>18. The structure of HDFS. How does NameNode monitor the working status of each Data Nodes</h3><p>The main structure is Master/Slave</p>
+<p><img src="http://oqia88p5q.bkt.clouddn.com/hadoop_structure.jpg" alt=""></p>
+<p>Master mainly uses NameNode to manage the whole file system and provide access channels for customers. NameNode takes the charge of HDFS storage. Slaves mainly use Data node to Manage the data on its storage point.</p>
+<h3 id="19-The-main-characters-of-Distribution-Calculation-include"><a href="#19-The-main-characters-of-Distribution-Calculation-include" class="headerlink" title="19. The main characters of Distribution Calculation include :"></a>19. The main characters of Distribution Calculation include :</h3><p>Consistency ; Availability ; Partition Tolerance</p>
+<h3 id="20-The-feature-of-three-framework"><a href="#20-The-feature-of-three-framework" class="headerlink" title="20. The feature of three framework"></a>20. The feature of three framework</h3><p>Samza: Timely process streaming data, all data are separated into different  partitions, and appened into a queue. Other distributed computational components can be deployed on Samza easily and flexibly, and handle the information timely. </p>
+<p>Spark: Use time windows to get streaming data from a certain time period as RDD. Use transformation to make the RDD available to be read, write and etc. RDD is a data object of Spark, this feature mean that Spark can process large-scale dataset at one time, thus it is suitable to be used for machine learning tasks.</p>
+<p>Storm: The distributed calculation capability is based on its topology network, in which spout is used for receiving data streaming and provide response; Bolt is used for receive data from spout and invoke functions to process data and return it back. </p>
+<h3 id="21-Simple-System-Design"><a href="#21-Simple-System-Design" class="headerlink" title="21. Simple System Design"></a>21. Simple System Design</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>!/bin/bash</div><div class="line"></div><div class="line">tm = `date +%Y%m%d %H%M`</div><div class="line">hadoop dfs -cat /userlogs/daily_consuming_logs.txt |\</div><div class="line">awk -F'\t' '&#123;arr[$1"\t"$2] += $3*$4&#125;END&#123;for (i in arr) &#123;print i"\t"arr[i]&#125;&#125;'|\</div><div class="line">sort -t$'\t' -k2 -nr | head -100\</div><div class="line"><span class="meta">&gt;</span> /daily_report/report_$&#123;tm&#125;.txt</div></pre></td></tr></table></figure>
+<p>Use crontab to run the code automatically</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">crontab -e</div><div class="line">* 10 * * * nohup sh /home/sam/gen_report.sh &gt; /home/sam/log.txt 2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure>
+<p><a href="http://man.linuxde.net/crontab" target="_blank" rel="external">if you want to know more about crontab</a></p>
+<h3 id="22-Describe-the-process-of-K-means-algorithms"><a href="#22-Describe-the-process-of-K-means-algorithms" class="headerlink" title="22. Describe the process of K-means algorithms"></a>22. Describe the process of K-means algorithms</h3><ul>
+<li>First , Describe the process of K-means algorithms</li>
+</ul>
+<ol>
+<li><p>Pick k cluster centroids randomly as $\mu_1, \mu_2,… \in R^n$</p>
+</li>
+<li><p>Repeat the calculation below till convergence:</p>
+<p>for every single example i, calculate the class it belongs to , the way is :</p>
+<p>$c^{(i)} = argmin_j||x^{(i)} - \mu_j||^2$</p>
+<p>​</p>
+<p>for every class called j, calculate the centroids again:</p>
+<p>$\mu<em>j = {\sum</em>{i=1}^m 1{c^{(i)} = j }x^{(i)}}/\sum_{i=1}^m 1 {c^{(i)} = j}$</p>
+<p>​</p>
+</li>
+</ol>
+<p><img src="http://oqia88p5q.bkt.clouddn.com/k-means.png" alt=""></p>
+<ul>
+<li><p>Second use map-reduce to realize the process</p>
+<p>Step-1.Create a <em>K</em> length dict asdict{“1”:[], “2”:[], “3”:[], “4”:0 …… “<em>K</em>”:[]}</p>
+<p>Step-2. Random select <em>K</em> nodes as primary centroid. Like:</p>
+</li>
+</ul>
+<p>​              Dict{“1”: [0.3, 0.8, 0.5, 0.2,0.9 … ]</p>
+<p>​                  “2”: [0.5, 0.7, 0.6, 0.4, 0.7… ]</p>
+<p>​                  “3”: [0.5, 0.7, 0.6, 0.4, 0.7… ]</p>
+<p>​                  ……}</p>
+<p> Step-3. Use Label-Id “\t” Score askey-value to get the score of each node id under each Label (First MapReduce).</p>
+<p> Step-4. Use Id “\t” Label-Score askey-value to get the minimal one, assign the output as Id “\t” Label (SecondMapReduce).</p>
+<p> Step-5. Use Id “\t” Label tore-calculate centroid and update Dict.</p>
+<p> Step 6. Repeat Step 3 until converge.</p>
+<h3 id="23-Use-SPARK-to-transform-data-into-RDD-or-SPARK-sql"><a href="#23-Use-SPARK-to-transform-data-into-RDD-or-SPARK-sql" class="headerlink" title="23. Use SPARK to transform data into RDD or SPARK sql"></a>23. Use SPARK to transform data into RDD or SPARK sql</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val tRDD = sc.textFile("hdfs://master:50090/data_stream/spark_tmp.txt")</div><div class="line">val df = spark.sqlContext.read.json("hdfs://master:50090/data_stream/sql_json.txt")</div></pre></td></tr></table></figure>
+<h3 id="24-Basic-Hadoop-operation"><a href="#24-Basic-Hadoop-operation" class="headerlink" title="24. Basic Hadoop operation"></a>24. Basic Hadoop operation</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hadoop dfs -ls /students/sam/ #查看文件夹中的内容</div><div class="line">hadoop dfs -put ./aaa.txt /students/sam/ #上传本地磁盘中的aaa.txt文件至HDFS中</div><div class="line">hadoop dfs -cat /students/sam/aaa.txt #读取HDFS上的文本文件</div><div class="line">hadoop dfs -mkdir /students/sam/new_dir #在HDFS上创建新文件夹</div><div class="line">hadoop job -status job_id  #输入id后查看job运行的状态</div><div class="line">hadoop job -list #列出当前运行的job的信息</div><div class="line">hadoop job -kill job_id #停止运行当前的某个job</div></pre></td></tr></table></figure>
+<h3 id="25-Be-familiar-with-Hadoop-Streaming-codes"><a href="#25-Be-familiar-with-Hadoop-Streaming-codes" class="headerlink" title="25. Be familiar with Hadoop_Streaming codes"></a>25. Be familiar with Hadoop_Streaming codes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hadoop jar hadoop_streaming.jar -input -output -file -mapper -reducer -jobConf</div></pre></td></tr></table></figure>
+<p>Python stderr output for hadoop_streaming</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> &gt;&gt; sys.stderr, <span class="string">'data has been successfully dispatched'</span></div></pre></td></tr></table></figure>
+<h3 id="26-The-process-description-in-Map-and-Reduce-stages"><a href="#26-The-process-description-in-Map-and-Reduce-stages" class="headerlink" title="26. The process description in Map and Reduce stages"></a>26. The process description in Map and Reduce stages</h3><p>Map Stages:<br>a. Get the input data from HDFS and Split it into certain amount of segments.<br>b. Send each segment to different mappers.<br>c. Mappers finish processing each segment and store the data back on HDFS.</p>
+<p>Reduce Stages:<br>a. Use TaskTracker to get the Mapper output from HDFS, and send them to reducer.<br>b. Each reducer merge the mappers’ results, which are assigned to it.<br>c. All reducers’ results are combined together and sent back to HDFS.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创学习笔记与技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="chenxshuo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/36176/" rel="next" title="经济学原理期末">
+                <i class="fa fa-chevron-left"></i> 经济学原理期末
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oqia88p5q.bkt.clouddn.com/360%E5%8F%8D%E9%A6%88%E6%84%8F%E8%A7%81%E6%88%AA%E5%9B%BE16421027265035.png"
+               alt="chenxshuo" />
+          <p class="site-author-name" itemprop="name">chenxshuo</p>
+           
+              <p class="site-description motion-element" itemprop="description">For the future</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Key-Knowledge-Points-for-Big-Data-Analysis"><span class="nav-number">1.</span> <span class="nav-text">Key Knowledge-Points for Big Data Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Definition-of-Big-Data"><span class="nav-number">1.1.</span> <span class="nav-text">1. Definition of Big Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-The-characters-of-Linux"><span class="nav-number">1.2.</span> <span class="nav-text">2. The characters of Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Basic-Shell-Grammar"><span class="nav-number">1.3.</span> <span class="nav-text">3. Basic Shell Grammar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-The-definition-the-main-type-the-characters-and-the-risks-of-Cloud-Computing"><span class="nav-number">1.4.</span> <span class="nav-text">4. The definition , the main type, the characters and the risks of Cloud Computing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Big-data-has-shifted-from-structured-to-unstructured-重要"><span class="nav-number">1.5.</span> <span class="nav-text">5. Big data has shifted from structured to unstructured (重要)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3V-of-Big-Data"><span class="nav-number">1.6.</span> <span class="nav-text">6. 3V of Big Data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-The-meaning-of-GNU"><span class="nav-number">1.7.</span> <span class="nav-text">7. The meaning of GNU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-The-meaning-of-GPL"><span class="nav-number">1.8.</span> <span class="nav-text">8.  The meaning of GPL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-benefits-of-Open-Source"><span class="nav-number">1.8.1.</span> <span class="nav-text">The benefits of Open Source</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-Basic-Operation-of-Linux"><span class="nav-number">1.9.</span> <span class="nav-text">9. Basic Operation of Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-Basic-Operation-of-vim-editor"><span class="nav-number">1.10.</span> <span class="nav-text">10. Basic Operation of vim editor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-What-is-the-usage-of-NumPy-sklearn"><span class="nav-number">1.11.</span> <span class="nav-text">11. What is the usage of  NumPy ,  sklearn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-The-container-of-Python-list-dict-array"><span class="nav-number">1.12.</span> <span class="nav-text">12. The container of Python: list  dict  array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-Debugging-methods"><span class="nav-number">1.13.</span> <span class="nav-text">13. Debugging methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-Change-Permissions"><span class="nav-number">1.14.</span> <span class="nav-text">14. Change Permissions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-The-definition-of-Machine-Learning"><span class="nav-number">1.15.</span> <span class="nav-text">15. The definition of Machine Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-The-basic-procedures-of-machine-learning"><span class="nav-number">1.16.</span> <span class="nav-text">16. The basic procedures of machine learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-The-two-important-components-of-Hadoop"><span class="nav-number">1.17.</span> <span class="nav-text">17. The two important components of Hadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-The-structure-of-HDFS-How-does-NameNode-monitor-the-working-status-of-each-Data-Nodes"><span class="nav-number">1.18.</span> <span class="nav-text">18. The structure of HDFS. How does NameNode monitor the working status of each Data Nodes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-The-main-characters-of-Distribution-Calculation-include"><span class="nav-number">1.19.</span> <span class="nav-text">19. The main characters of Distribution Calculation include :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-The-feature-of-three-framework"><span class="nav-number">1.20.</span> <span class="nav-text">20. The feature of three framework</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-Simple-System-Design"><span class="nav-number">1.21.</span> <span class="nav-text">21. Simple System Design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-Describe-the-process-of-K-means-algorithms"><span class="nav-number">1.22.</span> <span class="nav-text">22. Describe the process of K-means algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-Use-SPARK-to-transform-data-into-RDD-or-SPARK-sql"><span class="nav-number">1.23.</span> <span class="nav-text">23. Use SPARK to transform data into RDD or SPARK sql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-Basic-Hadoop-operation"><span class="nav-number">1.24.</span> <span class="nav-text">24. Basic Hadoop operation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-Be-familiar-with-Hadoop-Streaming-codes"><span class="nav-number">1.25.</span> <span class="nav-text">25. Be familiar with Hadoop_Streaming codes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26-The-process-description-in-Map-and-Reduce-stages"><span class="nav-number">1.26.</span> <span class="nav-text">26. The process description in Map and Reduce stages</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenxshuo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共28.2k字</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://chenxshuo-cn.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/posts/41992/';
+          this.page.identifier = 'posts/41992/';
+          this.page.title = 'Key Knowledge Points for Big Data Analysis';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://chenxshuo-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
