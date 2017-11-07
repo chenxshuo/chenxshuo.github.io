@@ -1,0 +1,960 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Kaggle," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/siteicon.png?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="参加Kaggle入门比赛Titanic: Machine Learning from Disaster 的一些总结 待更新">
+<meta name="keywords" content="Kaggle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="两天入门Kaggle-Titanic">
+<meta property="og:url" content="http://yoursite.com/posts/44886/index.html">
+<meta property="og:site_name" content="chenxshuo">
+<meta property="og:description" content="参加Kaggle入门比赛Titanic: Machine Learning from Disaster 的一些总结 待更新">
+<meta property="og:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-95920.jpg">
+<meta property="og:image" content="http://yoursite.com/home/chenxshuo/Documents/Age_column.png">
+<meta property="og:updated_time" content="2017-11-07T12:40:24.022Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="两天入门Kaggle-Titanic">
+<meta name="twitter:description" content="参加Kaggle入门比赛Titanic: Machine Learning from Disaster 的一些总结 待更新">
+<meta name="twitter:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-95920.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/posts/44886/"/>
+
+
+
+
+
+  <title>两天入门Kaggle-Titanic | chenxshuo</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-100979267-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenxshuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">THINK WRITE PRICTICE</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/44886/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenxshuo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oqia88p5q.bkt.clouddn.com/360%E5%8F%8D%E9%A6%88%E6%84%8F%E8%A7%81%E6%88%AA%E5%9B%BE16421027265035.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxshuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">两天入门Kaggle-Titanic</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T20:33:30+08:00">
+                2017-11-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-11-07T20:40:24+08:00">
+                2017-11-07
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/posts/44886/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="posts/44886/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3,345
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>参加Kaggle入门比赛Titanic: Machine Learning from Disaster 的一些总结</p>
+<p>待更新</p>
+<p><img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-95920.jpg" alt=""></p>
+<a id="more"></a>
+<h1 id="两天入门kaggle-Titanic"><a href="#两天入门kaggle-Titanic" class="headerlink" title="两天入门kaggle-Titanic"></a>两天入门kaggle-Titanic</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在学习了一部分pandas库的使用之后，便可以通过参加比赛，使用一些实战数据集来练习和检验学习的成果，并加深理解和实战技巧。这次参加了Kaggle的入门比赛<a href="https://www.kaggle.com/c/titanic" target="_blank" rel="external">Titanic: Machine Learning from Disaster</a>,根据一些博客的指导，尝试了两次，提交了三次结果，准确率从61%提升到79.9%，排名为1526(top 18%) ，虽然成绩依然十分辣鸡，但是在这第一次实战中收获了许多。</p>
+<h2 id="比赛简介"><a href="#比赛简介" class="headerlink" title="比赛简介"></a>比赛简介</h2><p><a href="https://www.kaggle.com/c/titanic" target="_blank" rel="external">Titanic: Machine Learning from Disaster</a>，是Kaggle网站上的一个入门比赛，数据集给出泰坦尼克号上乘客的相关信息，参赛者通过数据集训练模型来预测乘客是否幸存。</p>
+<p>相关属性与含义如下表：</p>
+<table>
+<thead>
+<tr>
+<th><strong>Variable</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Key</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>survival</td>
+<td>Survival</td>
+<td>0 = No, 1 = Yes</td>
+</tr>
+<tr>
+<td>pclass</td>
+<td>Ticket class</td>
+<td>1 = 1st, 2 = 2nd, 3 = 3rd</td>
+</tr>
+<tr>
+<td>sex</td>
+<td>Sex</td>
+<td></td>
+</tr>
+<tr>
+<td>Age</td>
+<td>Age in years</td>
+<td></td>
+</tr>
+<tr>
+<td>sibsp</td>
+<td># of siblings / spouses aboard the Titanic</td>
+<td></td>
+</tr>
+<tr>
+<td>parch</td>
+<td># of parents / children aboard the Titanic</td>
+<td></td>
+</tr>
+<tr>
+<td>ticket</td>
+<td>Ticket number</td>
+<td></td>
+</tr>
+<tr>
+<td>fare</td>
+<td>Passenger fare</td>
+<td></td>
+</tr>
+<tr>
+<td>cabin</td>
+<td>Cabin number</td>
+<td></td>
+</tr>
+<tr>
+<td>embarked</td>
+<td>Port of Embarkation</td>
+<td>C = Cherbourg, Q = Queenstown, S = Southampton</td>
+</tr>
+</tbody>
+</table>
+<h2 id="第一次尝试"><a href="#第一次尝试" class="headerlink" title="第一次尝试"></a>第一次尝试</h2><p>第一次尝试十分简单和草率，直接删去了大量数据，简单数据清洗之后，便套用模型得出结果，最终得到了61%的正确率，也就是比瞎猜好了一点，效果比较差。</p>
+<h3 id="Step-1-导入所需的包"><a href="#Step-1-导入所需的包" class="headerlink" title="Step.1 导入所需的包"></a>Step.1 导入所需的包</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#import packages</span></div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> DataFrame, Series</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</div><div class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC, LinearSVC</div><div class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</div><div class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassfier</div><div class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</div><div class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</div><div class="line"></div><div class="line"><span class="keyword">import</span> warnings</div><div class="line">warnings.filterwarnings(<span class="string">'ignore'</span>)</div></pre></td></tr></table></figure>
+<h3 id="Step-2-读取和预览数据"><a href="#Step-2-读取和预览数据" class="headerlink" title="Step.2 读取和预览数据"></a>Step.2 读取和预览数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#读取数据</span></div><div class="line">titanic_df = pd.read_csv(<span class="string">'./train.csv'</span>)</div><div class="line">test_df = pd.read_csv(<span class="string">'./test.csv'</span>)</div><div class="line"><span class="comment">#预览数据</span></div><div class="line">titanic_df.head(<span class="number">5</span>) <span class="comment">#输出前五行</span></div><div class="line">test_df.head(<span class="number">5</span>)</div><div class="line"></div><div class="line">titanic_df.info() <span class="comment">#输出数据基本信息 比如每列的名字，数据类型，数据个数等等</span></div><div class="line">test_df.info()</div><div class="line"><span class="string">'''</span></div><div class="line">&lt;class 'pandas.core.frame.DataFrame'&gt;</div><div class="line">RangeIndex: 891 entries, 0 to 890</div><div class="line">Data columns (total 12 columns):</div><div class="line">PassengerId    891 non-null int64</div><div class="line">Survived       891 non-null int64</div><div class="line">Pclass         891 non-null int64</div><div class="line">Name           891 non-null object</div><div class="line">Sex            891 non-null object</div><div class="line">Age            714 non-null float64</div><div class="line">SibSp          891 non-null int64</div><div class="line">Parch          891 non-null int64</div><div class="line">Ticket         891 non-null object</div><div class="line">Fare           891 non-null float64</div><div class="line">Cabin          204 non-null object</div><div class="line">Embarked       889 non-null object</div><div class="line">dtypes: float64(2), int64(5), object(5)</div><div class="line">memory usage: 83.6+ KB</div><div class="line">'''</div><div class="line"></div><div class="line">titanic_df.describe() <span class="comment">#输出统计相关的基本信息 数据个数，平均值，标准差，最小值，四分位数，二分位数 最大值</span></div><div class="line">test_df.desribe()</div><div class="line"></div><div class="line"></div><div class="line">print(titanic_df.isnull().sum()) <span class="comment">#输出缺失数据的个数</span></div><div class="line">print(test_df.isnull().sum())</div><div class="line"><span class="string">'''</span></div><div class="line">PassengerId      0</div><div class="line">Survived         0</div><div class="line">Pclass           0</div><div class="line">Name             0</div><div class="line">Sex              0</div><div class="line">Age            177</div><div class="line">SibSp            0</div><div class="line">Parch            0</div><div class="line">Ticket           0</div><div class="line">Fare             0</div><div class="line">Cabin          687</div><div class="line">Embarked         2</div><div class="line">dtype: int64</div><div class="line">----------------------------------------</div><div class="line">PassengerId      0</div><div class="line">Pclass           0</div><div class="line">Name             0</div><div class="line">Sex              0</div><div class="line">Age             86</div><div class="line">SibSp            0</div><div class="line">Parch            0</div><div class="line">Ticket           0</div><div class="line">Fare             1</div><div class="line">Cabin          327</div><div class="line">Embarked         0</div><div class="line">dtype: int64</div><div class="line">'''</div></pre></td></tr></table></figure>
+<h3 id="Step-3-特征工程"><a href="#Step-3-特征工程" class="headerlink" title="Step.3 特征工程"></a>Step.3 特征工程</h3><h4 id="观察属性和是否幸存的数量关系"><a href="#观察属性和是否幸存的数量关系" class="headerlink" title="观察属性和是否幸存的数量关系"></a>观察属性和是否幸存的数量关系</h4><p>通过观察一些属性对应的幸存人数，可以比较直观和简单的看出每个属性对于结果的影响程度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">titanic_df[[<span class="string">'Pclass'</span>,<span class="string">'Survived'</span>]].groupby([<span class="string">'Pclass'</span>],as_index=<span class="keyword">False</span>).mean().sort_values(by=<span class="string">'Survived'</span>,ascending=<span class="keyword">False</span>)</div><div class="line"><span class="comment">#output:</span></div><div class="line"><span class="string">'''</span></div><div class="line">Pclass	Survived</div><div class="line">0	1	0.629630</div><div class="line">1	2	0.472826</div><div class="line">2	3	0.242363</div><div class="line">'''</div><div class="line"></div><div class="line">titanic_df[[<span class="string">'Sex'</span>,<span class="string">'Survived'</span>]].groupby([<span class="string">'Sex'</span>],as_index=<span class="keyword">False</span>).mean().sort_values(by=<span class="string">'Sex'</span>,ascending=<span class="keyword">False</span>)</div><div class="line"><span class="comment">#output:</span></div><div class="line"><span class="string">'''</span></div><div class="line">	Sex	Survived</div><div class="line">1	male	0.188908</div><div class="line">0	female	0.742038</div><div class="line">'''</div><div class="line"></div><div class="line">titanic_df[[<span class="string">'SibSp'</span>,<span class="string">'Survived'</span>]].groupby([<span class="string">'SibSp'</span>],as_index=<span class="keyword">False</span>).mean().sort_values(by=<span class="string">'SibSp'</span>,ascending=<span class="keyword">False</span>)</div><div class="line"><span class="comment">#output:</span></div><div class="line"><span class="string">'''</span></div><div class="line">SibSp	Survived</div><div class="line">6	8	0.000000</div><div class="line">5	5	0.000000</div><div class="line">4	4	0.166667</div><div class="line">3	3	0.250000</div><div class="line">2	2	0.464286</div><div class="line">1	1	0.535885</div><div class="line">0	0	0.345395</div><div class="line">'''</div></pre></td></tr></table></figure>
+<h4 id="去除“无效”属性"><a href="#去除“无效”属性" class="headerlink" title="去除“无效”属性"></a>去除“无效”属性</h4><p>在第一次的尝试中，我直接去除了比较多的看似没有什么用的特征，比如姓名，ID，票的号码，登船的地点，以及船舱号等</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">titanic_df.drop([<span class="string">'PassengerId'</span>,<span class="string">'Name'</span>,<span class="string">'Ticket'</span>,<span class="string">'Embarked'</span>,<span class="string">'Cabin'</span>], axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>) </div><div class="line"></div><div class="line">test_df.drop([<span class="string">'Name'</span>,<span class="string">'Ticket'</span>,<span class="string">'Embarked'</span>,<span class="string">'Cabin'</span>],axis=<span class="number">1</span>, inplace=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="Fare-Column"><a href="#Fare-Column" class="headerlink" title="Fare Column"></a>Fare Column</h4><p>在之前的预览中可以看到Fare这个属性存储的是float数据，并且在test数据集中有一个缺失值。</p>
+<p>我们在这里使用平均值来填充空缺值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test_df[<span class="string">'Fare'</span>].fillna(test_df[<span class="string">'Fare'</span>].median(),inplace=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="Age-Column"><a href="#Age-Column" class="headerlink" title="Age Column"></a>Age Column</h4><p>在预览中可以看到Age属性在两份数据集中都有大量的缺失值(分别是177个和86个),对于这种有大量缺失值并且明显比较重要的属性，在第一次尝试中，使用了不是很合理的随机数填充；在第二次填充中，使用了根据与其他属性的联系来确定缺失值的方法，下文写到时再详细阐述。</p>
+<p>填充随机数的取值范围为mean-std~mean+std,即平均数上下各一个标准差的范围，随机数的个数为缺失值的数量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#求出平均数和标准差</span></div><div class="line">avergae_age_tiantic = tiantic[<span class="string">'Age'</span>].mean()</div><div class="line">std_age_tiantic = tiantic[<span class="string">'Age'</span>].std()</div><div class="line">average_age_test = test[<span class="string">'Age'</span>].mean()</div><div class="line">std_age_test = test[<span class="string">'Age'</span>].mean()</div><div class="line"></div><div class="line"><span class="comment">#求出空缺值的数量</span></div><div class="line">count_nan_age_tiantic = tiantic_df[<span class="string">'Age'</span>].isnull().sum()</div><div class="line">count_nan_age_test = test[<span class="string">'Age'</span>].isnull().sum()</div><div class="line"></div><div class="line"><span class="comment">#生成随机数</span></div><div class="line">rand_1  = np.random.randint(avergae_age_tiantic - std_age_tiantic,avergae_age_tiantic + std_age_tiantic )</div><div class="line">rand_2  = np.random.randint(avergae_age_test - std_age_test,avergae_test + std_age_test )</div><div class="line"></div><div class="line"><span class="comment">#填补空缺</span></div><div class="line"><span class="comment">#这里不能使用fillna方法</span></div><div class="line">titanic_df[<span class="string">'Age'</span>][np.isnan(titanic_df[<span class="string">'Age'</span>])] = rand_1</div><div class="line">test_df[<span class="string">'Age'</span>][np.isnan(test[<span class="string">'Age'</span>])] = rand_2</div></pre></td></tr></table></figure>
+<h4 id="Family-Column"><a href="#Family-Column" class="headerlink" title="Family Column"></a>Family Column</h4><p>第一次尝试中简单对待了这个特征，仅仅将其转化为了是否有家庭成员这个二维特征而并未关注其家庭成员的数量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">titanic_df[<span class="string">'Family'</span>] = titanic_df[<span class="string">'Parch'</span>] + titanic_df[<span class="string">'SibSp'</span>]</div><div class="line">titanic_df[<span class="string">'Family'</span>].loc[titanic_df[<span class="string">'Family'</span>] &gt; <span class="number">0</span>] = <span class="number">1</span></div><div class="line">titanic_df[<span class="string">'Family'</span>].loc[titanic_df[<span class="string">'Family'</span>] == <span class="number">0</span>] = <span class="number">0</span></div><div class="line"></div><div class="line">test_df[<span class="string">'Family'</span>] = test_df[<span class="string">'Parch'</span>] + test_df[<span class="string">'SibSp'</span>]</div><div class="line">test_df[<span class="string">'Family'</span>].loc[test_df[<span class="string">'Family'</span>] &gt; <span class="number">0</span>] = <span class="number">1</span></div><div class="line">test_df[<span class="string">'Family'</span>].loc[test_df[<span class="string">'Family'</span>] == <span class="number">0</span>] = <span class="number">0</span></div><div class="line"></div><div class="line">titanic_df.drop([<span class="string">'SibSp'</span>,<span class="string">'Parch'</span>],axis=<span class="number">1.</span> inplac=<span class="keyword">True</span>)</div><div class="line">test_df.drop([<span class="string">'SibSp'</span>,<span class="string">'Parch'</span>],axis=<span class="number">1</span>, inplace=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="Ticket-Class-Column"><a href="#Ticket-Class-Column" class="headerlink" title="Ticket Class Column"></a>Ticket Class Column</h4><p>从预览中可以看到Pclass属性有1,2,3三个值，并且与是否幸存有比较明显的关系。</p>
+<p>在第一次尝试中并未对该数据进行处理</p>
+<h4 id="Sex-Column"><a href="#Sex-Column" class="headerlink" title="Sex Column"></a>Sex Column</h4><p>性别有男女两个值，该属性的值为字符串female和male，可以将其分别赋值为1和0</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">titanic_df[<span class="string">'Sex'</span>] = titanic_df[<span class="string">'Sex'</span>].map(&#123;<span class="string">'female'</span>:<span class="number">1</span>,<span class="string">'male'</span>:<span class="number">0</span>&#125;)</div><div class="line">test_df[<span class="string">'Sex'</span>] = test_df[<span class="string">'Sex'</span>].map(&#123;<span class="string">'female'</span>:<span class="number">1</span>,<span class="string">'male'</span>:<span class="number">0</span>&#125;)</div></pre></td></tr></table></figure>
+<h3 id="Step-4-训练模型"><a href="#Step-4-训练模型" class="headerlink" title="Step.4 训练模型"></a>Step.4 训练模型</h3><h4 id="分割数据集"><a href="#分割数据集" class="headerlink" title="分割数据集"></a>分割数据集</h4><p>把数据集分为训练集和测试集</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">X_train_original = titanic_df.drop(<span class="string">"Survived"</span>,axis=<span class="number">1</span>)</div><div class="line">Y_trian_original = titanic_df[<span class="string">"Survived"</span>]</div><div class="line">X_test_original = test_df.drop(<span class="string">"PassengerId"</span>,axis=<span class="number">1</span>).copy()</div><div class="line"></div><div class="line">X_train, X_test, Y_train, Y_test = train_test_split(X_train_original, Y_train_original, test_size=<span class="number">0.3</span>,random_state=<span class="number">3</span>)</div></pre></td></tr></table></figure>
+<h4 id="训练模型-amp-评价结果"><a href="#训练模型-amp-评价结果" class="headerlink" title="训练模型&amp;评价结果"></a>训练模型&amp;评价结果</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_score</span><span class="params">(clf,X,y, scoring=<span class="string">"accuracy"</span>)</span>:</span></div><div class="line">    xval = cross_val_score(clf,X,y,cv=<span class="number">5</span>,scoring=scoring)</div><div class="line">    <span class="keyword">return</span> np.mean(xval)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Logistic Regression</span></div><div class="line">logreg = LogisticRegression()</div><div class="line">logreg.fit(X_train,Y_train)</div><div class="line">Y_pred = logreg.predict(X_test_original)</div><div class="line">compute_score(logreg,X_test,Y_test)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#SVM</span></div><div class="line">svc = SVC()</div><div class="line">svc.fit(X_train,Y_train)</div><div class="line">Y_pred = svc.predict(X_test_original)</div><div class="line">compute_score(svc,X_test,Y_test)</div></pre></td></tr></table></figure>
+<h3 id="Step-5-导出结果"><a href="#Step-5-导出结果" class="headerlink" title="Step.5 导出结果"></a>Step.5 导出结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">submission = pd.DataFrame(&#123;<span class="string">"PassergerId"</span>:test_df[<span class="string">"PassengerId"</span>],<span class="string">"Survived"</span>:Y_pred&#125;)</div><div class="line">submission.to_csv(<span class="string">'titanic.csv'</span>,index=<span class="keyword">False</span>)</div></pre></td></tr></table></figure>
+<h2 id="第二次尝试"><a href="#第二次尝试" class="headerlink" title="第二次尝试"></a>第二次尝试</h2><p>第一次尝试提交之后排名为98%，之后参考了其余教程，扩充数据集，使用特征工程构造多个属性，并选取更多的属性来训练。</p>
+<h3 id="Step-1-导入所需包"><a href="#Step-1-导入所需包" class="headerlink" title="Step.1 导入所需包"></a>Step.1 导入所需包</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> DataFrame, Series</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="keyword">from</span> sklearn.pipeline <span class="keyword">import</span> make_pipeline</div><div class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</div><div class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectKBest,SelectFromModel</div><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> StratifiedKFold</div><div class="line"><span class="keyword">from</span> sklearn.grid_search <span class="keyword">import</span> GridSearchCV</div><div class="line"><span class="keyword">from</span> sklearn.ensemble.gradient_boosting <span class="keyword">import</span> GradientBoostingClassifier</div><div class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC, LinearSVC</div><div class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</div><div class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</div><div class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> cross_val_score</div><div class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</div></pre></td></tr></table></figure>
+<h3 id="Step-2-读取和预览数据-1"><a href="#Step-2-读取和预览数据-1" class="headerlink" title="Step.2 读取和预览数据"></a>Step.2 读取和预览数据</h3><p>这一步和第一次尝试一致</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">data = pd.read(<span class="string">"./train.csv"</span>)</div><div class="line">data.shape()</div><div class="line">data.info()</div><div class="line">data.describe()</div><div class="line">print(data.isnull().sum())</div></pre></td></tr></table></figure>
+<h3 id="Step-3-特征工程-1"><a href="#Step-3-特征工程-1" class="headerlink" title="Step.3 特征工程"></a>Step.3 特征工程</h3><h4 id="组合数据集"><a href="#组合数据集" class="headerlink" title="组合数据集"></a>组合数据集</h4><p>这是一个比较常用的方法，把训练数据集和测试数据集组合一起可以帮助我们更好的提取特征的信息，而避免把在测试数据集中的重要特征忽略掉。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_combined_data</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment">#reading data from disk</span></div><div class="line">    train = pd.read_csv(<span class="string">"./train.csv"</span>)</div><div class="line">    test = pd.read_csv(<span class="string">"./test.csv"</span>)</div><div class="line">    </div><div class="line">    <span class="comment">#drop the Survived column</span></div><div class="line">    train.drop(<span class="string">"Survived"</span>,axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</div><div class="line">    </div><div class="line">    <span class="comment">#combine the data together</span></div><div class="line">    combined = train.append(test)</div><div class="line">    combined.reset_index(inplace=<span class="keyword">True</span>)</div><div class="line">    combined.drop(<span class="string">"index"</span>,inplace=<span class="keyword">True</span>,axis=<span class="number">1</span>)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> combined</div></pre></td></tr></table></figure>
+<h4 id="Titles-Column"><a href="#Titles-Column" class="headerlink" title="Titles Column"></a>Titles Column</h4><p>特征工程的常用的方法是从已有的特征中提取新的特征，比如在这个数据集中有一个特征为Name，每个人的Name都有一个身份标示比如Mr, Mrs, Miss,Sir, Dr等，这些称谓反映了其身份地位的高低，而身份地位的高低在一定程度上会影响到生存的可能性大小，因此可以把这个Title的特征提取出来。</p>
+<p>具体的实现为先把属性Name中的表示地位的称呼提取出来，再统一转换为表示地位的词语。</p>
+<p>在原数据中，Name的格式为</p>
+<blockquote>
+<p>Braund, Mr. Owen Harris</p>
+<p>Futrelle, Mrs. Jacques Heath (Lily May Peel)</p>
+</blockquote>
+<p>得到称谓的方法是先去除’,’再去除’.’</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_titles</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> combined</div><div class="line">    </div><div class="line">    combined[<span class="string">'Title'</span>] = combined[<span class="string">'Name'</span>].map(<span class="keyword">lambda</span> name:name.split(<span class="string">','</span>)[<span class="number">1</span>].split(<span class="string">'.'</span>)[<span class="number">0</span>].strip())</div><div class="line">    </div><div class="line">    Title_Dict= &#123;</div><div class="line">        <span class="string">"Capt"</span>:<span class="string">"Officer"</span>,</div><div class="line">        <span class="string">"Col"</span>:<span class="string">"Officer"</span>,</div><div class="line">        <span class="string">"Major"</span>:<span class="string">"Officer"</span>,</div><div class="line">        <span class="string">"Jonkheer"</span>:<span class="string">"Royalty"</span>,</div><div class="line">        <span class="string">"Don"</span>:<span class="string">"Royalty"</span>,</div><div class="line">        <span class="string">"Sir"</span>:<span class="string">"Royalty"</span>,</div><div class="line">        <span class="string">"Dr"</span>:<span class="string">"Officer"</span>,</div><div class="line">        <span class="string">"Rev"</span>:<span class="string">"Officer"</span>,</div><div class="line">        <span class="string">"the Counters"</span>:<span class="string">"Royalty"</span>,</div><div class="line">        <span class="string">"Dona"</span>:<span class="string">"Royalty"</span>,</div><div class="line">        <span class="string">"Mme"</span>:<span class="string">"Mrs"</span>,</div><div class="line">        <span class="string">"Mlle"</span>:<span class="string">"Miss"</span>,</div><div class="line">        <span class="string">"Ms"</span>:<span class="string">"Mr"</span>,</div><div class="line">        <span class="string">"Mrs"</span>:<span class="string">"Mrs"</span>,</div><div class="line">        <span class="string">"Mr"</span>:<span class="string">"Mr"</span>,</div><div class="line">        <span class="string">"Mrs"</span>:<span class="string">"Mrs"</span>,</div><div class="line">        <span class="string">"Miss"</span>:<span class="string">"Miss"</span>,</div><div class="line">        <span class="string">"Master"</span>:<span class="string">"Master"</span>,</div><div class="line">        <span class="string">"Lady"</span>:<span class="string">"Royalty"</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    combined[<span class="string">'Title'</span>].map(Title_Dict)</div></pre></td></tr></table></figure>
+<h4 id="Age-Column-1"><a href="#Age-Column-1" class="headerlink" title="Age Column"></a>Age Column</h4><p>对于Age这个属性，原数据中有大量的空缺值，在第一次尝试中，随机在$average+-std$ 的范围内填充数值。在这次尝试中，通过参考其他相关属性的关联关系来更好的确定Age. 例如我们通过数据处理可以大致估计Pclass为1，并且称谓为Miss的乘客的年龄大致为30，这样填充空缺值的可信度和训练的准确度会有所提高。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">grouped_train = combined.head(<span class="number">891</span>).groupby([<span class="string">'Sex'</span>,<span class="string">'Pclass'</span>,<span class="string">'Title'</span>])</div><div class="line">grouped_test = combined[<span class="number">891</span>:].groupby([<span class="string">'Sex'</span>,<span class="string">'Pclass'</span>,<span class="string">'Title'</span>])</div><div class="line"></div><div class="line">grouped_median_train = grouped_train.median()</div><div class="line">grouped_median_test = grouped_test.median()</div></pre></td></tr></table></figure>
+<p>之后就可以看到输出结果</p>
+<p><img src="/home/chenxshuo/Documents/Age_column.png" alt="Age_column"></p>
+<p>此时我们就可以通过Sex，Pclass和Title来比较精确的推断所空缺的年龄值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_age</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> combined</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fillAges</span><span class="params">(row, grouped_median)</span>:</span></div><div class="line">        <span class="keyword">if</span> row[<span class="string">'Sex'</span>] == <span class="string">'female'</span> <span class="keyword">and</span> row[<span class="string">'Pclass'</span>] == <span class="number">1</span>:</div><div class="line">            <span class="keyword">if</span> row[<span class="string">'Title'</span>] == <span class="string">'Miss'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'female'</span>,<span class="number">1</span>,<span class="string">'Miss'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Mrs'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'female'</span>,<span class="number">1</span>,<span class="string">'Mrs'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Officer'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'female'</span>,<span class="number">1</span>,<span class="string">'Officer'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Royalty'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'female'</span>,<span class="number">1</span>,<span class="string">'Royalty'</span>][<span class="string">'Age'</span>]</div><div class="line">            </div><div class="line">        <span class="keyword">elif</span> row[<span class="string">'Sex'</span>] == <span class="string">'female'</span> <span class="keyword">and</span> row[<span class="string">'Pclass'</span>] == <span class="number">2</span>:</div><div class="line">            <span class="keyword">if</span> row[<span class="string">'Title'</span>] == <span class="string">'Miss'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'female'</span>,<span class="number">2</span>,<span class="string">'Miss'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Mrs'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'female'</span>,<span class="number">2</span>,<span class="string">'Mrs'</span>][<span class="string">'Age'</span>]</div><div class="line">            </div><div class="line">        <span class="keyword">elif</span> row[<span class="string">'Sex'</span>] == <span class="string">'female'</span> <span class="keyword">and</span> row[<span class="string">'Pclass'</span>] == <span class="number">3</span>:</div><div class="line">            <span class="keyword">if</span> row[<span class="string">'Title'</span>] == <span class="string">'Miss'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'female'</span>,<span class="number">3</span>,<span class="string">'Miss'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Mrs'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'female'</span>,<span class="number">3</span>,<span class="string">'Mrs'</span>][<span class="string">'Age'</span>]</div><div class="line">            </div><div class="line">        <span class="keyword">elif</span> row[<span class="string">'Sex'</span>] == <span class="string">'male'</span> <span class="keyword">and</span> row[<span class="string">'Pclass'</span>] == <span class="number">1</span>:</div><div class="line">            <span class="keyword">if</span> row[<span class="string">'Title'</span>] == <span class="string">'Master'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'male'</span>,<span class="number">1</span>,<span class="string">'Master'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Mr'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'male'</span>,<span class="number">1</span>,<span class="string">'Mr'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Officer'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'male'</span>,<span class="number">1</span>,<span class="string">'Officer'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Royalty'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'male'</span>,<span class="number">1</span>,<span class="string">'Royalty'</span>][<span class="string">'Age'</span>]</div><div class="line">        </div><div class="line">        <span class="keyword">elif</span> row[<span class="string">'Sex'</span>] == <span class="string">'male'</span> <span class="keyword">and</span> row[<span class="string">'Pclass'</span>] == <span class="number">2</span>:</div><div class="line">            <span class="keyword">if</span> row[<span class="string">'Title'</span>] == <span class="string">'Master'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'male'</span>,<span class="number">2</span>,<span class="string">'Master'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Mr'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'male'</span>,<span class="number">2</span>,<span class="string">'Mr'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Officer'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'male'</span>,<span class="number">2</span>,<span class="string">'Officer'</span>][<span class="string">'Age'</span>]</div><div class="line">            </div><div class="line">        <span class="keyword">elif</span> row[<span class="string">'Sex'</span>] == <span class="string">'male'</span> <span class="keyword">and</span> row[<span class="string">'Pclass'</span>] == <span class="number">3</span>:</div><div class="line">            <span class="keyword">if</span> row[<span class="string">'Title'</span>] == <span class="string">'Master'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'male'</span>,<span class="number">3</span>,<span class="string">'Master'</span>][<span class="string">'Age'</span>]</div><div class="line">            <span class="keyword">elif</span> row[<span class="string">'Title'</span>] == <span class="string">'Mr'</span>:</div><div class="line">                <span class="keyword">return</span> grouped_median.loc[<span class="string">'male'</span>,<span class="number">3</span>,<span class="string">'Mr'</span>][<span class="string">'Age'</span>]</div><div class="line">    </div><div class="line">    combined.head(<span class="number">891</span>).Age = combined.head(<span class="number">891</span>).apply(<span class="keyword">lambda</span> r : fillAges(r, grouped_median_train) <span class="keyword">if</span> np.isnan(r[<span class="string">'Age'</span>]) <span class="keyword">else</span> r[<span class="string">'Age'</span>], axis=<span class="number">1</span>)</div><div class="line">    combined.iloc[<span class="number">891</span>:].Age = combined.iloc[<span class="number">891</span>:].apply(<span class="keyword">lambda</span> r : fillAges(r, grouped_median_train) <span class="keyword">if</span> np.isnan(r[<span class="string">'Age'</span>]) <span class="keyword">else</span> r[<span class="string">'Age'</span>], axis=<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<h4 id="Name-Column"><a href="#Name-Column" class="headerlink" title="Name Column"></a>Name Column</h4><p>姓名这一个属性我们把Title提取出来之后就可以去除掉,除此之外，对于Title有一个常用的方法为dummy编码，因为Title的值均为代表不同类别的字符串，无法直接进行数学处理，那么可以把每个类别当做一个新并且属性取值均为0或者1，这就是dummy编码所做的事。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_name</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> combined</div><div class="line">    <span class="comment">#drop Name</span></div><div class="line">    combinde.drop(<span class="string">'Name'</span>,axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</div><div class="line">    </div><div class="line">    <span class="comment">#Encoding in dummy varibles</span></div><div class="line">    title_dummies = pd.get_dummies(combined[<span class="string">'Title'</span>],prefix=<span class="string">'Title'</span>)</div><div class="line">    combined = pd.comcat([combined,title_dummies],axis=<span class="number">1</span>)</div><div class="line">    </div><div class="line">    <span class="comment">#drop Title</span></div><div class="line">    combined.drop(<span class="string">'Title'</span>,axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="Fare-Column-1"><a href="#Fare-Column-1" class="headerlink" title="Fare Column"></a>Fare Column</h4><p>这个属性有一个空缺值，直接使用中位数填充即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_fare</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> combined</div><div class="line">    </div><div class="line">    combined.head(<span class="number">891</span>).Fare.fillna(combined.head(<span class="number">891</span>).Fare.mean(),inplace=<span class="keyword">True</span>)</div><div class="line">    combined.iloc[<span class="number">891</span>:].Fare.fillna(combined.iloc[<span class="number">891</span>:].Fare.mean(),inplace=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="Embarked-Column"><a href="#Embarked-Column" class="headerlink" title="Embarked Column"></a>Embarked Column</h4><p>使用S填充空缺值，之后同样使用dummy编码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_dummy</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> combined</div><div class="line">    combined.head(<span class="number">891</span>).Embarked.fillna(<span class="string">'S'</span>,inplace=<span class="keyword">True</span>)</div><div class="line">    combined.iloc[<span class="number">891</span>:].Embarked.fillna(<span class="string">'S'</span>,inplcae=<span class="keyword">True</span>)</div><div class="line">    </div><div class="line">    embarked_dummies = pd.get_dummies(combined[<span class="string">'Embarked'</span>],prefix=<span class="string">'Embarked'</span>)</div><div class="line">    combined = pd.concat([combined,embarked_dummies],axis=<span class="number">1</span>)</div><div class="line">    combined.drop(<span class="string">'Embarked'</span>,axis=<span class="number">1</span>,inplcae=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="Cabin-Column"><a href="#Cabin-Column" class="headerlink" title="Cabin Column"></a>Cabin Column</h4><p>Cabin这个属性有更多的空缺值(1014/1309)，秉着尽量不要舍弃特征的前提，可以为空缺值赋予U，替换其他值为对应的首字母比如C2014换为C，之后使用dummy编码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_cabin</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> combined</div><div class="line">    combined[<span class="string">'Cabin'</span>].fillna(<span class="string">'U'</span>,inplace=<span class="keyword">True</span>)</div><div class="line">    combined[<span class="string">'Cabin'</span>] = combined[<span class="string">'Cabin'</span>].map(;ambda c : c[<span class="number">0</span>])</div><div class="line">    </div><div class="line">    cabin_dummies = pd.get_dummies(combined[<span class="string">'Cabin'</span>],prefix=<span class="string">'Cabin'</span>)</div><div class="line">    combined = pd.concat([combined, cabin_dummies],axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</div><div class="line">    </div><div class="line">    combined.drop(<span class="string">'Cabin'</span>,axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="Sex-Column-1"><a href="#Sex-Column-1" class="headerlink" title="Sex Column"></a>Sex Column</h4><p>Sex这个属性有两个值一个是female,一个是male，可以转换为0和1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_sex</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> combined</div><div class="line">    combined[<span class="string">'Sex'</span>] = combined[<span class="string">'Sex'</span>].map(&#123;<span class="string">'male'</span>:<span class="number">0</span>,<span class="string">'female'</span>:<span class="number">1</span>&#125;)</div></pre></td></tr></table></figure>
+<h4 id="Pclass-Ticket-Class-Column"><a href="#Pclass-Ticket-Class-Column" class="headerlink" title="Pclass(Ticket Class ) Column"></a>Pclass(Ticket Class ) Column</h4><p>Pclass有1,2,3等值，避免数值的大小带来并不需要的影响，可以使用dummy编码转换一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_pclass</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> combined</div><div class="line">    pclass_dummies = pd.get_dummies(combined[<span class="string">'Pclass'</span>],prefix=<span class="string">'Pclass'</span>)</div><div class="line">    combined = pd.concat([combined,pclass_dummies],axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</div><div class="line">    </div><div class="line">    combined.drop(<span class="string">'Pclass'</span>,axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="Ticket-Column"><a href="#Ticket-Column" class="headerlink" title="Ticket Column"></a>Ticket Column</h4><p>Ticket这个属性代表船票号码，在这里简单处理了一下，把全是数字的号码使用XXX代替，其余开头有字母的用前三个字符代替(觉得这个属性还可以提取出更多的信息以提高准确度)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_ticket</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> combined</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cleanTicket</span><span class="params">(ticket)</span>:</span></div><div class="line">        ticket = ticket.replace(<span class="string">'/'</span>,<span class="string">''</span>)</div><div class="line">        ticket = ticket.replace(<span class="string">'.'</span>,<span class="string">''</span>)</div><div class="line">        ticket = ticket.split()</div><div class="line">        ticket = map(<span class="keyword">lambda</span> t : t.strip(), ticket)</div><div class="line">        ticket = list(filter(<span class="keyword">lambda</span> t : <span class="keyword">not</span> t .isdigit(), ticket))</div><div class="line">        <span class="keyword">if</span> len(ticket) &gt; <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> ticket[<span class="number">0</span>]</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> <span class="string">'XXX'</span></div><div class="line">        </div><div class="line">    combined[<span class="string">'Ticket'</span>] = combined[<span class="string">'Ticket'</span>].map(cleanTicket)</div><div class="line">    <span class="comment">#dummy encoding</span></div><div class="line">    ticket_dummies = pd.get_dummies(combined[<span class="string">'Ticket'</span>],prefix=<span class="string">'Ticket'</span>)</div><div class="line">    combined = pd.concat([combined,ticket_dummies],axis=<span class="number">1</span>)</div><div class="line">    <span class="comment">#drop Ticket column</span></div><div class="line">    combined.drop(<span class="string">'Ticket'</span>,axis=<span class="number">1</span>,inplace=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h4 id="Family-Column-1"><a href="#Family-Column-1" class="headerlink" title="Family Column"></a>Family Column</h4><p>Family这个特征基于SibSp和Parch两个特征得到，常理来讲家庭成员越多，那么可以互相帮助，最终幸存的概率要大一点，单独乘坐的话幸存几率要小一点。那么可以把两个值加起来再加上1即自己，之后定义Single，SmallFamily， LargeFamily三个特征。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_family</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> combined</div><div class="line">    combined[<span class="string">'FamilySize'</span>] = combined[<span class="string">'SibSp'</span>] + combined[<span class="string">'Parch'</span>] + <span class="number">1</span></div><div class="line">    </div><div class="line">    combined[<span class="string">'Single'</span>] = combined[<span class="string">'FamilySize'</span>].map(<span class="keyword">lambda</span> s : <span class="number">1</span> <span class="keyword">if</span> s == <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span>)</div><div class="line">    combined[<span class="string">'SmallFamily'</span>] = combined[<span class="string">'FamilySize'</span>].map(<span class="keyword">lambda</span> s : <span class="number">1</span> <span class="keyword">if</span> <span class="number">2</span>&lt;=s&lt;=<span class="number">4</span> <span class="keyword">else</span> <span class="number">0</span>)</div><div class="line">    combined[<span class="string">'LargeFamily'</span>] = combined[<span class="string">'FamilySize'</span>].map(<span class="keyword">lambda</span> s : <span class="number">1</span> <span class="keyword">if</span> s &gt;= <span class="number">5</span> <span class="keyword">else</span> <span class="number">0</span>)</div></pre></td></tr></table></figure>
+<hr>
+<p>—<em>待更新</em>—</p>
+<h3 id="Step-4-训练模型-1"><a href="#Step-4-训练模型-1" class="headerlink" title="Step.4 训练模型"></a>Step.4 训练模型</h3><h4 id="设置数据集"><a href="#设置数据集" class="headerlink" title="设置数据集"></a>设置数据集</h4><h4 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h4><h4 id="使用随机森林算法"><a href="#使用随机森林算法" class="headerlink" title="使用随机森林算法"></a>使用随机森林算法</h4><h3 id="Step-5-输出结果"><a href="#Step-5-输出结果" class="headerlink" title="Step.5 输出结果"></a>Step.5 输出结果</h3><h2 id="总结-amp-常用方法精讲"><a href="#总结-amp-常用方法精讲" class="headerlink" title="总结&amp;常用方法精讲"></a>总结&amp;常用方法精讲</h2><h3 id="读取数据方法"><a href="#读取数据方法" class="headerlink" title="读取数据方法"></a>读取数据方法</h3><h3 id="预览数据方法"><a href="#预览数据方法" class="headerlink" title="预览数据方法"></a>预览数据方法</h3><h3 id="特征工程技巧"><a href="#特征工程技巧" class="headerlink" title="特征工程技巧"></a>特征工程技巧</h3><h3 id="分割数据集方法"><a href="#分割数据集方法" class="headerlink" title="分割数据集方法"></a>分割数据集方法</h3><h3 id="常用的方法技巧"><a href="#常用的方法技巧" class="headerlink" title="常用的方法技巧"></a>常用的方法技巧</h3><h4 id="groupby"><a href="#groupby" class="headerlink" title="groupby"></a>groupby</h4><h4 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h4><h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] <a href="http://ahmedbesbes.com/how-to-score-08134-in-titanic-kaggle-challenge.html" target="_blank" rel="external">http://ahmedbesbes.com/how-to-score-08134-in-titanic-kaggle-challenge.html</a></p>
+<p>[2] <a href="https://www.kaggle.com/omarelgabry/a-journey-through-titanic?scriptVersionId=447794" target="_blank" rel="external">https://www.kaggle.com/omarelgabry/a-journey-through-titanic?scriptVersionId=447794</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创学习笔记与技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="chenxshuo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kaggle/" rel="tag"># Kaggle</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/55915/" rel="next" title="利用python进行数据分析-笔记Ch06-数据加载&存储&文件格式">
+                <i class="fa fa-chevron-left"></i> 利用python进行数据分析-笔记Ch06-数据加载&存储&文件格式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oqia88p5q.bkt.clouddn.com/360%E5%8F%8D%E9%A6%88%E6%84%8F%E8%A7%81%E6%88%AA%E5%9B%BE16421027265035.png"
+               alt="chenxshuo" />
+          <p class="site-author-name" itemprop="name">chenxshuo</p>
+           
+              <p class="site-description motion-element" itemprop="description">For the future</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#两天入门kaggle-Titanic"><span class="nav-number">1.</span> <span class="nav-text">两天入门kaggle-Titanic</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比赛简介"><span class="nav-number">1.2.</span> <span class="nav-text">比赛简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一次尝试"><span class="nav-number">1.3.</span> <span class="nav-text">第一次尝试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-1-导入所需的包"><span class="nav-number">1.3.1.</span> <span class="nav-text">Step.1 导入所需的包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-2-读取和预览数据"><span class="nav-number">1.3.2.</span> <span class="nav-text">Step.2 读取和预览数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-3-特征工程"><span class="nav-number">1.3.3.</span> <span class="nav-text">Step.3 特征工程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#观察属性和是否幸存的数量关系"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">观察属性和是否幸存的数量关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去除“无效”属性"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">去除“无效”属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fare-Column"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">Fare Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Age-Column"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">Age Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Family-Column"><span class="nav-number">1.3.3.5.</span> <span class="nav-text">Family Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ticket-Class-Column"><span class="nav-number">1.3.3.6.</span> <span class="nav-text">Ticket Class Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sex-Column"><span class="nav-number">1.3.3.7.</span> <span class="nav-text">Sex Column</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-4-训练模型"><span class="nav-number">1.3.4.</span> <span class="nav-text">Step.4 训练模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分割数据集"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">分割数据集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#训练模型-amp-评价结果"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">训练模型&评价结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-5-导出结果"><span class="nav-number">1.3.5.</span> <span class="nav-text">Step.5 导出结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二次尝试"><span class="nav-number">1.4.</span> <span class="nav-text">第二次尝试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-1-导入所需包"><span class="nav-number">1.4.1.</span> <span class="nav-text">Step.1 导入所需包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-2-读取和预览数据-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">Step.2 读取和预览数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-3-特征工程-1"><span class="nav-number">1.4.3.</span> <span class="nav-text">Step.3 特征工程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组合数据集"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">组合数据集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Titles-Column"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">Titles Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Age-Column-1"><span class="nav-number">1.4.3.3.</span> <span class="nav-text">Age Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Name-Column"><span class="nav-number">1.4.3.4.</span> <span class="nav-text">Name Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fare-Column-1"><span class="nav-number">1.4.3.5.</span> <span class="nav-text">Fare Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Embarked-Column"><span class="nav-number">1.4.3.6.</span> <span class="nav-text">Embarked Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cabin-Column"><span class="nav-number">1.4.3.7.</span> <span class="nav-text">Cabin Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sex-Column-1"><span class="nav-number">1.4.3.8.</span> <span class="nav-text">Sex Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pclass-Ticket-Class-Column"><span class="nav-number">1.4.3.9.</span> <span class="nav-text">Pclass(Ticket Class ) Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ticket-Column"><span class="nav-number">1.4.3.10.</span> <span class="nav-text">Ticket Column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Family-Column-1"><span class="nav-number">1.4.3.11.</span> <span class="nav-text">Family Column</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-4-训练模型-1"><span class="nav-number">1.4.4.</span> <span class="nav-text">Step.4 训练模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置数据集"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">设置数据集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特征选择"><span class="nav-number">1.4.4.2.</span> <span class="nav-text">特征选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用随机森林算法"><span class="nav-number">1.4.4.3.</span> <span class="nav-text">使用随机森林算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-5-输出结果"><span class="nav-number">1.4.5.</span> <span class="nav-text">Step.5 输出结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结-amp-常用方法精讲"><span class="nav-number">1.5.</span> <span class="nav-text">总结&常用方法精讲</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取数据方法"><span class="nav-number">1.5.1.</span> <span class="nav-text">读取数据方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预览数据方法"><span class="nav-number">1.5.2.</span> <span class="nav-text">预览数据方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征工程技巧"><span class="nav-number">1.5.3.</span> <span class="nav-text">特征工程技巧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分割数据集方法"><span class="nav-number">1.5.4.</span> <span class="nav-text">分割数据集方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的方法技巧"><span class="nav-number">1.5.5.</span> <span class="nav-text">常用的方法技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#groupby"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">groupby</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">lambda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map"><span class="nav-number">1.5.5.3.</span> <span class="nav-text">map</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenxshuo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共69.1k字</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://chenxshuo-cn.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/posts/44886/';
+          this.page.identifier = 'posts/44886/';
+          this.page.title = '两天入门Kaggle-Titanic';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://chenxshuo-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
