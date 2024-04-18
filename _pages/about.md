@@ -19,7 +19,7 @@ social: true  # includes social icons at the bottom of the page
 - **Email**: chenshuo.cs at outlook dot com
 - *Name Pronunciation: "Shuo" is similar to "shore" with a British accent.*
 
-I am a 1st year PhD student at LMU Munich and Siemens AG, supervised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/). Before that, I graduated from the [Elite Master of Data Science](https://www.m-datascience.mathematik-informatik-statistik.uni-muenchen.de/index.html) at [LMU Munich](https://www.lmu.de/en/) advised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/).
+I am a 2nd year PhD student at LMU Munich and Siemens AG, supervised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/). Before that, I graduated from the [Elite Master of Data Science](https://www.m-datascience.mathematik-informatik-statistik.uni-muenchen.de/index.html) at [LMU Munich](https://www.lmu.de/en/) advised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/).
 
 Before joining LMU, I graduated from [the School of Information Management](https://ischool.sysu.edu.cn/) at [Sun Yat-sen University](https://en.wikipedia.org/wiki/Sun_Yat-sen_University) (SYSU), Guangzhou, China, in 2020 with a major in Information Systems and a minor in Computer Science, advised by [Prof. Daifeng Li](https://ischool.sysu.edu.cn/cn/content/%E6%9D%8E%E5%B2%B1%E5%B3%B0).
 
@@ -35,6 +35,10 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 <br/><br/>
 
 ### News 
+
+- **Apr 2024** Check out our new paper on red-teaming GPT-4V against jailbreak attacks! [paper](https://arxiv.org/abs/2404.03411)
+
+- **Apr 2024** Check out our new paper on adversarial attacks on MLLMs with CoT! [paper](https://arxiv.org/abs/2402.14899)
 
 - **Nov 2023** Check out our new paper of in-context learning on vision-language models! [paper](https://arxiv.org/abs/2311.18021)
 
@@ -103,6 +107,11 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### Publications
 
+- **Red Teaming GPT-4V: Are GPT-4V Safe Against Uni/Multi-Modal Jailbreak Attacks?**
+  [[arXiv]](https://arxiv.org/abs/2404.03411) <br>
+  **Shuo Chen**, Zhen Han, Bailan He, Zifeng Ding, Wenqian Yu, Philip Torr, Volker Tresp, Jindong Gu <br>
+  *arXiv preprint*
+
 - **Understanding and Improving In-Context Learning on Vision-language Models**
   [[arXiv]](https://arxiv.org/abs/2311.18021) <br>
   **Shuo Chen**, Zhen Han, Bailan He, Mark Buckley, Philip Torr, Volker Tresp, Jindong Gu <br>
@@ -114,6 +123,10 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
   **Shuo Chen**, Jindong Gu, Zhen Han, Yunpu Ma, Philip Torr, Volker Tresp <br>
   *NeurIPS 2023 Dataset and Benchmark Track*
 
+- **Stop Reasoning! When Multimodal LLMs with Chain-of-Thought Reasoning Meets Adversarial Images**
+  [[arXiv]](https://arxiv.org/abs/2402.14899) <br>
+  Zefeng Wang, Zhen Han, **Shuo Chen**, Fan Xue, Zifeng Ding, Xun Xiao, Volker Tresp, Philip Torr, Jindong Gu <br>
+  *arXiv preprint*
 
 - **A Systematic Survey of Prompt Engineering on Vision-Language Foundation Models** 
   [[arXiv]](https://arxiv.org/abs/2307.12980) [[Awesome Githup Repo]](https://github.com/JindongGu/Awesome-Prompting-on-Vision-Language-Model/tree/main) <br>
