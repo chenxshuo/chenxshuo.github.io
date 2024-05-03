@@ -20,7 +20,7 @@ social: true  # includes social icons at the bottom of the page
 
 I am a 2nd year PhD student at LMU Munich and Siemens AG, supervised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/). My research interests include Generative Multimodal Models and Responsible AI. I am also affiliated with [MCML](https://mcml.ai/) and [relAI](https://zuseschoolrelai.de/). Before that, I graduated from the [Elite Master of Data Science](https://www.m-datascience.mathematik-informatik-statistik.uni-muenchen.de/index.html) with distinction at [LMU Munich](https://www.lmu.de/en/) advised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/).
 
-Before joining LMU, I graduated from [the School of Information Management](https://ischool.sysu.edu.cn/) at [Sun Yat-sen University](https://en.wikipedia.org/wiki/Sun_Yat-sen_University) (SYSU), Guangzhou, China, in 2020 with a major in Information Systems and a minor in Computer Science, advised by [Prof. Daifeng Li](https://ischool.sysu.edu.cn/cn/content/%E6%9D%8E%E5%B2%B1%E5%B3%B0).
+Before joining LMU, I graduated from [the School of Information Management](https://ischool.sysu.edu.cn/) at [Sun Yat-sen University](https://en.wikipedia.org/wiki/Sun_Yat-sen_University) (SYSU), Guangzhou, China, in 2020 with a major in Information Systems and a minor in Computer Science, advised by [Prof. Daifeng Li](https://ischool.sysu.edu.cn/zh-hans/teacher/lidaifeng).
 
 I am actively seeking motivated students for research and thesis projects. If you're interested in working with me, please apply by emailing your motivation letter, CV, and transcript. Due to a high volume of applications, my response may be delayed.
 
@@ -59,13 +59,13 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 </li>
 <li><p><strong>May 2022</strong> I obtained the <a href="https://www.lmu.de/en/workspace-for-students/student-support-services/finance-your-studies/scholarships/scholarships-for-international-students/index.html">LMU SIST Scholarship</a> and would be sponsored by the Bavaria Education Ministry in the next 10 months. </p>
 </li>
-<li><strong>July 2020</strong> I joined <a href="https://dm.ai/">DMAI</a> as a Research Intern.</li>
+<li><strong>July 2020</strong> I joined <a href="https://www.dm-ai.com/">DMAI</a> as a Research Intern.</li>
 </ul>
 <ul>
 <li><strong>June 2020</strong> I graduated from SYSU and would study in the <a href="https://www.m-datascience.mathematik-informatik-statistik.uni-muenchen.de/index.html">Data Science Master Program</a> at LMU Munich, Germany. <a href="https://mp.weixin.qq.com/s/qcwoFhmsjMYvmQfHMmFjqw">(Press Coverage, in Chinese)</a></li>
 </ul>
 <ul style="margin-left: 0em">
-<li><strong>July 2019</strong> I joined <a href="https://dm.ai/">DMAI</a> as a Research Intern.</li>
+<li><strong>July 2019</strong> I joined <a href="https://www.dm-ai.com/">DMAI</a> as a Research Intern.</li>
 </ul>
 <ul>
 <li><strong>May 2019</strong> I obtained the First Class Scholarship for Excellent Students at Sun Yat-sen University.</li>
