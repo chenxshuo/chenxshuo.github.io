@@ -14,16 +14,15 @@ news: false  # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-- **Enthusiastic AI Researcher**
 - **PhD Student at LMU Munich & Siemens**
 - **Email**: chenshuo.cs at outlook dot com
 - *Name Pronunciation: "Shuo" is similar to "shore" with a British accent.*
 
-I am a 2nd year PhD student at LMU Munich and Siemens AG, supervised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/). Before that, I graduated from the [Elite Master of Data Science](https://www.m-datascience.mathematik-informatik-statistik.uni-muenchen.de/index.html) at [LMU Munich](https://www.lmu.de/en/) advised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/).
+I am a 2nd year PhD student at LMU Munich and Siemens AG, supervised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/). My research interests include Generative Multimodal Models and Responsible AI. I am also affiliated with [MCML](https://mcml.ai/) and [relAI](https://zuseschoolrelai.de/). Before that, I graduated from the [Elite Master of Data Science](https://www.m-datascience.mathematik-informatik-statistik.uni-muenchen.de/index.html) with distinction at [LMU Munich](https://www.lmu.de/en/) advised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/).
 
 Before joining LMU, I graduated from [the School of Information Management](https://ischool.sysu.edu.cn/) at [Sun Yat-sen University](https://en.wikipedia.org/wiki/Sun_Yat-sen_University) (SYSU), Guangzhou, China, in 2020 with a major in Information Systems and a minor in Computer Science, advised by [Prof. Daifeng Li](https://ischool.sysu.edu.cn/cn/content/%E6%9D%8E%E5%B2%B1%E5%B3%B0).
 
-My research interests include Deep Learning, Multimodal Models, Vision-Language Models, and Responsible AI.
+I am actively seeking motivated students for research and thesis projects. If you're interested in working with me, please apply by emailing your motivation letter, CV, and transcript. Due to a high volume of applications, my response may be delayed.
 
 <!-- 
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
