@@ -2,15 +2,15 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Shuo Chen | 陈硕 # the website title (if blank, full name will be used instead)
+title: Shuo Chen [ʂuo, tʂʻən] # the website title (if blank, full name will be used instead)
 first_name: Shuo
 middle_name: 
 last_name: Chen
 email: chenshuo.cs at outlook dot com
 description: > 
 footer_text: 
-  <center>Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Opinions expressed are solely my own and do not express the views or opinions of any organizations.<center/>
+  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+  Opinions expressed are solely my own.
 keywords:  # add your own keywords or leave empty
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
