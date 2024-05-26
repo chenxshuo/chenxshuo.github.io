@@ -14,7 +14,7 @@ news: false  # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-- **PhD Student at LMU Munich & Siemens**
+- **PhD Candidate at LMU Munich & Siemens**
 - **Generative Multimodal Models and Responsible AI**
 - [Tresp Lab](https://tresp-lab.github.io/)
 - [MCML](https://mcml.ai/) & [relAI](https://zuseschoolrelai.de/) & [OpenFLaaS](https://openflaas.de/)
