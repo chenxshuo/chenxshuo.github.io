@@ -37,6 +37,10 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
+- **May 2024** I will serve as a reviewer at NeurIPS 2024
+
+- **Apr 2024** I will serve as a Program Committee member at [NeusymBridge @ LREC-Coling 2024](https://neusymbridge.github.io/)
+
 - **Apr 2024** Check out our new paper on red-teaming GPT-4V against jailbreak attacks! [paper](https://arxiv.org/abs/2404.03411)
 
 - **Apr 2024** Check out our new paper on adversarial attacks on MLLMs with CoT! [paper](https://arxiv.org/abs/2402.14899)
