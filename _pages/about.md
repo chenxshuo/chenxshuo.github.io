@@ -37,6 +37,9 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
+- **June 2024** We are co-organizing an [ELISE Workshop on Semantic, Symbolic and Interpretable Machine Learning 
+](https://ellis-ssiml.github.io/) with TU Darmstadt, in beautiful Helsinki!
+
 - **May 2024** I will serve as a reviewer for NeurIPS 2024
 
 - **Apr 2024** I will serve as a Program Committee member at [NeusymBridge @ LREC-Coling 2024](https://neusymbridge.github.io/)
