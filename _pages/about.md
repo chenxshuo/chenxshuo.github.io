@@ -37,6 +37,8 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
+- **July 2024** Our paper on adversarial attacks on MLLMs with CoT! [paper](https://arxiv.org/abs/2402.14899) got accepted at COLM 2024. Congradulations to all co-authors!
+
 - **June 2024** We are co-organizing an [ELISE Workshop on Semantic, Symbolic and Interpretable Machine Learning 
 ](https://ellis-ssiml.github.io/) with TU Darmstadt, in beautiful Helsinki!
 
