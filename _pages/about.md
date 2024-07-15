@@ -118,7 +118,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 ### Publications
 
 - **Red Teaming GPT-4V: Are GPT-4V Safe Against Uni/Multi-Modal Jailbreak Attacks?**
-  [[arXiv]](https://arxiv.org/abs/2404.03411) <br>
+  [[arXiv]](https://arxiv.org/abs/2404.03411) [[Code]](https://github.com/chenxshuo/RedTeamingGPT4V) <br>
   **Shuo Chen**, Zhen Han, Bailan He, Zifeng Ding, Wenqian Yu, Philip Torr, Volker Tresp, Jindong Gu <br>
   *arXiv preprint*
 
