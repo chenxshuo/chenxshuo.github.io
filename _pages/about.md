@@ -37,7 +37,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
-- **July 2024** Our paper on adversarial attacks on MLLMs with CoT! [paper](https://arxiv.org/abs/2402.14899) got accepted at COLM 2024. Congradulations to all co-authors!
+- **July 2024** Our paper on adversarial attacks on MLLMs with CoT [(paper)](https://arxiv.org/abs/2402.14899) got accepted at **COLM 2024**. Congratulations to all co-authors!
 
 - **June 2024** We are co-organizing an [ELISE Workshop on Semantic, Symbolic and Interpretable Machine Learning 
 ](https://ellis-ssiml.github.io/) with TU Darmstadt, in beautiful Helsinki!
@@ -115,9 +115,9 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 ### Publications
 
 - **Red Teaming GPT-4V: Are GPT-4V Safe Against Uni/Multi-Modal Jailbreak Attacks?**
-  [[arXiv]](https://arxiv.org/abs/2404.03411) <br>
+  [[arXiv]](https://arxiv.org/abs/2404.03411) [[Code]](https://github.com/chenxshuo/RedTeamingGPT4V) <br>
   **Shuo Chen**, Zhen Han, Bailan He, Zifeng Ding, Wenqian Yu, Philip Torr, Volker Tresp, Jindong Gu <br>
-  *arXiv preprint*
+  *SET LLM @ ICLR 2024*
 
 - **Understanding and Improving In-Context Learning on Vision-language Models**
   [[arXiv]](https://arxiv.org/abs/2311.18021) <br>
@@ -133,7 +133,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 - **Stop Reasoning! When Multimodal LLMs with Chain-of-Thought Reasoning Meets Adversarial Images**
   [[arXiv]](https://arxiv.org/abs/2402.14899) <br>
   Zefeng Wang, Zhen Han, **Shuo Chen**, Fan Xue, Zifeng Ding, Xun Xiao, Volker Tresp, Philip Torr, Jindong Gu <br>
-  *arXiv preprint*
+  *COLM 2024*
 
 - **A Systematic Survey of Prompt Engineering on Vision-Language Foundation Models** 
   [[arXiv]](https://arxiv.org/abs/2307.12980) [[Awesome Githup Repo]](https://github.com/JindongGu/Awesome-Prompting-on-Vision-Language-Model/tree/main) <br>
