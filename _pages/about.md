@@ -37,6 +37,8 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
+- **Sep 2024** Out paper on question decomposition on MLLMs got accepted at **EMNLP 2024**.  Congratulations to all co-authors!
+
 - **July 2024** Our paper on adversarial attacks on MLLMs with CoT [(paper)](https://arxiv.org/abs/2402.14899) got accepted at **COLM 2024**. Congratulations to all co-authors!
 
 - **June 2024** We are co-organizing an [ELISE Workshop on Semantic, Symbolic and Interpretable Machine Learning 
@@ -122,7 +124,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 - **Understanding and Improving In-Context Learning on Vision-language Models**
   [[arXiv]](https://arxiv.org/abs/2311.18021) <br>
   **Shuo Chen**, Zhen Han, Bailan He, Mark Buckley, Philip Torr, Volker Tresp, Jindong Gu <br>
-  *arXiv preprint*
+  *ME-FoMo @ ICLR 2024*
 
 
 - **Benchmarking Robustness of Adaptation Methods on Pre-trained Vision-Language Models**
@@ -134,6 +136,11 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
   [[arXiv]](https://arxiv.org/abs/2402.14899) <br>
   Zefeng Wang, Zhen Han, **Shuo Chen**, Fan Xue, Zifeng Ding, Xun Xiao, Volker Tresp, Philip Torr, Jindong Gu <br>
   *COLM 2024*
+
+- **Visual Question Decomposition on Multimodal Large Language Models**
+  Stay-tuned for the final camera-ready version! <br>
+  Haowei Zhang, Jianzhe Liu, Zhen Han, **Shuo Chen**, Bailan He, Volker Tresp, Zhiqiang Xu, Jindong Gu <br>
+  *EMNLP 2024 Findings*
 
 - **A Systematic Survey of Prompt Engineering on Vision-Language Foundation Models** 
   [[arXiv]](https://arxiv.org/abs/2307.12980) [[Awesome Githup Repo]](https://github.com/JindongGu/Awesome-Prompting-on-Vision-Language-Model/tree/main) <br>
