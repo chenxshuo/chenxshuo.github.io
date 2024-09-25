@@ -37,7 +37,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
-- **Sep 2024** Out paper on question decomposition on MLLMs got accepted at **EMNLP 2024**.  Congratulations to all co-authors!
+- **Sep 2024** Our paper on question decomposition on MLLMs got accepted at **EMNLP 2024**.  Congratulations to all co-authors!
 
 - **July 2024** Our paper on adversarial attacks on MLLMs with CoT [(paper)](https://arxiv.org/abs/2402.14899) got accepted at **COLM 2024**. Congratulations to all co-authors!
 
