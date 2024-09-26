@@ -16,7 +16,8 @@ social: false  # includes social icons at the bottom of the page
 
 
 ### Reviewer
-- NeurIPS 2024 
-- NeurIPS 2024 Datasets and Benchmarks Track
+- ICLR
+- WACV
+- NeurIPS 
 - [NeusymBridge @ LREC-Coling 2024](https://neusymbridge.github.io/)
 - [EVAL-FoMo @ ECCV 2024](https://sites.google.com/view/eval-fomo-24/home)
