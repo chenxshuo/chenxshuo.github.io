@@ -24,7 +24,7 @@ I am a 2nd year PhD student at LMU Munich and Siemens AG, supervised by [Prof. V
 
 Before joining LMU, I graduated from [the School of Information Management](https://ischool.sysu.edu.cn/) at [Sun Yat-sen University](https://en.wikipedia.org/wiki/Sun_Yat-sen_University) (SYSU), Guangzhou, China, in 2020 with a major in Information Systems and a minor in Computer Science, advised by [Prof. Daifeng Li](https://ischool.sysu.edu.cn/zh-hans/teacher/lidaifeng).
 
-I am actively seeking motivated students for research and thesis projects. If you're interested in working with me, please apply by emailing your motivation letter, CV, and transcript. Due to a high volume of applications, my response may be delayed.
+**I am always actively seeking motivated students for both research and master thesis projects. If you're interested in working with me, feel free to apply by emailing your CV, and transcript.**
 
 <!-- 
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
