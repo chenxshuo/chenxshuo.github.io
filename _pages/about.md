@@ -37,6 +37,8 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
+- **Oct 2024** Our paper on Multimodal In-Context Learning got accepted at **WACV 2025**. Congratulations to all co-authors!
+
 - **Sep 2024** Our paper on question decomposition on MLLMs got accepted at **EMNLP 2024**.  Congratulations to all co-authors!
 
 - **July 2024** Our paper on adversarial attacks on MLLMs with CoT [(paper)](https://arxiv.org/abs/2402.14899) got accepted at **COLM 2024**. Congratulations to all co-authors!
@@ -116,21 +118,22 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### Publications
 
-- **Red Teaming GPT-4V: Are GPT-4V Safe Against Uni/Multi-Modal Jailbreak Attacks?**
-  [[arXiv]](https://arxiv.org/abs/2404.03411) [[Code]](https://github.com/chenxshuo/RedTeamingGPT4V) <br>
-  **Shuo Chen**, Zhen Han, Bailan He, Zifeng Ding, Wenqian Yu, Philip Torr, Volker Tresp, Jindong Gu <br>
-  *SET LLM @ ICLR 2024*
-
-- **Understanding and Improving In-Context Learning on Vision-language Models**
-  [[arXiv]](https://arxiv.org/abs/2311.18021) <br>
-  **Shuo Chen**, Zhen Han, Bailan He, Mark Buckley, Philip Torr, Volker Tresp, Jindong Gu <br>
-  *ME-FoMo @ ICLR 2024*
+- **Can Multimodal Large Language Models Truly Perform Multimodal In-Context Learning?**  <br>
+  Camera ready version coming soon and a previous arXiv version can be found [[here]](https://arxiv.org/abs/2311.18021) <br>
+  **Shuo Chen**, Zhen Han, Bailan He, Jianzhe Liu, Mark Buckley, Qin Yao, Philip Torr, Volker Tresp, Jindong Gu <br>
+  *WACV 2025*
 
 
 - **Benchmarking Robustness of Adaptation Methods on Pre-trained Vision-Language Models**
   [[arXiv]](https://arxiv.org/abs/2306.02080) [[Page]](https://adarobustness.github.io/) [[Code]](https://github.com/adarobustness/adaptation_robustness) <br>
   **Shuo Chen**, Jindong Gu, Zhen Han, Yunpu Ma, Philip Torr, Volker Tresp <br>
   *NeurIPS 2023 Dataset and Benchmark Track*
+
+- **Red Teaming GPT-4V: Are GPT-4V Safe Against Uni/Multi-Modal Jailbreak Attacks?**
+  [[arXiv]](https://arxiv.org/abs/2404.03411) [[Code]](https://github.com/chenxshuo/RedTeamingGPT4V) <br>
+  **Shuo Chen**, Zhen Han, Bailan He, Zifeng Ding, Wenqian Yu, Philip Torr, Volker Tresp, Jindong Gu <br>
+  *SET LLM @ ICLR 2024*
+
 
 - **Stop Reasoning! When Multimodal LLMs with Chain-of-Thought Reasoning Meets Adversarial Images**
   [[arXiv]](https://arxiv.org/abs/2402.14899) <br>
