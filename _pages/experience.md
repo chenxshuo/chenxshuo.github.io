@@ -12,6 +12,9 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
+- Applied Scientist Intern at Amazon <br>
+  Nov 2024 - Now
+
 - PhD Student at Siemens AG <br>
   Feb 2023 - Now
 
