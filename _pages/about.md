@@ -18,7 +18,7 @@ social: true  # includes social icons at the bottom of the page
 - **Applied Scientist Intern at Amazon**
 - **Generative Multimodal Models and Responsible AI**
 - [Tresp Lab](https://tresp-lab.github.io/)
-- [MCML](https://mcml.ai/) & [relAI](https://zuseschoolrelai.de/) & [OpenFLaaS](https://openflaas.de/)
+- [MCML](https://mcml.ai/) & [relAI](https://zuseschoolrelai.de/) 
 - Email: chenshuo.cs at outlook dot com
 
 I am a 2nd year PhD candidate at LMU Munich and Siemens AG, supervised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/). Currently, I am working as an Applied Scientist Intern at Amazon Berlin. 
@@ -39,7 +39,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
-- **Nov 2024** Thrilled to start working as an Applied Scientist Intern at Amazon Berlin! 
+- **Nov 2024** Thrilled to start working as an Applied Scientist Intern at **Amazon**! 
 
 - **Oct 2024** Our paper on Multimodal In-Context Learning got accepted at **WACV 2025**. Congratulations to all co-authors!
 
@@ -49,10 +49,6 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 - **June 2024** We are co-organizing an [ELISE Workshop on Semantic, Symbolic and Interpretable Machine Learning 
 ](https://ellis-ssiml.github.io/) with TU Darmstadt, in beautiful Helsinki!
-
-- **May 2024** I will serve as a reviewer for NeurIPS 2024
-
-- **Apr 2024** I will serve as a Program Committee member at [NeusymBridge @ LREC-Coling 2024](https://neusymbridge.github.io/)
 
 - **Apr 2024** Check out our new paper on red-teaming GPT-4V against jailbreak attacks! [paper](https://arxiv.org/abs/2404.03411)
 
