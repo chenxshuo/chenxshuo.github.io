@@ -119,7 +119,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 ### Publications
 
 - **Can Multimodal Large Language Models Truly Perform Multimodal In-Context Learning?**  <br>
-  Camera ready version coming soon and a previous arXiv version can be found [[here]](https://arxiv.org/abs/2311.18021) [[Page]](https://chenxshuo.github.io/m-icl) <br>
+  Camera ready version coming soon and a previous arXiv version can be found [[here]](https://arxiv.org/abs/2311.18021) [[Page]](https://chenxshuo.github.io/m-icl) [[Code]](https://github.com/chenxshuo/multimodal-icl) <br>
   **Shuo Chen**, Zhen Han, Bailan He, Jianzhe Liu, Mark Buckley, Qin Yao, Philip Torr, Volker Tresp, Jindong Gu <br>
   *WACV 2025*
 
