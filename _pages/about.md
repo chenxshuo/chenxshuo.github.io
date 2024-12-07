@@ -119,7 +119,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 ### Publications
 
 - **Can Multimodal Large Language Models Truly Perform Multimodal In-Context Learning?**  <br>
-  Camera ready version coming soon and a previous arXiv version can be found [[here]](https://arxiv.org/abs/2311.18021) <br>
+  Camera ready version coming soon and a previous arXiv version can be found [[here]](https://arxiv.org/abs/2311.18021) [[Page]](https://chenxshuo.github.io/m-icl) <br>
   **Shuo Chen**, Zhen Han, Bailan He, Jianzhe Liu, Mark Buckley, Qin Yao, Philip Torr, Volker Tresp, Jindong Gu <br>
   *WACV 2025*
 
@@ -136,12 +136,12 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 
 - **Stop Reasoning! When Multimodal LLMs with Chain-of-Thought Reasoning Meets Adversarial Images**
-  [[arXiv]](https://arxiv.org/abs/2402.14899) <br>
+  [[arXiv]](https://arxiv.org/abs/2402.14899)  [[Page]](https://chenxshuo.github.io/stop-reasoning) [[Code]](https://github.com/aiPenguin/StopReasoning) <br> 
   Zefeng Wang, Zhen Han, **Shuo Chen**, Fan Xue, Zifeng Ding, Xun Xiao, Volker Tresp, Philip Torr, Jindong Gu <br>
   *COLM 2024*
 
 - **Visual Question Decomposition on Multimodal Large Language Models**
-  Stay-tuned for the final camera-ready version! <br>
+  [[arXiv]](https://arxiv.org/abs/2409.19339) [[Page]](https://vqd-emnlp2024.github.io/) [[Code]](https://github.com/freesky01/Visual-Question-Decomposition) <br>
   Haowei Zhang, Jianzhe Liu, Zhen Han, **Shuo Chen**, Bailan He, Volker Tresp, Zhiqiang Xu, Jindong Gu <br>
   *EMNLP 2024 Findings*
 
