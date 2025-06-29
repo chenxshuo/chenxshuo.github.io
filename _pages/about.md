@@ -17,7 +17,7 @@ social: true  # includes social icons at the bottom of the page
 - **PhD Candidate at LMU Munich & Siemens**
 - **Applied Scientist Intern at Amazon**
 - **Generative Multimodal Models and Responsible AI**
-- [Tresp Lab](https://tresp-lab.github.io/)
+- [TRESP Lab](https://tresp-lab.github.io/)
 - [MCML](https://mcml.ai/) & [relAI](https://zuseschoolrelai.de/) 
 - Email: chenshuo.cs at outlook dot com
 
