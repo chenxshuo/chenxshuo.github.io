@@ -21,7 +21,7 @@ social: true  # includes social icons at the bottom of the page
 - [MCML](https://mcml.ai/) & [relAI](https://zuseschoolrelai.de/) 
 - Email: chenshuo.cs at outlook dot com
 
-I am a 2nd year PhD candidate at LMU Munich and Siemens AG, supervised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/). 
+I am a 3rd year PhD candidate at LMU Munich and Siemens AG, supervised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/). 
 My research interests include Generative Multimodal Models and Responsible AI. I am also affiliated with [MCML](https://mcml.ai/) and [relAI](https://zuseschoolrelai.de/). Before that, I graduated from the [Elite Master of Data Science](https://www.m-datascience.mathematik-informatik-statistik.uni-muenchen.de/index.html) with distinction at [LMU Munich](https://www.lmu.de/en/) advised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/).
 
 Before joining LMU, I graduated from [the School of Information Management](https://ischool.sysu.edu.cn/) at [Sun Yat-sen University](https://en.wikipedia.org/wiki/Sun_Yat-sen_University) (SYSU), Guangzhou, China, in 2020 with a major in Information Systems and a minor in Computer Science, advised by [Prof. Daifeng Li](https://ischool.sysu.edu.cn/zh-hans/teacher/lidaifeng).
