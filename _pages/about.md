@@ -39,6 +39,11 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
+
+<p style="color:#808080; font-size:8px;">
+*Jul 2025* I have raised an important research question [here](https://chenxshuo.github.io/important-instruction/) for the safety community. 
+</p>
+
 - **Nov 2024** Thrilled to start working as an Applied Scientist Intern at **Amazon**! 
 
 - **Oct 2024** Our paper on Multimodal In-Context Learning got accepted at **WACV 2025**. Congratulations to all co-authors!
