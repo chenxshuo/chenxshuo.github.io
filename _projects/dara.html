@@ -1,0 +1,274 @@
+---
+permalink: /micl-colm/
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Breaking the Unimodal Trap to Fully Unlock
+Multimodal In-Context Learning">
+  <meta name="keywords" content="VQD">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stop Reasoning! When Multimodal LLM with Chain-of-Thought Reasoning Meets Adversarial Image</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/stop-reasoning/static/css/bulma.min.css">
+  <link rel="stylesheet" href="/assets/stop-reasoning/static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="/assets/stop-reasoning/static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="/assets/stop-reasoning/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="/assets/stop-reasoning/static/css/index.css">
+
+  <!--  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="/assets/stop-reasoning/static/js/fontawesome.all.min.js"></script>
+  <script src="/assets/stop-reasoning/static/js/bulma-carousel.min.js"></script>
+  <script src="/assets/stop-reasoning/static/js/bulma-slider.min.js"></script>
+  
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+            <span class="vqd" style="vertical-align: middle">Breaking the Unimodal Trap to Fully Unlock
+Multimodal In-Context Learning</span>
+            </h1>
+          <!-- <h2 class="subtitle is-3 publication-subtitle">
+            
+          </h2> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/zefeng-wang-165253234/">Zefeng Wang</a><sup style="color:#6fbf73;">* 1</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/zhenhan/home">Zhen Han</a><sup style="color:#6fbf73">* 2,3</sup>,</span>
+            <span class="author-block">
+              <a href="https://chenxshuo.github.io">Shuo Chen</a><sup style="color:#16e2d4">3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Fan Xue</a><sup style="color:#ed4b82">1</sup>,
+            </span><br>
+            <span class="author-block">
+              <a href="https://zifengding.github.io/">Zifeng Ding</a><sup style="color:#ed4b82">3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="">Xun Xiao</a><sup style="color:#ffac33;">5</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.dbs.ifi.lmu.de/~tresp/">Volker Tresp</a><sup style="color:#1649e2;">3,4</sup>,
+            </span>
+            <span class="author-block"></span>
+              <a href="https://torrvision.com/index.html">Philip Torr</a><sup style="color:#f41c1c;"> 6</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jindonggu.github.io/">Jindong Gu</a><sup style="color:#f41c1c;">&#9993; 6</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup style="color:#6fbf73;">1</sup>Technical University of Munich,</span>
+            <span class="author-block"><sup style="color:#16e2d4">2</sup>Amazon Web Services,</span>
+            <span class="author-block"><sup style="color:#ed4b82">3</sup>LMU Munich,</span><br>
+            <span class="author-block"><sup style="color:#ffac33">4</sup>Munich Center for Machine Learning</span>
+            <span class="author-block"><sup style="color:#eb0a95">5</sup>Huawei Technologies</span>
+            <span class="author-block"><sup style="color:#eb0a95">6</sup>University of Oxford</span><br>
+            
+            <span class="paper-block"><b style="color:#f41c1c">COLM 2024</b></span>
+          </div>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2402.14899"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/aiPenguin/StopReasoning"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section"></section>
+  <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <div class="content has-text-centered">
+          <img src="/assets/stop-reasoning/figures/0.png" alt="motivation" style="max-width: 80%;"/>
+          <!-- <p> 
+            <span class="vqd">Motivation of Visual Question Decomposition</span>.<br/>
+          </p>  -->
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section"></section>
+  <div class="container" style="margin-bottom: 2vh;">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+</section>
+
+<br>
+<br>
+<br>
+<br>
+
+<section class="section">
+  <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <div class="content has-text-centered">
+          <img src="/assets/stop-reasoning/figures/1.png" alt="motivation" style="max-width: 80%;"/>
+          <!-- <p> 
+            <span class="vqd">Motivation of Visual Question Decomposition</span>.<br/>
+          </p>  -->
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section"></section>
+  <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <div class="content has-text-centered">
+          <img src="/assets/stop-reasoning/figures/2.png" alt="motivation" style="max-width: 80%;"/>
+          <!-- <p> 
+            <span class="vqd">Motivation of Visual Question Decomposition</span>.<br/>
+          </p>  -->
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section"></section>
+  <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <div class="content has-text-centered">
+          <img src="/assets/stop-reasoning/figures/3.png" alt="motivation" style="max-width: 80%;"/>
+          <!-- <p> 
+            <span class="vqd">Motivation of Visual Question Decomposition</span>.<br/>
+          </p>  -->
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section"></section>
+  <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <div class="content has-text-centered">
+          <img src="/assets/stop-reasoning/figures/4.png" alt="motivation" style="max-width: 80%;"/>
+          <!-- <p> 
+            <span class="vqd">Motivation of Visual Question Decomposition</span>.<br/>
+          </p>  -->
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- DATASET SECTION -->
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 mathvista">
+    <span class="mathvista" style="vertical-align: middle">FinanceMath Dataset</span>
+  </h1>
+  </div>
+</section> -->
+
+
+<!-- @PAN TODO: bibtex -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre><code>
+      @article{wang2024stop,
+        title={Stop reasoning! when multimodal llms with chain-of-thought reasoning meets adversarial images},
+        author={Wang, Zefeng and Han, Zhen and Chen, Shuo and Xue, Fan and Ding, Zifeng and Xiao, Xun and Tresp, Volker and Torr, Philip and Gu, Jindong},
+        journal={arXiv preprint arXiv:2402.14899},
+        year={2024}
+      }
+    </code></pre>
+  </div>
+</section>
+
+<!-- <section>
+  <div class="section" id="org-banners" style="display:flex">
+    <a href="https://www.yale.edu/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="static/images/yale.png">
+    </a>
+    <a href="https://www.nyu.edu/" target="blank" rel="external">
+        <img class="center-block org-banner" src="static/images/nyu.png">
+    </a>
+    <a href="https://shanghai.nyu.edu/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="static/images/nyush.png">
+    </a>
+    <a href="https://www.psu.edu/" target="_blank" rel="external">
+      <img class="center-block org-banner" src="static/images/psu.png">
+    </a>
+    <a href="https://allenai.org/" target="_blank" rel="external">
+      <img class="center-block org-banner" src="static/images/ai2.png">
+    </a>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is website adapted from <a href="https://financemath-acl2024.github.io/">FinanceMath</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</footer>
+
+</body>
+</html>
