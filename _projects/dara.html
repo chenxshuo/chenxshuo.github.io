@@ -35,7 +35,7 @@ permalink: /micl-colm/
                 <a href="https://chenxshuo.github.io/micl-colm/" class="button">Dataset (Coming Soon)</a>
               </div>
             </div>
-            <div class="header-image">
+             <div class="header-image">
                 <img src="/assets/img/micl-colm/micl-gif.gif" alt="DARA Method Animation" class="teaser-image" style="max-width: 100%; height: auto; display: block; margin: 0 auto 20px; border-radius: 8px;">
             </div>
         </div>
@@ -414,3 +414,79 @@ permalink: /micl-colm/
         </d-appendix>
     </body>
 </html>
+<!-- 
+ <div class="header-image">
+                <div class="carousel-container" style="max-width: 600px; margin: 0 auto; position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    
+                    <div class="carousel-slides" style="display: flex; transition: transform 0.5s ease;">
+                        <img src="/assets/img/micl-colm/carousel/gif-1.png" class="carousel-slide" style="width: 100%; flex-shrink: 0; display: block;">
+                        <img src="/assets/img/micl-colm/carousel/gif-2.png" class="carousel-slide" style="width: 100%; flex-shrink: 0; display: block;">
+                        <img src="/assets/img/micl-colm/carousel/gif-3.png" class="carousel-slide" style="width: 100%; flex-shrink: 0; display: block;">
+                        <img src="/assets/img/micl-colm/carousel/gif-4.png" class="carousel-slide" style="width: 100%; flex-shrink: 0; display: block;">
+                        <img src="/assets/img/micl-colm/carousel/gif-5.png" class="carousel-slide" style="width: 100%; flex-shrink: 0; display: block;">
+                        <img src="/assets/img/micl-colm/carousel/gif-6.png" class="carousel-slide" style="width: 100%; flex-shrink: 0; display: block;">
+                        <img src="/assets/img/micl-colm/carousel/gif-7.png" class="carousel-slide" style="width: 100%; flex-shrink: 0; display: block;">
+                        <img src="/assets/img/micl-colm/carousel/gif-8.png" class="carousel-slide" style="width: 100%; flex-shrink: 0; display: block;">
+                    </div>
+                    
+                    
+                    <button class="carousel-prev" onclick="changeSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 18px; z-index: 10; transition: background 0.3s;">&#8249;</button>
+                    <button class="carousel-next" onclick="changeSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 18px; z-index: 10; transition: background 0.3s;">&#8250;</button>
+                    
+                    <div class="carousel-dots" style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px;">
+                        <span class="dot active" onclick="currentSlide(1)" style="height: 12px; width: 12px; background-color: rgba(255,255,255,0.8); border-radius: 50%; display: inline-block; cursor: pointer; transition: background-color 0.3s;"></span>
+                        <span class="dot" onclick="currentSlide(2)" style="height: 12px; width: 12px; background-color: rgba(255,255,255,0.4); border-radius: 50%; display: inline-block; cursor: pointer; transition: background-color 0.3s;"></span>
+                        <span class="dot" onclick="currentSlide(3)" style="height: 12px; width: 12px; background-color: rgba(255,255,255,0.4); border-radius: 50%; display: inline-block; cursor: pointer; transition: background-color 0.3s;"></span>
+                        <span class="dot" onclick="currentSlide(4)" style="height: 12px; width: 12px; background-color: rgba(255,255,255,0.4); border-radius: 50%; display: inline-block; cursor: pointer; transition: background-color 0.3s;"></span>
+                        <span class="dot" onclick="currentSlide(5)" style="height: 12px; width: 12px; background-color: rgba(255,255,255,0.4); border-radius: 50%; display: inline-block; cursor: pointer; transition: background-color 0.3s;"></span>
+                        <span class="dot" onclick="currentSlide(6)" style="height: 12px; width: 12px; background-color: rgba(255,255,255,0.4); border-radius: 50%; display: inline-block; cursor: pointer; transition: background-color 0.3s;"></span>
+                        <span class="dot" onclick="currentSlide(7)" style="height: 12px; width: 12px; background-color: rgba(255,255,255,0.4); border-radius: 50%; display: inline-block; cursor: pointer; transition: background-color 0.3s;"></span>
+                        <span class="dot" onclick="currentSlide(8)" style="height: 12px; width: 12px; background-color: rgba(255,255,255,0.4); border-radius: 50%; display: inline-block; cursor: pointer; transition: background-color 0.3s;"></span>
+                    </div>
+                    
+                </div>
+                
+                <script>
+                let slideIndex = 1;
+                
+                function changeSlide(n) {
+                    showSlide(slideIndex += n);
+                }
+                
+                function currentSlide(n) {
+                    showSlide(slideIndex = n);
+                }
+                
+                function showSlide(n) {
+                    const slides = document.querySelector('.carousel-slides');
+                    const dots = document.querySelectorAll('.dot');
+                    
+                    if (n > 8) { slideIndex = 1; }
+                    if (n < 1) { slideIndex = 8; }
+                    
+                    // Move slides
+                    slides.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+                    
+                    // Update dots
+                    dots.forEach(dot => dot.style.backgroundColor = 'rgba(255,255,255,0.4)');
+                    dots[slideIndex - 1].style.backgroundColor = 'rgba(255,255,255,0.8)';
+                }
+                
+                // Add hover effects and keyboard navigation
+                document.addEventListener('DOMContentLoaded', function() {
+                    const prevBtn = document.querySelector('.carousel-prev');
+                    const nextBtn = document.querySelector('.carousel-next');
+                    
+                    prevBtn.addEventListener('mouseenter', () => prevBtn.style.background = 'rgba(0,0,0,0.8)');
+                    prevBtn.addEventListener('mouseleave', () => prevBtn.style.background = 'rgba(0,0,0,0.6)');
+                    nextBtn.addEventListener('mouseenter', () => nextBtn.style.background = 'rgba(0,0,0,0.8)');
+                    nextBtn.addEventListener('mouseleave', () => nextBtn.style.background = 'rgba(0,0,0,0.6)');
+                    
+                    // Keyboard navigation
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'ArrowLeft') changeSlide(-1);
+                        if (e.key === 'ArrowRight') changeSlide(1);
+                    });
+                });
+                </script>
+            </div> -->
