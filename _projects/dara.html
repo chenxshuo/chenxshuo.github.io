@@ -1,5 +1,5 @@
 ---
-permalink: /micl-colm/
+permalink: /true-micl-colm/
 ---
 
 <!doctype html>
@@ -58,7 +58,7 @@ permalink: /micl-colm/
                     <p>LMU Munich, Siemens AG, MCML, relAI</p>
                     <p>Technical University of Munich</p>
                     <p>LMU Munich</p>
-                    <p>Technical University of Munich</p>
+                    <p>University of Science and Technology of China</p>
                     <p>Technical University of Munich</p>
                     <p>University of Oxford</p>
                     <p>LMU Munich, MCML</p>
@@ -88,7 +88,7 @@ permalink: /micl-colm/
                 <h4>Contents</h4>
                 <div><a href="#introduction">MICL and Visual Context Neglect</a></div>
                 <div><a href="#method">DARA: Dynamic Attention Reallocation</a></div>
-                <div><a href="#puremicl">PureMICL: A Dedicated MICL Dataset</a></div>
+                <div><a href="#TrueMICL">TrueMICL: A Dedicated MICL Dataset</a></div>
                 <div><a href="#experiments">Experimental Results</a></div>
             </nav>
         </d-contents>
@@ -103,7 +103,7 @@ permalink: /micl-colm/
                <d-figure>
                 <figure>
                     <img src="/assets/img/micl-colm/fig1.jpg" alt="MICL Problem Illustration">
-                    <figcaption>Examples of using MICL to solve image captioning from MSCOCO (top) and Clock Math from our proposed dataset, PureMICL (bottom). Generating captions relies more on task recognition and can be answered based on text patterns in demos, without deep understanding of demo images. However, our task requires task learning where the model needs to learn the relationship between text and images in the demos.
+                    <figcaption>Examples of using MICL to solve image captioning from MSCOCO (top) and Clock Math from our proposed dataset, TrueMICL (bottom). Generating captions relies more on task recognition and can be answered based on text patterns in demos, without deep understanding of demo images. However, our task requires task learning where the model needs to learn the relationship between text and images in the demos.
                     </figcaption>
                 </figure>
             </d-figure>
@@ -177,15 +177,15 @@ permalink: /micl-colm/
             </p>
         </section>
         
-        <section id="puremicl">
-            <h2>PureMICL: A Dedicated MICL Dataset</h2>
+        <section id="TrueMICL">
+            <h2>TrueMICL: A Dedicated MICL Dataset</h2>
             <p>
-                We introduce <strong>PureMICL</strong>, a MICL-dedicated dataset designed with a critical principle: correct responses must rely on comprehensive understanding of multimodal context, especially visual information. Unlike existing MICL datasets that focus on task recognition, PureMICL emphasizes task learning where models must understand relationships between visual and textual elements.
+                We introduce <strong>TrueMICL</strong>, a MICL-dedicated dataset designed with a critical principle: correct responses must rely on comprehensive understanding of multimodal context, especially visual information. Unlike existing MICL datasets that focus on task recognition, TrueMICL emphasizes task learning where models must understand relationships between visual and textual elements.
             </p>
 
             <h3 id="dataset-design">Dataset Design Principles</h3>
             <p>
-                To this end, we have designed a novel MICL-dedicated dataset, PureMICL, guided by the following principles:
+                To this end, we have designed a novel MICL-dedicated dataset, TrueMICL, guided by the following principles:
             </p>
             
             <div style="margin: 20px 0;">
@@ -203,7 +203,7 @@ permalink: /micl-colm/
             </div>
             
             <p>
-                PureMICL comprises 867 samples across 4 task types and 7 distinct tasks, covering mathematical reasoning, pattern finding, and novel visual concept learning. The dataset is designed to be scalable and configurable for different levels of difficulty.
+                TrueMICL comprises 867 samples across 4 task types and 7 distinct tasks, covering mathematical reasoning, pattern finding, and novel visual concept learning. The dataset is designed to be scalable and configurable for different levels of difficulty.
 <!--                 
                 <div class="container">
                     <div class="table-container", style="align-self: center;">
@@ -235,7 +235,7 @@ permalink: /micl-colm/
 
             <h3 id="dataset-examples">Dataset Examples</h3>
             <p>
-                The table below shows representative examples from PureMICL, illustrating how each task requires understanding the relationship between images and text in demonstrations to correctly answer queries.
+                The table below shows representative examples from TrueMICL, illustrating how each task requires understanding the relationship between images and text in demonstrations to correctly answer queries.
             </p>
             
             <div style="overflow-x: auto; margin: 20px 0;">
@@ -331,18 +331,18 @@ permalink: /micl-colm/
             </div>
             
             <p style="font-size: 14px; color: #666; margin-top: 10px;">
-                <strong>Table:</strong> An overview of task examples in PureMICL. The label to the query requires the model to learn the relationship between images and text in the demonstrations.
+                <strong>Table:</strong> An overview of task examples in TrueMICL. The label to the query requires the model to learn the relationship between images and text in the demonstrations.
             </p>
         </section>
 
         <section id="experiments">
             <h2>Experimental Results</h2>
             <p>
-                Our comprehensive experiments across various MLLMs demonstrate the effectiveness of both DARA and PureMICL. Current MLLMs find PureMICL evaluation tasks quite challenging, and DARA significantly improves MICL performance on both our evaluation tasks and standard VL tasks.
+                Our comprehensive experiments across various MLLMs demonstrate the effectiveness of both DARA and TrueMICL. Current MLLMs find TrueMICL evaluation tasks quite challenging, and DARA significantly improves MICL performance on both our evaluation tasks and standard VL tasks.
                 <d-figure>
                     <figure>
                         <img src="/assets/img/micl-colm/results-table.png" alt="Experimental Results" width="90%" style="display: block; margin-left: auto; margin-right: auto;">
-                        <figcaption>Comparison of different methods on PureMICL dataset showing significant improvements with DARA fine-tuning across multiple model architectures.</figcaption>
+                        <figcaption>Comparison of different methods on TrueMICL dataset showing significant improvements with DARA fine-tuning across multiple model architectures.</figcaption>
                     </figure>
                 </d-figure>
             </p>
@@ -352,7 +352,7 @@ permalink: /micl-colm/
                 <ul>
                     <li><strong>Significant MICL Improvements:</strong> DARA achieves up to 10% improvement on downstream tasks with minimal parameter overhead</li>
                     <li><strong>Enhanced Visual Attention:</strong> Attention visualization confirms that DARA successfully redirects focus to visual content</li>
-                    <li><strong>Challenging Evaluation:</strong> PureMICL reveals limitations of current MLLMs in genuine multimodal understanding</li>
+                    <li><strong>Challenging Evaluation:</strong> TrueMICL reveals limitations of current MLLMs in genuine multimodal understanding</li>
                     <li><strong>Broad Applicability:</strong> DARA shows consistent improvements across different model architectures and scales</li>
                 </ul>
             </p>
@@ -369,7 +369,7 @@ permalink: /micl-colm/
                     
                     <li><strong>DARA Method:</strong> Our Dynamic Attention Reallocation approach provides an efficient solution with minimal parameters (as few as 160), achieving up to 10% performance improvements by strategically rebalancing attention toward visual content.</li>
                     
-                    <li><strong>PureMICL Benchmark:</strong> We introduce a rigorous evaluation dataset specifically designed to test true multimodal in-context learning capabilities, revealing significant gaps in current model performance.</li>
+                    <li><strong>TrueMICL Benchmark:</strong> We introduce a rigorous evaluation dataset specifically designed to test true multimodal in-context learning capabilities, revealing significant gaps in current model performance.</li>
                 </ul>
             </div>
 
@@ -380,7 +380,7 @@ permalink: /micl-colm/
                     
                     <li><strong>Parameter Efficiency:</strong> DARA demonstrates that targeted architectural modifications can be more effective than large-scale parameter tuning, requiring 40-50× fewer parameters than LoRA to achieve similar performance.</li>
                     
-                    <li><strong>Evaluation Gap:</strong> Standard VL benchmarks fail to capture true MICL capabilities, highlighting the need for dedicated evaluation frameworks like PureMICL.</li>
+                    <li><strong>Evaluation Gap:</strong> Standard VL benchmarks fail to capture true MICL capabilities, highlighting the need for dedicated evaluation frameworks like TrueMICL.</li>
                 </ul>
             </div>
 
@@ -408,6 +408,8 @@ permalink: /micl-colm/
                 &nbsp;&nbsp;primaryClass={cs.CV}<br>
                 }
             </p>
+            <h3>Acknowledgement</h3>
+            <p class="bibtex">This template is adapted from <a href="https://tsb0601.github.io/mmvp_blog/">Eyes Wide Shut</a>.</p>
 
             <d-footnote-list></d-footnote-list>
             <d-citation-list></d-citation-list>
