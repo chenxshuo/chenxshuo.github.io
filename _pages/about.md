@@ -39,6 +39,7 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
+- **May 2024** I gave a talk at BBAI Workshop and more info can be found [here](https://kidlanli.github.io/Agent-Slack-off/)
 
 - **Nov 2024** Thrilled to start working as an Applied Scientist Intern at **Amazon**! 
 
