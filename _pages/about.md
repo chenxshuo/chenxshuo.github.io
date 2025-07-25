@@ -39,7 +39,9 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
-- **May 2024** I gave a talk at BBAI Workshop and more info can be found [here](https://kidlanli.github.io/Agent-Slack-off/)
+- **Jul 2025** Two papers got accepted at COLM 2025! [One](https://chenxshuo.github.io/true-micl-colm/) on Multimodal In-context Learning and the [other](https://arxiv.org/abs/2503.22362) is on Fact Asymmetry.  Congrats to all co-authors! 
+
+<!-- - **May 2024** I gave a talk at BBAI Workshop and more info can be found [here](https://kidlanli.github.io/Agent-Slack-off/) -->
 
 - **Nov 2024** Thrilled to start working as an Applied Scientist Intern at **Amazon**! 
 
