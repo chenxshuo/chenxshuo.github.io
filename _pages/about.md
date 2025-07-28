@@ -39,11 +39,13 @@ Link to your social media connections, too. This theme is set up to use [Font Aw
 
 ### News 
 
-- **Jul 2025** Two papers got accepted at COLM 2025! [One](https://chenxshuo.github.io/true-micl-colm/) on Multimodal In-context Learning and the [other](https://arxiv.org/abs/2503.22362) is on Fact Asymmetry.  Congrats to all co-authors! 
+- **Jul 2025** 🎉 Two papers got accepted at COLM 2025! [One](https://chenxshuo.github.io/true-micl-colm/) on Multimodal In-context Learning and the [other](https://arxiv.org/abs/2503.22362) is on Fact Asymmetry.  Congrats to all co-authors! 
+
+- **June 2025** 🏆 One [paper](https://multimodalpragmatic.github.io/) got accepted at ACL 2025 and won the Best Paper Award at Responsible Generative AI @ CVPR. 
 
 <!-- - **May 2024** I gave a talk at BBAI Workshop and more info can be found [here](https://kidlanli.github.io/Agent-Slack-off/) -->
 
-- **Nov 2024** Thrilled to start working as an Applied Scientist Intern at **Amazon**! 
+- **Nov 2024** 🎉 Thrilled to start working as an Applied Scientist Intern at **Amazon**! 
 
 - **Oct 2024** Our paper on Multimodal In-Context Learning got accepted at **WACV 2025**. Congratulations to all co-authors!
 
