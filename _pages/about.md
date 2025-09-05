@@ -14,9 +14,9 @@ news: false  # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-- Ph.D. Candidate at LMU Munich focused on **LLMs/MLLMs** and **Agents** about their **Robustness, Safety, Reasoning, and In‑Context Learning**, with publications at NeurIPS, COLM, EMNLP, ACL etc and research experience at Amazon and Siemens. <br/>
+- Ph.D. Candidate at LMU Munich focused on **LLMs/MLLMs** and **Agents** about their **Robustness, Safety, Reasoning, and In‑Context Learning**, with publications at **NeurIPS, COLM, EMNLP, ACL** etc and research experience at **Siemens** <img src="https://radicasoftware.com/images/logo.030be4fd9d.png" alt="siemens" width="20" style="vertical-align: text-bottom;"/> and **Amazon** <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" width="20" style="vertical-align: text-bottom;"/>. <br/>
 - Affiliated with [TRESP Lab](https://tresp-lab.github.io/) & [MCML](https://mcml.ai/) & [relAI](https://zuseschoolrelai.de/)  <br/>
-- Email: chenshuo.cs at outlook dot com
+- Find me also in <a href="https://scholar.google.com/citations?user=BKvdGiwAAAAJ" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Google_Scholar_logo.svg/512px-Google_Scholar_logo.svg.png?20200110094142" alt="" width="20" style="vertical-align: text-bottom;"> </a>  &nbsp;    <a href="https://www.linkedin.com/in/shuochen1999" target="_blank"> <img src="https://www.svgrepo.com/show/157006/linkedin.svg" alt="" width="20" style="vertical-align: text-bottom;"> </a> &nbsp; <a href="https://twitter.com/chenshuo_cs" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/X_icon.svg" alt="" width="20" style="vertical-align: text-bottom;"> </a>
 
 
 I am a PhD candidate at LMU Munich and Siemens, supervised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/), also affiliated with [MCML](https://mcml.ai/) and [relAI](https://zuseschoolrelai.de/). 
@@ -30,7 +30,7 @@ My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelli
 
 <abbr class="badge" style="background-color: #007bff; color: white; 
   padding: 6px 12px; border-radius: 6px; font-size: 0.9em;">
-  Recent Exciting News
+  🥳 Recent News 
 </abbr>
 
 - **08 / 2025** 🎉 Two papers got accepted at EMNLP 2025! Congrats to all co-authors! Stay tuned for the camera ready versions! 
@@ -42,7 +42,7 @@ My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelli
 
 <!-- - **May 2024** I gave a talk at BBAI Workshop and more info can be found [here](https://kidlanli.github.io/Agent-Slack-off/) -->
 
-- **11 / 2024** 🎉 Thrilled to start working as an Applied Scientist Intern at **Amazon**! 
+- **11 / 2024** 🎉 Thrilled to start working as an Applied Scientist Intern at **Amazon** <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" width="20"/> ! 
 
 - [Previous News](https://chenxshuo.github.io/news)
 
@@ -51,7 +51,7 @@ My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelli
 
 <abbr class="badge" style="background-color: #007bff; color: white; 
   padding: 6px 12px; border-radius: 6px; font-size: 0.9em;">
-  Selected Publications
+  📄 Selected Publications
 </abbr>
 
 
@@ -92,14 +92,15 @@ My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelli
 
 <abbr class="badge" style="background-color: #007bff; color: white; 
   padding: 6px 12px; border-radius: 6px; font-size: 0.9em;">
-  Always Hiring!
+  🔥 Always Hiring! 
 </abbr>
 
-  **Always actively seeking motivated students for both research and master thesis projects. If you're interested in working on the topic of LLMs/MLLMs/Agents, feel free to emaile me your CV and transcript.** Previous supervisions have led to high-quality publications in top venues such as EMNLP, COLM, and ACL.
+  **Always actively seeking motivated students for both research and master thesis projects. If you're interested in working on the topic of LLMs/MLLMs/Agents, feel free to emaile me your CV and transcript.** Previous supervisions have led to high-quality publications in top venues such as EMNLP, COLM, and ACL. 
+
+  <img src="https://www.svgrepo.com/show/477054/email-download.svg" alt="" width="25" style="vertical-align: text-bottom;"> chenshuo dot cs at outlook dot com
 
 <br/>
 
-<br/>
 
 <p style="color:#808080; font-size:8px;">
 For Language Models :-)

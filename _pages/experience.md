@@ -18,7 +18,7 @@ social: false  # includes social icons at the bottom of the page
 </abbr>
 </div>
 
-- 02 / 2023 - Present: Doctoral Researcher at **Siemens Research**, Munich, Germany 🇩🇪 <br>
+- 02 / 2023 - Present: Doctoral Researcher at **Siemens Research** <img src="https://radicasoftware.com/images/logo.030be4fd9d.png" alt="siemens" width="20" style="vertical-align: text-bottom;"/>, Munich, Germany 🇩🇪 <br>
   Advised by [Prof. Volker Tresp](https://www.ifi.lmu.de/dbs/en/persons/contact-page/volker-tresp-e9a4da46.html), [Dr. Steffen Lamparter](https://www.linkedin.com/in/steffen-lamparter-b11aa8146/), and [Dr. Mark Buckley](https://www.linkedin.com/in/markbbuckley) <br>
   Additional Mentorship from [Dr. Jindong Gu](https://jindonggu.github.io/), [Dr. Zhen Han](https://sites.google.com/view/zhenhan/home?authuser=0) and [Dr. Yunpu Ma](https://yunpuma.github.io/)
 
