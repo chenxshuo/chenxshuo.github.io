@@ -20,7 +20,7 @@ social: false  # includes social icons at the bottom of the page
 
 - 02 / 2023 - Present: Doctoral Researcher at **Siemens Research** <img src="https://radicasoftware.com/images/logo.030be4fd9d.png" alt="siemens" width="20" style="vertical-align: text-bottom;"/>, Munich, Germany 🇩🇪 <br>
   Advised by [Prof. Volker Tresp](https://www.ifi.lmu.de/dbs/en/persons/contact-page/volker-tresp-e9a4da46.html), [Dr. Steffen Lamparter](https://www.linkedin.com/in/steffen-lamparter-b11aa8146/), and [Dr. Mark Buckley](https://www.linkedin.com/in/markbbuckley) <br>
-  Additional Mentorship from [Dr. Jindong Gu](https://jindonggu.github.io/), [Dr. Zhen Han](https://sites.google.com/view/zhenhan/home?authuser=0) and [Dr. Yunpu Ma](https://yunpuma.github.io/)
+  Valuable Mentorship from [Dr. Jindong Gu](https://jindonggu.github.io/), [Dr. Zhen Han](https://sites.google.com/view/zhenhan/home?authuser=0) and [Dr. Yunpu Ma](https://yunpuma.github.io/)
 
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
@@ -31,7 +31,7 @@ social: false  # includes social icons at the bottom of the page
 
 - 11 / 2024 - 05 / 2025: Applied Scientist Intern at **Amazon**  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" width="20"/>, Berlin, Germany 🇩🇪<br>
   Advised by [Dr. Luitpold Staudigl](https://www.linkedin.com/in/luitpold-staudigl-3656a232) and [Dr. Richard Droste](https://www.linkedin.com/in/richarddroste) <br>
-  Additional Mentorship from [Dr. Jochen Gast](https://www.linkedin.com/in/jochen-gast-114a17124/) and [Dr. Muhammad Waleed Gondal](https://www.linkedin.com/in/muhammad-waleed-gondal-47974359/)
+  Valuable Mentorship from [Dr. Jochen Gast](https://www.linkedin.com/in/jochen-gast-114a17124/) and [Dr. Muhammad Waleed Gondal](https://www.linkedin.com/in/muhammad-waleed-gondal-47974359/)
 
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 

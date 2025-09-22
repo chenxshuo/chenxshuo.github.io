@@ -33,6 +33,8 @@ My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelli
   🥳 Recent News 
 </abbr>
 
+- **09 / 2025** 🏆 We win the [Red‑Teaming Challenge](https://www.kaggle.com/competitions/openai-gpt-oss-20b-red-teaming) hosted by **OpenAI and Kaggle** and are the **top 0.3%** among a total of 5911 international participants! Stay tuned for our detailed reports!
+
 - **08 / 2025** 🎉 Two papers got accepted at EMNLP 2025! Congrats to all co-authors! Stay tuned for the camera ready versions! 
 
 

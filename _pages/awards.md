@@ -11,10 +11,17 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
+<div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
+<abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
+  🏆 Competition Winner
+</abbr>
+</div>
+
+- 09 / 2025 **Honorable Mention Award** (top 0.3%) in [**Red‑Teaming Challenge - OpenAI**](https://www.kaggle.com/competitions/openai-gpt-oss-20b-red-teaming/overview), Kaggle
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Scholarship
+  🎉 Scholarship
 </abbr>
 </div>
 
@@ -23,7 +30,7 @@ social: false  # includes social icons at the bottom of the page
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Scholarship
+  🎉 Scholarship
 </abbr>
 </div>
 
@@ -31,7 +38,7 @@ social: false  # includes social icons at the bottom of the page
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Competition Winner
+  🏆 Competition Winner
 </abbr>
 </div>
 
@@ -39,7 +46,7 @@ social: false  # includes social icons at the bottom of the page
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Scholarship
+  🎉 Scholarship
 </abbr>
 </div>
 
@@ -48,7 +55,7 @@ social: false  # includes social icons at the bottom of the page
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Scholarship
+  🎉 Scholarship
 </abbr>
 </div>
 
@@ -57,7 +64,7 @@ social: false  # includes social icons at the bottom of the page
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Scholarship
+  🎉 Scholarship
 </abbr>
 </div>
 
@@ -65,7 +72,7 @@ social: false  # includes social icons at the bottom of the page
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Visiting Grant
+  🎉 Visiting Grant
 </abbr>
 </div>
 
