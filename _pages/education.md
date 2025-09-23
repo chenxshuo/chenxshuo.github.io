@@ -32,7 +32,7 @@ social: false  # includes social icons at the bottom of the page
 
 - 10 / 2020 - 02 / 2023: Data Science, **University of Munich** (LMU Munich), Munich Germany 🇩🇪 <br/>
   Elite Master Project funded by [Bavaria Government](https://www.elitenetzwerk.bayern.de/start) <br/>
-  Recipient of SIST LMU Scholarship <br/>
+  Recipient of **SIST LMU Scholarship** <br/>
   Advised by [Prof. Volker Tresp](https://www.ifi.lmu.de/dbs/en/persons/contact-page/volker-tresp-e9a4da46.html) <br/>
   GPA: 1.08/1.0 (approximately 4.0/4.0, top10%) <br/>
 

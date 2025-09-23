@@ -17,7 +17,7 @@ social: false  # includes social icons at the bottom of the page
 </abbr>
 </div>
 
-- 09 / 2025 **Honorable Mention Award** (top 0.3%) in [**Red‑Teaming Challenge - OpenAI**](https://www.kaggle.com/competitions/openai-gpt-oss-20b-red-teaming/overview), Kaggle
+- 09 / 2025: **Honorable Mention Award** (Top 0.3%, 20/5911) in [**Red‑Teaming Challenge - OpenAI**](https://www.kaggle.com/competitions/openai-gpt-oss-20b-red-teaming/overview) <img src="https://www.svgrepo.com/show/306500/openai.svg" alt="OpenAI" width="20" style="vertical-align: text-bottom;"/> , Kaggle <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" width="20" style="vertical-align: text-bottom;"/>
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
@@ -34,7 +34,7 @@ social: false  # includes social icons at the bottom of the page
 </abbr>
 </div>
 
-- 11 / 2019: **First Class Scholarship** for Excellent Students in **Sun Yat-Sen University**, university‑level merit scholarship awarded to top‑performing students (top 1%), Guangzhou, China
+- 11 / 2019: **First Class Scholarship** for Excellent Students in **Sun Yat-Sen University**, university‑level merit scholarship awarded to top‑performing students (Top 1%), Guangzhou, China
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
@@ -42,7 +42,7 @@ social: false  # includes social icons at the bottom of the page
 </abbr>
 </div>
 
-- 05 / 2018: **First prize** (2/600) in [**National Competition of Data Driven and Innovation Research**](https://opendata.pku.edu.cn/competition-2019.xhtml), Chongqing, China
+- 05 / 2018: **First prize** (Top 0.3%, 2/600) in [**National Competition of Data Driven and Innovation Research**](https://opendata.pku.edu.cn/competition-2019.xhtml), Chongqing, China
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
