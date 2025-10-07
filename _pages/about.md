@@ -33,7 +33,7 @@ My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelli
   🥳 Recent News 
 </abbr>
 
-- **09 / 2025** 🏆 We are the winneres of the [Red‑Teaming Challenge](https://www.kaggle.com/competitions/openai-gpt-oss-20b-red-teaming) hosted by **OpenAI <img src="https://www.svgrepo.com/show/306500/openai.svg" alt="OpenAI" width="20" style="vertical-align: text-bottom;"/> and Kaggle <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" width="20" style="vertical-align: text-bottom;"/>** (**Top 0.3%** among a total of 5911 international participants)! Stay tuned for our detailed reports!
+- **09 / 2025** 🏆 We are the winneres of the [Red‑Teaming Challenge](https://www.kaggle.com/competitions/openai-gpt-oss-20b-red-teaming) hosted by **OpenAI <img src="https://www.svgrepo.com/show/306500/openai.svg" alt="OpenAI" width="20" style="vertical-align: text-bottom;"/> and Kaggle <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" width="20" style="vertical-align: text-bottom;"/>** (**Top 0.3%** among a total of 5911 international participants)! Check out [this page](https://chenxshuo.github.io/bag-of-tricks/) for paper and codes!
 
 - **08 / 2025** 🎉 Two papers got accepted at EMNLP 2025! Congrats to all co-authors! Stay tuned for the camera ready versions! 
 
