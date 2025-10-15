@@ -23,7 +23,7 @@ I am a PhD candidate at LMU Munich and Siemens, supervised by [Prof. Volker Tres
 Previously, I graduated from the [Elite Master of Data Science](https://www.m-datascience.mathematik-informatik-statistik.uni-muenchen.de/index.html) with distinction at [LMU Munich](https://www.lmu.de/en/) advised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/). 
 Before joining LMU Munich, I graduated from [the School of Information Management](https://ischool.sysu.edu.cn/) at [Sun Yat-sen University](https://en.wikipedia.org/wiki/Sun_Yat-sen_University) (SYSU), Guangzhou, China, in 2020 with a major in Information Systems and a minor in Computer Science, advised by [Prof. Daifeng Li](https://ischool.sysu.edu.cn/zh-hans/teacher/lidaifeng).
 
-My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelligence**. Particularly, I have been working on: the Fluid Intelligence of MLLMs [2][3], LLMs/MLLMs' Robustness [1] and Model Safety & Red-Teaming [4,5,6,7,8].
+My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelligence**. Particularly, I have been working on: the Fluid Intelligence of MLLMs [2,3], LLMs/MLLMs' Robustness/Safety [1,4,5,7,9], and Agent Safety [6,8].
 
 
 
@@ -32,6 +32,8 @@ My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelli
   padding: 6px 12px; border-radius: 6px; font-size: 0.9em;">
   🥳 Recent News 
 </abbr>
+
+- **10 / 2025** 🎉 Check out our paper **Deep Research Brings Deeper Harm**! [[Paper]](https://arxiv.org/abs/2510.11851),[[Page]](https://chenxshuo.github.io/deeper-harm/)
 
 - **09 / 2025** 🏆 We are the winneres of the [Red‑Teaming Challenge](https://www.kaggle.com/competitions/openai-gpt-oss-20b-red-teaming) hosted by **OpenAI <img src="https://www.svgrepo.com/show/306500/openai.svg" alt="OpenAI" width="20" style="vertical-align: text-bottom;"/> and Kaggle <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" width="20" style="vertical-align: text-bottom;"/>** (**Top 0.3%** among a total of 5911 international participants)! Check out [this page](https://chenxshuo.github.io/bag-of-tricks/) for paper and codes!
 
@@ -79,17 +81,19 @@ My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelli
           **Shuo Chen**, Han Zhen, Haokun Chen, Bailan He, Shengyun Si, Jingpei Wu, Philip Torr, Volker Tresp, Jindong Gu <br>
           *OpenAI Red-Teaming Challenge Honorable Mention Award, 2025*, [[Page]](https://chenxshuo.github.io/bag-of-tricks/)
  
++ **[6]** **Deep Research Brings Deeper Harm** <br>
+          **Shuo Chen**, Zonggen Li, Zhen Han, Bailan He, Tong Liu, Haokun Chen, Georg Groh, Philip Torr, Volker Tresp, Jindong Gu <br>
+          *Reliable ML from Unreliable Data Workshop @ NeurIPS, 2025*, [[Paper]](https://arxiv.org/abs/2510.11851),[[Page]](https://chenxshuo.github.io/deeper-harm/)
 
-
-+ **[6]** **Stop Reasoning! When MLLMs with Chain-of-Thought Reasoning Meets Adversarial Images** <br> 
++ **[7]** **Stop Reasoning! When MLLMs with Chain-of-Thought Reasoning Meets Adversarial Images** <br> 
           Zefeng Wang, Zhen Han, **Shuo Chen**, Fan Xue, Zifeng Ding, Xun Xiao, Volker Tresp, Philip Torr, Jindong Gu <br>
           *COLM 2024*, [[arXiv]](https://arxiv.org/abs/2402.14899)  [[Page]](https://chenxshuo.github.io/stop-reasoning) [[Code]](https://github.com/aiPenguin/StopReasoning) 
 
-+ **[7]** **Can an Individual Manipulate the Collective Decisions of Multi‑Agents?** <br>
++ **[8]** **Can an Individual Manipulate the Collective Decisions of Multi‑Agents?** <br>
           Fengyuan Liu, Rui Zhao, **Shuo Chen**, Guohao Li, Philip Torr, Lei Han, Jindong Gu <br>
-          *EMNLP 2025*, Stay tuned for the Camera Ready Version and Code! 
+          *EMNLP 2025*, [[Paper]](https://arxiv.org/abs/2509.16494) [[Code]](https://github.com/uwFengyuan/M-Spoiler)
 
-+ **[8]** **Multimodal Pragmatic Jailbreak on Text‑to‑Image Models** <br>
++ **[9]** **Multimodal Pragmatic Jailbreak on Text‑to‑Image Models** <br>
           Tong Liu, Zhixin Lai, Gengyuan Zhang, **Shuo Chen**, Philip Torr, Vera Demberg, Volker Tresp, Jindong Gu <br>
           *ACL 2025*, *ReGenAI@CVPR Best Paper Award*, [[Page]](https://multimodalpragmatic.github.io/)
 
