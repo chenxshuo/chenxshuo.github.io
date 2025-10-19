@@ -12,6 +12,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
+- 10 / 2025: **Bag of Tricks for Subverting Reasoning-based Safety Guardrails**, Kaggle Workshop
 
 - 07 / 2025: **A Gentle Introduction to Trustworthy Foundation Models**, relAI Mini-Sommerakademie 
 
