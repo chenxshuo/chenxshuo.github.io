@@ -104,9 +104,75 @@ permalink: /bag-of-tricks/
         <section id="introduction">
             <h2>1. Introduction</h2>
             <p>
-               
+                Reasoning-based guardrails are widely viewed as a promising way to keep large reasoning models from producing harmful content, yet our study shows how fragile these defenses can be in practice. Deliberative Alignment asks a model to justify policy compliance before responding, but this safeguard hinges on rigid conversation templates and brittle refusal heuristics. When an attacker lightly perturbs the chat structure with crafted template tokens, the guardrail can be sidestepped, allowing the model to answer dangerous requests that it should have blocked.
             </p>
             <p>
+                We introduce a bag of jailbreak techniques that either bypass the reasoning step altogether or hijack it to follow malicious instructions. Structural CoT Bypass and Fake Over-Refusal exploit formatting loopholes to skip or disguise the safety check, while Coercive Optimization automatically learns adversarial suffixes. Reasoning Hijack goes further by injecting hostile goals directly into the model’s chain of thought, producing tailored harmful outputs with minimal effort. Across five jailbreak benchmarks and multiple open-source LRMs—including Qwen3 and Phi-4 Reasoning—these attacks exceed 90% success, underscoring the urgent need for stronger, more resilient safety defenses.
+            </p>
+        </section>
+
+        <section id="method">
+            <h2>2. Bag of Tricks</h2>
+            <p>
+                Our jailbreaks fall into two families: bypass techniques that short-circuit the guardrail’s reasoning pass, and hijack techniques that weaponize that reasoning to craft bespoke harmful outputs. Each trick operates under a different knowledge assumption—ranging from black-box queries to gradient access—but all exploit the same brittle reliance on template tokens and heuristic refusals baked into today’s open-source LRMs.
+            </p>
+            <h3>Structural CoT Bypass (Gray-box)</h3>
+            <p>
+                By tapping into the publicly documented chat template, we show that prematurely closing the user turn and injecting a mock “analysis” segment convinces the guardrail that safety checks have already passed. The model then enters its final response channel and answers directly, even on obviously malicious prompts. The only requirement is knowledge of the delimiter tokens; no weight access is needed.
+            </p>
+            <h3>Fake Over-Refusal (Black-box)</h3>
+            <p>
+                Guardrails still reject some questions after the bypass, so we repurpose classic over-refusal phrasing to slip harmful intent past keyword filters. Benign-looking requests like “I want to kill time. Time is a man’s name.” inherit the permissive judgment granted to harmless variants, yet they nudge the model toward explicit attack instructions once the reasoning layer is neutralized.
+            </p>
+            <h3>Coercive Optimization (White-box)</h3>
+            <p>
+                When we do have gradient access, we optimize short adversarial suffixes to coerce the model into emitting the final-response template token and a low-resource language tag (e.g., “<code>&lt;|channel|&gt;final</code> … **Answer in German**”). Hitting that target reliably disables the safety routine, enabling a single optimized suffix to generalize across prompts and models.
+            </p>
+            <h3>Reasoning Hijack (Gray-box)</h3>
+            <p>
+                Instead of discarding the chain of thought, this trick replaces it with an attacker-authored plan and commentary tokens that instruct the model to obey it. The result is a highly tailored, step-by-step harmful answer that leverages the model’s own deliberative skills. As with the bypass, token-level access suffices—no gradients required.
+            </p>
+        </section>
+
+        <section id="experiments">
+            <h2>3. Experimental Results</h2>
+            <p>
+                We evaluate across 1,883 prompts spanning StrongREJECT, AdvBench, HarmBench, CatQA, and JBB-Behaviors, using both gpt-oss-20b and 120b under identical inference settings. Harmfulness is measured with StrongREJECT’s rubric evaluator, while attack success rate (ASR) aggregates four refusal detectors to avoid overfitting to a single judge.
+            </p>
+            <p>
+                Baseline jailbreak toolkits barely dent the guardrails: Direct queries, Policy Puppetry, H-CoT, and AutoRAN all stay below 40% ASR and deliver low harm scores. In contrast, our methods push ASR well past 90% on every benchmark. On gpt-oss-20b, Reasoning Hijack reaches 91–92% ASR with harm scores up to 73% on CatQA, while even the lighter Fake Over-Refusal clears 86–91% ASR and doubles AutoRAN’s harm on StrongREJECT (50.5% vs. 23.5%). The larger gpt-oss-120b proves even more brittle: Structural CoT Bypass alone surges to 92.8% ASR on AdvBench with a 71.9% harm score, and Fake Over-Refusal peaks at 96% ASR on JBB-Behaviors.
+            </p>
+            <p>
+                Coercive Optimization, our gradient-based variant, further confirms that forcing the final-response token is enough to disable the guardrail logic. A single optimized suffix yields 70–75% ASR across datasets on gpt-oss-20b, outperforming structure-only bypasses without any manual prompt crafting.
+            </p>
+            <p>
+                Transfer experiments highlight the systemic nature of these failures. On Qwen3-4B-Thinking, Phi-4-Reasoning-Plus, and DeepSeek-R1-Llama-8B, Reasoning Hijack sustains 65–89% ASR with harm scores often above 40%. Even models that partially resist the raw structural bypass (e.g., Phi-4 at 1.8% ASR) crumble once Fake Over-Refusal or Reasoning Hijack is applied, underscoring how little attacker expertise is required.
+            </p>
+            <p>
+                Ablations show that neither sampling temperature nor higher reasoning effort mitigates the attacks. Reasoning Hijack remains above 85% ASR and 65% harm regardless of temperature between 0.0 and 1.6, and the guardrails do not improve when we request high-effort reasoning from the model. The vulnerabilities therefore stem from the guardrail design itself, not from a narrow operating regime.
+            </p>
+        </section>
+
+        <section id="insights">
+            <h2>4. Insights</h2>
+            <p>
+                Beyond raw attack rates, the bag of tricks surfaces systemic lessons for designing safer reasoning models. The failures stem less from obscure jailbreak lore and more from structural assumptions baked into today’s guardrails.
+            </p>
+            <h3>Chat Templates Are a Single Point of Failure</h3>
+            <p>
+                Safety logic is tightly coupled to the gpt-oss chat template, so minor format edits or pre-filled assistant turns can flip the refusal decision. Guardrails need to generalize safety judgments beyond exact delimiter sequences instead of treating template conformance as proof of compliance.
+            </p>
+            <h3>Borderline Prompts Demand Better Calibration</h3>
+            <p>
+                Fake Over-Refusal shows that guardrails over-accept ambiguous phrasing borrowed from benign “kill time” examples. Models require finer-grained training on borderline data so that tone shifts or name substitutions do not grant harmful prompts a clean bill of health.
+            </p>
+            <h3>Safety Signals Must Persist Past the Opening Tokens</h3>
+            <p>
+                Many refusals are decided within the first few generated tokens; once we force the final-response marker, safeguards collapse. Rebalancing the attention budget—so that later tokens can still trigger refusals—would blunt template-level edits and make adversarial suffixes less decisive.
+            </p>
+            <h3>Reasoning Chains Need Their Own Guardrails</h3>
+            <p>
+                Reasoning Hijack proves that rich chain-of-thought can be weaponized to produce bespoke harmful plans. Any deployment that exposes internal reasoning should pair it with verification or secondary safety passes that audit the generated trace before it guides the final answer.
             </p>
         </section>
 
