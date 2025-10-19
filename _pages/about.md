@@ -21,7 +21,7 @@ social: true  # includes social icons at the bottom of the page
 
 I am a PhD candidate at LMU Munich and Siemens, supervised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/), also affiliated with [MCML](https://mcml.ai/) and [relAI](https://zuseschoolrelai.de/). 
 Previously, I graduated from the [Elite Master of Data Science](https://www.m-datascience.mathematik-informatik-statistik.uni-muenchen.de/index.html) with distinction at [LMU Munich](https://www.lmu.de/en/) advised by [Prof. Volker Tresp](https://www.dbs.ifi.lmu.de/~tresp/). 
-Before joining LMU Munich, I graduated from [the School of Information Management](https://ischool.sysu.edu.cn/) at [Sun Yat-sen University](https://en.wikipedia.org/wiki/Sun_Yat-sen_University) (SYSU), Guangzhou, China, in 2020 with a major in Information Systems and a minor in Computer Science, advised by [Prof. Daifeng Li](https://ischool.sysu.edu.cn/zh-hans/teacher/lidaifeng).
+Before joining LMU Munich, I graduated from [the School of Information Management](https://ischool.sysu.edu.cn/) at [Sun Yat-sen University](https://en.wikipedia.org/wiki/Sun_Yat-sen_University) (SYSU), Guangzhou, China, in 2020 with a major in Information Systems and a minor in Computer Science, advised by [Prof. Daifeng Li](https://ischool.sysu.edu.cn/zh-hans/teacher/286).
 
 My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelligence**. Particularly, I have been working on: the Fluid Intelligence of MLLMs [2,3], LLMs/MLLMs' Robustness/Safety [1,4,5,7,9], and Agent Safety [6,8].
 
