@@ -109,7 +109,7 @@ My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelli
 
   **Always actively seeking motivated students for both research and master thesis projects. If you're interested in working on the topic of LLMs/MLLMs/Agents, feel free to emaile me your CV and transcript.** Previous supervisions have led to high-quality publications in top venues such as EMNLP, COLM, and ACL. 
 
-  <img src="https://www.svgrepo.com/show/477054/email-download.svg" alt="" width="25" style="vertical-align: text-bottom;"> chenshuo dot cs at outlook dot com
+  <img src="https://www.svgrepo.com/show/477054/email-download.svg" alt="" width="25" style="vertical-align: text-bottom;"> A=LastNameFirstName dot cs B=outlook; A@B.com
 
 <br/>
 
