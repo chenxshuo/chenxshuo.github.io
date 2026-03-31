@@ -33,6 +33,8 @@ My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelli
   🥳 Recent News 
 </abbr>
 
+- **1 / 2026** 🎉 I am honored to receive a compute grant from CAIS to support research on AI Safety!
+
 - **10 / 2025** 🎉 Check out our paper **Deep Research Brings Deeper Harm**! [[Paper]](https://arxiv.org/abs/2510.11851),[[Page]](https://chenxshuo.github.io/deeper-harm/)
 
 - **09 / 2025** 🏆 We are the winneres of the [Red‑Teaming Challenge](https://www.kaggle.com/competitions/openai-gpt-oss-20b-red-teaming) hosted by **OpenAI <img src="https://www.svgrepo.com/show/306500/openai.svg" alt="OpenAI" width="20" style="vertical-align: text-bottom;"/> and Kaggle <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" width="20" style="vertical-align: text-bottom;"/>** (**Top 0.3%** among a total of 5911 international participants)! Check out [this page](https://chenxshuo.github.io/bag-of-tricks/) for paper and codes!

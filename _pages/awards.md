@@ -13,6 +13,15 @@ social: false  # includes social icons at the bottom of the page
 
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
+   🎉 Grant Award
+</abbr>
+</div>
+
+- 01 / 2026: **Research Compute Award** from Center for AI Safety (CAIS)
+
+
+<div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
+<abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
   🏆 Competition Winner
 </abbr>
 </div>
