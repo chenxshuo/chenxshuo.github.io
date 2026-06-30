@@ -26,14 +26,18 @@ Before joining LMU Munich, I graduated from [the School of Information Managemen
 My ultimate reseach goal is to **build Responsible and Trustworthy Super Intelligence**. Particularly, I have been working on: the Fluid Intelligence of MLLMs [2,3], LLMs/MLLMs' Robustness/Safety [1,4,5,7,9], and Agent Safety [6,8].
 
 
-
-
 <abbr class="badge" style="background-color: #007bff; color: white; 
   padding: 6px 12px; border-radius: 6px; font-size: 0.9em;">
   🥳 Recent News 
 </abbr>
 
-- **1 / 2026** 🎉 I am honored to receive a compute grant from CAIS to support research on AI Safety!
+- **06 / 2026** 🏆 We are the winners of the **Autoresearch Challenge** at [Paris 🇫🇷 Research Hackathon 2026](https://ehl.gg/). 
+
+- **06 / 2026** 🎉 One paper (co-first) on Automatic Red-teaming Implicit Vulnerabilities of T2I Models is accepted at **ECCV 2026**! 
+
+- **05 / 2026** 🎉 I am honored to receive a **Silver Reviewer Award** from **ICML 2026**!
+
+- **01 / 2026** 🎉 I am honored to receive a compute grant from CAIS to support research on AI Safety!
 
 - **10 / 2025** 🎉 Check out our paper **Deep Research Brings Deeper Harm**! [[Paper]](https://arxiv.org/abs/2510.11851),[[Page]](https://chenxshuo.github.io/deeper-harm/)
 

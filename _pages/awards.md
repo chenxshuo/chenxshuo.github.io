@@ -11,6 +11,24 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
+
+<div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
+<abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
+  🏆 Competition Winner
+</abbr>
+</div>
+
+- 06 / 2026: **Autoresearch Challenge Winner** at [Paris 🇫🇷 Research Hackathon 2026](https://ehl.gg/)
+
+<div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
+<abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
+  🏆 Reviewer Award
+</abbr>
+</div>
+
+- 05 / 2026: **Silver Reviewer Award** from **ICML 2026**
+
+
 <div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
 <abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
    🎉 Grant Award
@@ -89,4 +107,3 @@ social: false  # includes social icons at the bottom of the page
 - 08 / 2017: Study Tour Grant from **Sun Yat-Sen University**, Guangzhou, China
 
 <br/><br/>
-

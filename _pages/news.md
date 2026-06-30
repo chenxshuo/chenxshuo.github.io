@@ -17,7 +17,13 @@ social: false  # includes social icons at the bottom of the page
 </abbr>
 </div>
 
-- **1 / 2026** 🎉 I am honored to receive a compute grant from CAIS to support research on AI Safety!
+- **06 / 2026** 🏆 We are the winners of the **Autoresearch Challenge** at [Paris 🇫🇷 Research Hackathon 2026](https://ehl.gg/). 
+
+- **06 / 2026** 🎉 One paper (co-first) on Automatic Red-teaming Implicit Vulnerabilities of T2I Models is accepted at **ECCV 2026**! 
+
+- **05 / 2026** 🎉 I am honored to receive a **Silver Reviewer Award** from **ICML 2026**!
+
+- **01 / 2026** 🎉 I am honored to receive a compute grant from CAIS to support research on AI Safety!
 
 - **09 / 2025** 🏆 We are the winneres of the [Red‑Teaming Challenge](https://www.kaggle.com/competitions/openai-gpt-oss-20b-red-teaming) hosted by **OpenAI <img src="https://www.svgrepo.com/show/306500/openai.svg" alt="OpenAI" width="20" style="vertical-align: text-bottom;"/> and Kaggle <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" width="20" style="vertical-align: text-bottom;"/>** (**Top 0.3%** among a total of 5911 international participants)! Stay tuned for our detailed reports!
 
