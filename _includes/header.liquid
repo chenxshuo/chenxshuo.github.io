@@ -111,12 +111,16 @@
             <!-- Toogle theme mode -->
             <li class="toggle-container">
               <button id="light-toggle" title="Change theme" aria-label="Change theme">
-                <span class="modern-theme-cat modern-theme-cat-system" id="light-toggle-system" aria-hidden="true">
-                  <span class="modern-theme-cat-day"></span>
-                  <span class="modern-theme-cat-night"></span>
+                <span class="modern-theme-icon-wrap modern-theme-icon-system" id="light-toggle-system" aria-hidden="true">
+                  <img class="modern-theme-icon modern-theme-icon-light" src="{{ '/assets/img/theme-cat-day.svg' | relative_url }}" alt="">
+                  <img class="modern-theme-icon modern-theme-icon-dark" src="{{ '/assets/img/theme-cat-night.png' | relative_url }}" alt="">
                 </span>
-                <span class="modern-theme-cat modern-theme-cat-night" id="light-toggle-dark" aria-hidden="true"></span>
-                <span class="modern-theme-cat modern-theme-cat-day" id="light-toggle-light" aria-hidden="true"></span>
+                <span class="modern-theme-icon-wrap" id="light-toggle-dark" aria-hidden="true">
+                  <img class="modern-theme-icon" src="{{ '/assets/img/theme-cat-night.png' | relative_url }}" alt="">
+                </span>
+                <span class="modern-theme-icon-wrap" id="light-toggle-light" aria-hidden="true">
+                  <img class="modern-theme-icon" src="{{ '/assets/img/theme-cat-day.svg' | relative_url }}" alt="">
+                </span>
               </button>
             </li>
           {% endif %}
