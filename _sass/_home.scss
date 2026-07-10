@@ -1,0 +1,948 @@
+body.modern-home-page {
+  background-color: #f8f6ef;
+  background-image:
+    linear-gradient(rgba(31, 28, 23, 0.014) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 28, 23, 0.014) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+body.modern-home-page .navbar {
+  background-color: rgba(248, 246, 239, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(35, 31, 25, 0.08);
+  opacity: 1;
+}
+
+body.modern-home-page .navbar .container {
+  max-width: 1120px;
+  min-height: 3.9rem;
+  padding-right: 1.15rem;
+  padding-left: 1.15rem;
+}
+
+body.modern-home-page .navbar-collapse {
+  flex-grow: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+body.modern-home-page .navbar-nav {
+  align-items: center;
+  gap: 0.32rem;
+}
+
+body.modern-home-page .navbar.navbar-light .navbar-nav .nav-item .nav-link {
+  position: relative;
+  padding: 0.42rem 0.68rem;
+  color: #4f4b43;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.94rem;
+  font-weight: 560;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-decoration: none;
+  transition:
+    color 150ms ease,
+    opacity 150ms ease;
+}
+
+body.modern-home-page .navbar.navbar-light .navbar-nav .nav-item .nav-link::after {
+  position: absolute;
+  right: 0.68rem;
+  bottom: 0.1rem;
+  left: 0.68rem;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0.65);
+  transform-origin: center;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+body.modern-home-page .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+  color: #111111;
+}
+
+body.modern-home-page .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover::after {
+  opacity: 0.26;
+  transform: scaleX(1);
+}
+
+body.modern-home-page .navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
+  color: #111111;
+  font-weight: 650;
+}
+
+body.modern-home-page .navbar.navbar-light .navbar-nav .nav-item.active > .nav-link::after {
+  opacity: 0.72;
+  transform: scaleX(1);
+}
+
+body.modern-home-page .toggle-container {
+  display: flex;
+  align-items: center;
+  margin-left: 0.32rem;
+}
+
+body.modern-home-page #light-toggle {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  color: #111111;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+body.modern-home-page #light-toggle:hover {
+  color: #8f4b2e;
+  background-color: rgba(35, 31, 25, 0.06);
+}
+
+body.modern-home-page .modern-home-container {
+  max-width: 1180px;
+}
+
+body.modern-home-page footer.fixed-bottom {
+  background-color: rgba(248, 246, 239, 0.94);
+  border-top: 1px solid rgba(35, 31, 25, 0.1);
+  box-shadow: 0 -10px 26px rgba(35, 31, 25, 0.035);
+  backdrop-filter: blur(10px);
+
+  .container {
+    max-width: 1120px;
+    padding: 0.58rem 1.15rem 0.62rem;
+    color: #5f594f;
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 430;
+    line-height: 1.45;
+    letter-spacing: 0;
+  }
+
+  a {
+    color: #2b2925;
+    font-weight: 520;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+
+    &:hover {
+      color: #8f4b2e;
+      text-decoration: underline;
+    }
+  }
+}
+
+.modern-home {
+  --home-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --home-serif: Georgia, "Times New Roman", serif;
+
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.2rem 0 2.8rem;
+  font-family: var(--home-sans);
+
+  a {
+    color: #151515;
+    text-decoration: none;
+
+    &:hover {
+      color: #8f4b2e;
+      text-decoration: underline;
+    }
+  }
+}
+
+.modern-home-hero {
+  display: grid;
+  grid-template-columns: minmax(31rem, 1.06fr) minmax(22rem, 0.94fr);
+  gap: 3.5rem;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0.7rem 0 3.7rem;
+  border-bottom: 1px solid rgba(35, 31, 25, 0.12);
+  text-align: left;
+}
+
+.modern-home-hero-heading,
+.modern-home-hero-copy {
+  min-width: 0;
+}
+
+.modern-home-hero-heading {
+  transform: translateY(-1.75rem);
+}
+
+.modern-home-profile {
+  display: grid;
+  grid-template-columns: 8.9rem minmax(0, 1fr);
+  column-gap: 1.5rem;
+  row-gap: 0.28rem;
+  align-items: center;
+}
+
+.modern-home-profile-copy {
+  min-width: 0;
+  transform: translateY(-1.05rem);
+}
+
+.modern-home-profile-actions {
+  grid-column: 2;
+  min-width: 0;
+  padding-left: 0;
+  transform: translateY(-1.34rem);
+}
+
+.modern-home-hero-copy {
+  padding-top: 0;
+}
+
+.modern-home-role {
+  margin: 0.42rem 0 0;
+  color: #6f685c;
+  font-size: 1.04rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.modern-home-avatar-frame {
+  display: block;
+  width: 8.9rem;
+  height: 8.9rem;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #e7ece8;
+  box-shadow: 0 8px 20px rgba(55, 43, 29, 0.06);
+}
+
+.modern-home-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  transform: scale(0.92) translateY(0.18rem);
+  transform-origin: center 16%;
+}
+
+.modern-home-kicker {
+  margin: 0.55rem 0 0;
+  color: #8f4b2e;
+  font-size: 1rem;
+  font-weight: 750;
+  letter-spacing: 0;
+  line-height: 1.35;
+  white-space: nowrap;
+  text-transform: none;
+}
+
+.modern-home-title {
+  max-width: 100%;
+  margin: 0;
+  color: #111111;
+  font-size: clamp(2.15rem, 3.65vw, 3.35rem);
+  font-weight: 850;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.modern-home-subtitle {
+  max-width: 540px;
+  margin: 0;
+  color: #151515;
+  font-family: var(--home-serif);
+  font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+.modern-home-affiliations,
+.modern-home-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.68rem;
+}
+
+.modern-home-links {
+  justify-content: flex-start;
+  gap: 0.52rem;
+  margin-top: 0;
+}
+
+.modern-home-affiliations {
+  display: grid;
+  justify-items: start;
+  gap: 0.68rem;
+  justify-content: flex-start;
+  margin-top: 1.35rem;
+}
+
+.modern-home-affiliation-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.68rem;
+  justify-content: flex-start;
+}
+
+.modern-home-chip,
+.modern-home-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.35rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.modern-home-chip {
+  padding: 0.42rem 0.82rem;
+  border: 1px solid rgba(35, 31, 25, 0.1);
+  background: rgba(255, 253, 247, 0.58);
+  color: #6f685c !important;
+  font-size: 0.9rem;
+  font-weight: 650;
+
+  &:hover {
+    border-color: rgba(35, 31, 25, 0.2);
+    background: rgba(255, 253, 247, 0.9);
+    color: #151515 !important;
+    text-decoration: none !important;
+  }
+}
+
+.modern-home-button {
+  justify-content: center;
+  width: 2.45rem;
+  min-width: 2.45rem;
+  padding: 0;
+  border: 1px solid rgba(35, 31, 25, 0.16);
+  background: rgba(255, 253, 247, 0.82);
+  color: #151515 !important;
+  font-size: 1rem;
+  font-weight: 750;
+
+  i {
+    width: 1em;
+    color: #151515;
+    font-size: 1em;
+    line-height: 1;
+    text-align: center;
+  }
+
+  &:hover {
+    background: #ebe6dc;
+    text-decoration: none !important;
+  }
+}
+
+.modern-home-research-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 0 2.35rem;
+  border-top: 1px solid rgba(35, 31, 25, 0.12);
+  border-bottom: 1px solid rgba(35, 31, 25, 0.12);
+
+  div {
+    position: relative;
+    min-height: 12rem;
+    padding: 2.45rem 2rem 2.35rem 0;
+  }
+
+  div + div {
+    padding-left: 2rem;
+
+    &::before {
+      position: absolute;
+      top: 2.1rem;
+      bottom: 2.1rem;
+      left: 0;
+      width: 1px;
+      content: "";
+      background: rgba(35, 31, 25, 0.07);
+    }
+  }
+
+  strong {
+    display: block;
+    color: #151515;
+    font-family: var(--home-sans);
+    font-size: 1.28rem;
+    font-weight: 760;
+    line-height: 1.18;
+    letter-spacing: 0;
+  }
+
+  p {
+    margin: 0.78rem 0 0;
+    color: #151515;
+    font-family: var(--home-serif);
+    font-size: 1.22rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}
+
+.modern-home-index {
+  display: grid;
+  grid-template-columns: minmax(0, 1.72fr) minmax(16rem, 0.68fr);
+  gap: 3.7rem;
+  align-items: start;
+}
+
+.modern-home-index-content {
+  display: grid;
+  gap: 4.7rem;
+}
+
+.modern-home-index-aside {
+  position: sticky;
+  top: 6.5rem;
+  display: grid;
+  gap: 1.15rem;
+}
+
+.modern-home-search {
+  display: flex;
+  align-items: center;
+  gap: 0.72rem;
+  min-height: 3.35rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(35, 31, 25, 0.38);
+  border-radius: 0.7rem;
+  background: rgba(255, 253, 247, 0.62);
+  color: #2a2722;
+  transition: border-color 160ms ease, background-color 160ms ease;
+
+  &:focus-within {
+    border-color: #8f4b2e;
+    background: rgba(255, 253, 247, 0.94);
+  }
+
+  i {
+    font-size: 0.95rem;
+  }
+
+  input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #111111;
+    font-family: var(--home-sans);
+    font-size: 1rem;
+
+    &::placeholder {
+      color: #766f63;
+      opacity: 1;
+    }
+  }
+}
+
+.modern-home-search-status {
+  margin: -0.45rem 0 0;
+  color: #625b50;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.modern-home-index-art {
+  margin: 0.55rem 0 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #f8f6ef;
+  box-shadow: 0 0.8rem 1.8rem rgba(35, 31, 25, 0.1);
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+
+.modern-home-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4rem;
+  margin: 0 0 4.1rem;
+  padding-top: 0.35rem;
+}
+
+.modern-home-section {
+  padding: 0;
+}
+
+.modern-home-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+
+  h2 {
+    margin: 0;
+    color: #111111;
+    font-size: 1.52rem;
+    font-weight: 850;
+  }
+}
+
+.modern-home-section-link {
+  color: #6f685c !important;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.modern-home-catalog-columns {
+  display: grid;
+  grid-template-columns: 7.4rem 10.5rem minmax(0, 1fr);
+  gap: 1.15rem;
+  padding: 0 0 0.88rem;
+  color: #151515 !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  span {
+    color: #151515 !important;
+    opacity: 1 !important;
+  }
+}
+
+.modern-home-timeline {
+  display: grid;
+  border-top: 1px solid rgba(35, 31, 25, 0.12);
+
+  article {
+    display: grid;
+    grid-template-columns: 7.2rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem 0 1.08rem;
+    border-bottom: 1px solid rgba(35, 31, 25, 0.08);
+  }
+
+  span {
+    color: #8f4b2e;
+    font-size: 0.82rem;
+    font-weight: 650;
+    line-height: 1.35;
+  }
+
+  h3 {
+    margin: 0;
+    color: #151515;
+    font-size: 1.02rem;
+    font-weight: 650;
+    line-height: 1.35;
+  }
+
+  .modern-home-mini-chips {
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.42rem;
+    margin-top: 0.58rem;
+  }
+
+  .modern-home-mini-chips a,
+  .modern-home-mini-chips span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.8rem;
+    padding: 0.24rem 0.58rem;
+    border: 1px solid rgba(35, 31, 25, 0.12);
+    border-radius: 999px;
+    background: rgba(255, 253, 247, 0.62);
+    color: #2a2722 !important;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.1;
+    text-decoration: none !important;
+    white-space: nowrap;
+  }
+
+  .modern-home-mini-chips a:hover {
+    border-color: rgba(35, 31, 25, 0.24);
+    background: rgba(255, 253, 247, 0.95);
+    color: #111111 !important;
+  }
+
+  ul {
+    grid-column: 2;
+    margin: 0.42rem 0 0;
+    padding-left: 1rem;
+    color: #2a2722 !important;
+    font-size: 0.92rem;
+    line-height: 1.48;
+  }
+
+  li {
+    color: #2a2722 !important;
+  }
+
+  li::marker {
+    color: #2a2722;
+  }
+
+  li + li {
+    margin-top: 0.16rem;
+  }
+}
+
+.modern-home-news {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(35, 31, 25, 0.12);
+
+  li {
+    display: grid;
+    grid-template-columns: 7.4rem 10.5rem minmax(0, 1fr);
+    gap: 1.15rem;
+    padding: 1rem 0 1.04rem;
+    border-bottom: 1px solid rgba(35, 31, 25, 0.08);
+    color: #171717 !important;
+    font-size: 0.96rem;
+    font-weight: 400;
+    line-height: 1.48;
+  }
+
+  li > span,
+  li > time,
+  li a {
+    color: #171717 !important;
+    opacity: 1 !important;
+  }
+
+}
+
+.modern-home-search-item[hidden] {
+  display: none;
+}
+
+.modern-home-news li > time,
+.modern-home-publication > time {
+  color: #8f4b2e;
+  font-size: 0.84rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.modern-home-news li > time {
+  color: #8f4b2e !important;
+}
+
+.modern-home-catalog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  gap: 0.34rem;
+}
+
+.modern-home-catalog-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.55rem;
+  padding: 0.16rem 0.46rem;
+  border: 1px solid rgba(35, 31, 25, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 253, 247, 0.56);
+  color: #2a2722 !important;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.modern-home-publication .modern-home-catalog-tags {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.modern-home-publications {
+  display: grid;
+  border-top: 1px solid rgba(35, 31, 25, 0.12);
+}
+
+.modern-home-publication {
+  display: grid;
+  grid-template-columns: 7.4rem 10.5rem minmax(0, 1fr);
+  gap: 1.15rem;
+  padding: 1.04rem 0 1.15rem;
+  border-bottom: 1px solid rgba(35, 31, 25, 0.08);
+
+  h3 {
+    margin: 0;
+    color: #151515;
+    font-size: 1.02rem;
+    font-weight: 650;
+    line-height: 1.38;
+  }
+
+  p {
+    margin: 0.38rem 0 0;
+    color: #24211d !important;
+    font-size: 0.92rem;
+    font-weight: 400;
+    line-height: 1.52;
+  }
+
+  p strong,
+  p a {
+    color: #171717 !important;
+    opacity: 1 !important;
+  }
+}
+
+.modern-home-publication-content {
+  min-width: 0;
+}
+
+.modern-home-publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.72rem;
+  margin-top: 0.52rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.modern-home-collaboration {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.55fr) minmax(0, 1.45fr);
+  gap: 1.6rem;
+  align-items: center;
+  margin-top: 5rem;
+  padding: 2.15rem 0;
+  border-top: 1px solid rgba(35, 31, 25, 0.12);
+  border-bottom: 1px solid rgba(35, 31, 25, 0.12);
+
+  h2 {
+    margin: 0;
+    color: #111111;
+    font-size: 1.52rem;
+    font-weight: 850;
+  }
+
+  p {
+    max-width: 42rem;
+    margin: 0;
+    color: #24211d;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.58;
+  }
+}
+
+.modern-home-collaboration-link {
+  color: #8f4b2e !important;
+  font-weight: 600;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+
+  &:hover {
+    color: #5f2e1c !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .modern-home {
+    padding-top: 2.4rem;
+  }
+
+  .modern-home-hero {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    padding: 2rem 0 3.2rem;
+  }
+
+  .modern-home-hero-heading {
+    transform: none;
+  }
+
+  .modern-home-profile {
+    grid-template-columns: 8.9rem minmax(0, 1fr);
+    gap: 1.35rem;
+  }
+
+  .modern-home-hero-copy {
+    padding-top: 0;
+  }
+
+  .modern-home-title {
+    font-size: clamp(2.1rem, 8vw, 3rem);
+  }
+
+  .modern-home-kicker {
+    white-space: normal;
+  }
+
+  .modern-home-subtitle {
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+  }
+
+  .modern-home-research-strip,
+  .modern-home-timeline-grid,
+  .modern-home-index {
+    grid-template-columns: 1fr;
+  }
+
+  .modern-home-index-content {
+    gap: 3.5rem;
+  }
+
+  .modern-home-index-aside {
+    position: static;
+    order: -1;
+    grid-template-columns: minmax(0, 1fr) 10rem;
+    column-gap: 1.25rem;
+    row-gap: 0.45rem;
+    align-items: start;
+  }
+
+  .modern-home-search {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .modern-home-search-status {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .modern-home-index-art {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin: 0;
+  }
+
+  .modern-home-timeline-grid {
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .modern-home-collaboration {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 3.5rem;
+  }
+
+  .modern-home-research-strip {
+    margin-bottom: 3rem;
+
+    div,
+    div + div {
+      min-height: auto;
+      padding: 1.2rem 0;
+      border-top: 1px solid rgba(35, 31, 25, 0.08);
+    }
+
+    div + div::before {
+      content: none;
+    }
+
+    div:first-child {
+      border-top: 0;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .modern-home {
+    padding-top: 1.2rem;
+  }
+
+  .modern-home-hero {
+    padding-bottom: 2.6rem;
+  }
+
+  .modern-home-links,
+  .modern-home-affiliations {
+    justify-content: flex-start;
+  }
+
+  .modern-home-avatar-frame {
+    width: 5.8rem;
+    height: 5.8rem;
+  }
+
+  .modern-home-profile {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .modern-home-profile-actions {
+    grid-column: 1;
+    transform: none;
+  }
+
+  .modern-home-profile-copy {
+    transform: none;
+  }
+
+  .modern-home-title {
+    font-size: clamp(2.35rem, 12vw, 3.1rem);
+  }
+
+  .modern-home-section-header {
+    display: block;
+  }
+
+  .modern-home-section-link {
+    display: inline-block;
+    margin-top: 0.35rem;
+  }
+
+  .modern-home-index-aside {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .modern-home-search,
+  .modern-home-search-status,
+  .modern-home-index-art {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .modern-home-index-art {
+    width: min(100%, 15rem);
+    margin-top: 0.7rem;
+  }
+
+  .modern-home-news li,
+  .modern-home-timeline article,
+  .modern-home-publication {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .modern-home-catalog-columns {
+    display: none;
+  }
+
+  .modern-home-news li,
+  .modern-home-publication {
+    gap: 0.3rem;
+  }
+
+  .modern-home-catalog-tags span {
+    font-size: 0.68rem;
+  }
+
+  .modern-home-timeline .modern-home-mini-chips {
+    grid-column: 1;
+  }
+}
