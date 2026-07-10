@@ -5,15 +5,32 @@ title: Publications
 description:
 nav: true
 nav_order: 1
+modern_publications: true
 ---
 
-Please also check the [Google Scholar](https://scholar.google.com/citations?&user=BKvdGiwAAAAJ) for a comprehensive list.
+<section class="modern-publications-hero">
+  <div>
+    <h1>Publications</h1>
+    <p>Research on robust, safe, and multimodal AI systems.</p>
+  </div>
+  <div class="modern-publications-tools">
+    <label class="modern-publications-search" for="bibsearch">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input type="search" id="bibsearch" spellcheck="false" autocomplete="off" placeholder="Search">
+    </label>
+    <a class="modern-publications-scholar" href="https://scholar.google.com/citations?&user=BKvdGiwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+  </div>
+</section>
 
-{% include bib_search.liquid %}
 <script src="{{ '/assets/js/bibsearch.js' | relative_url | bust_file_cache }}" type="module"></script>
-<input type="text" id="bibsearch" spellcheck="false" autocomplete="off" class="search bibsearch-form-input" placeholder="Type to Filter">
 
-<div class="publications">
+<div class="modern-publications-table-head" aria-hidden="true">
+  <span>Date</span>
+  <span>Tags</span>
+  <span>Title</span>
+</div>
+
+<div class="publications modern-publications-list">
 
 
 {% bibliography -f {{ site.scholar.bibliography }} %}

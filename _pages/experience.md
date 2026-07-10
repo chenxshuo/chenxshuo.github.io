@@ -4,50 +4,97 @@ title: Experiences
 permalink: /experiences/
 nav: true
 nav_order: 2
-subtitle: 
+subtitle:
+modern_subpage: true
 
-
-news: false  # includes a list of news items
-selected_papers: false # includes a list of papers marked as "selected={true}"
-social: false  # includes social icons at the bottom of the page
+news: false
+selected_papers: false
+social: false
 ---
 
-<div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
-<abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Doctoral Researcher
-</abbr>
-</div>
+<section class="modern-page-hero">
+  <h1>Experiences</h1>
+  <p>Research roles in robust AI systems, multimodal models, and applied machine learning.</p>
+</section>
 
-- 02 / 2023 - Present: Doctoral Researcher at **Siemens Research** <img src="https://radicasoftware.com/images/logo.030be4fd9d.png" alt="siemens" width="20" style="vertical-align: text-bottom;"/>, Munich, Germany 🇩🇪 <br>
-  Advised by [Prof. Volker Tresp](https://www.ifi.lmu.de/dbs/en/persons/contact-page/volker-tresp-e9a4da46.html), [Dr. Steffen Lamparter](https://www.linkedin.com/in/steffen-lamparter-b11aa8146/), and [Dr. Mark Buckley](https://www.linkedin.com/in/markbbuckley) <br>
-  Valuable Mentorship from [Dr. Jindong Gu](https://jindonggu.github.io/), [Dr. Zhen Han](https://sites.google.com/view/zhenhan/home?authuser=0) and [Dr. Yunpu Ma](https://yunpuma.github.io/)
+<section class="modern-section">
+  <ol class="modern-list modern-large-list">
+    <li class="modern-row">
+      <time class="modern-date">02 / 2023 - Present</time>
+      <div class="modern-row-main">
+        <h2 class="modern-row-title">Doctoral Researcher</h2>
+        <div class="modern-row-text">
+          <p><strong>Siemens Research</strong>, Munich, Germany 🇩🇪</p>
+          <ul>
+            <li>Advised by <a href="https://www.ifi.lmu.de/dbs/en/persons/contact-page/volker-tresp-e9a4da46.html">Prof. Volker Tresp</a>, <a href="https://www.linkedin.com/in/steffen-lamparter-b11aa8146/">Dr. Steffen Lamparter</a>, and <a href="https://www.linkedin.com/in/markbbuckley">Dr. Mark Buckley</a></li>
+            <li>Valuable mentorship from <a href="https://jindonggu.github.io/">Dr. Jindong Gu</a>, <a href="https://sites.google.com/view/zhenhan/home?authuser=0">Dr. Zhen Han</a>, and <a href="https://yunpuma.github.io/">Dr. Yunpu Ma</a></li>
+          </ul>
+        </div>
+        <div class="modern-chip-list">
+          <span>Doctoral Researcher</span>
+          <a href="https://www.siemens.com/global/en/company/innovation/research-development.html">Siemens Research</a>
+          <span>Munich</span>
+          <span>Robust AI</span>
+          <span>Reliable AI Systems</span>
+        </div>
+      </div>
+    </li>
 
+    <li class="modern-row">
+      <time class="modern-date">11 / 2024 - 05 / 2025</time>
+      <div class="modern-row-main">
+        <h2 class="modern-row-title">Applied Scientist Intern</h2>
+        <div class="modern-row-text">
+          <p><strong>Amazon</strong>, Berlin, Germany 🇩🇪</p>
+          <ul>
+            <li>Advised by <a href="https://www.linkedin.com/in/luitpold-staudigl-3656a232">Dr. Luitpold Staudigl</a> and <a href="https://www.linkedin.com/in/richarddroste">Dr. Richard Droste</a></li>
+            <li>Valuable mentorship from <a href="https://www.linkedin.com/in/jochen-gast-114a17124/">Dr. Jochen Gast</a> and <a href="https://www.linkedin.com/in/muhammad-waleed-gondal-47974359/">Dr. Muhammad Waleed Gondal</a></li>
+          </ul>
+        </div>
+        <div class="modern-chip-list">
+          <span>Research Intern</span>
+          <a href="https://www.amazon.science/">Amazon</a>
+          <span>Berlin</span>
+          <span>Applied AI Systems</span>
+        </div>
+      </div>
+    </li>
 
-<div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
-<abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Research Intern
-</abbr>
-</div>
+    <li class="modern-row">
+      <time class="modern-date">12 / 2021 - 01 / 2023</time>
+      <div class="modern-row-main">
+        <h2 class="modern-row-title">Research Assistant</h2>
+        <div class="modern-row-text">
+          <p><strong>SLDS @ LMU Munich</strong>, Munich, Germany 🇩🇪</p>
+          <ul>
+            <li>Advised by <a href="https://scholar.google.de/citations?hl=de&user=pYXcdVQAAAAJ&view_op=list_works&sortby=pubdate">Dr. Andreas Bender</a></li>
+          </ul>
+        </div>
+        <div class="modern-chip-list">
+          <span>Research Assistant</span>
+          <span>SLDS</span>
+          <a href="https://www.lmu.de/">LMU Munich</a>
+          <span>Machine Learning</span>
+        </div>
+      </div>
+    </li>
 
-- 11 / 2024 - 05 / 2025: Applied Scientist Intern at **Amazon**  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" width="20"/>, Berlin, Germany 🇩🇪<br>
-  Advised by [Dr. Luitpold Staudigl](https://www.linkedin.com/in/luitpold-staudigl-3656a232) and [Dr. Richard Droste](https://www.linkedin.com/in/richarddroste) <br>
-  Valuable Mentorship from [Dr. Jochen Gast](https://www.linkedin.com/in/jochen-gast-114a17124/) and [Dr. Muhammad Waleed Gondal](https://www.linkedin.com/in/muhammad-waleed-gondal-47974359/)
-
-
-<div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
-<abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Research Assistant
-</abbr>
-</div>
-
-- 12 / 2021 - 01 / 2023: Research Assistant at **SLDS @ LMU Munich**, Munich, Germany 🇩🇪 <br>
-  Advised by [Dr. Andreas Bender](https://scholar.google.de/citations?hl=de&user=pYXcdVQAAAAJ&view_op=list_works&sortby=pubdate)
-
-<div class="col-sm-2 abbr"  style="margin-left: 0; margin-bottom: 4pt;"> 
-<abbr class="badge" style="background-color: #007bff; color: white; padding: 4px 8px; border-radius: 4px;">
-  Research Intern
-</abbr>
-</div>
-
-- 06 / 2020 - 10 / 2020: Research Intern at **DMAI**, Guangzhou, China 🇨🇳 <br>
-  Advised by [Dr. Jiang Su](https://www.linkedin.com/in/jiang-su-23260283/?originalSubdomain=uk) and [Bailin Li](https://scholar.google.com/citations?user=Sq8j0SEAAAAJ&hl=zh-TW). 
+    <li class="modern-row">
+      <time class="modern-date">06 / 2020 - 10 / 2020</time>
+      <div class="modern-row-main">
+        <h2 class="modern-row-title">Research Intern</h2>
+        <div class="modern-row-text">
+          <p><strong>DMAI</strong>, Guangzhou, China 🇨🇳</p>
+          <ul>
+            <li>Advised by <a href="https://www.linkedin.com/in/jiang-su-23260283/?originalSubdomain=uk">Dr. Jiang Su</a> and <a href="https://scholar.google.com/citations?user=Sq8j0SEAAAAJ&hl=zh-TW">Bailin Li</a></li>
+          </ul>
+        </div>
+        <div class="modern-chip-list">
+          <span>Research Intern</span>
+          <span>DMAI</span>
+          <span>Guangzhou</span>
+        </div>
+      </div>
+    </li>
+  </ol>
+</section>

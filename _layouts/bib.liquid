@@ -1,5 +1,111 @@
 ---
 ---
+{% if page.modern_publications %}
+  {% assign entry_text = entry.title | append: ' ' | append: entry.journal | append: ' ' | append: entry.booktitle | downcase %}
+  <article id="{{ entry.key }}" class="modern-publication-item">
+    <time datetime="{{ entry.year }}">{{ entry.year }}</time>
+    <div class="modern-publication-tags" aria-label="Publication tags">
+      {% if entry.abbr %}
+        <span>{{ entry.abbr }}</span>
+      {% endif %}
+      {% if entry_text contains 'robust' %}
+        <span>Robustness</span>
+      {% endif %}
+      {% if entry_text contains 'red' or entry_text contains 'jailbreak' %}
+        <span>Red Teaming</span>
+      {% endif %}
+      {% if entry_text contains 'multimodal' or entry_text contains 'vision-language' %}
+        <span>Multimodal</span>
+      {% endif %}
+      {% if entry_text contains 'in-context' %}
+        <span>In-Context</span>
+      {% endif %}
+      {% if entry_text contains 'reason' %}
+        <span>Reasoning</span>
+      {% endif %}
+      {% if entry_text contains 'safe' or entry_text contains 'safety' %}
+        <span>Safety</span>
+      {% endif %}
+      {% if entry_text contains 'video' %}
+        <span>Video</span>
+      {% endif %}
+      {% if entry_text contains 'prompt' %}
+        <span>Prompting</span>
+      {% endif %}
+      {% if entry_text contains 'expert' or entry_text contains 'moe' %}
+        <span>MoE</span>
+      {% endif %}
+    </div>
+    <div class="modern-publication-main">
+      <h2>{{ entry.title }}</h2>
+      <p class="modern-publication-authors">
+        {% assign author_array_size = entry.author_array | size %}
+        {%- for author in entry.author_array -%}
+          {% assign author_is_self = false %}
+          {%- assign author_last_name = author.last | remove: '¶' | remove: '&' | remove: '*' | remove: '†' | remove: '^' | remove: '<b>' | remove: '</b>' -%}
+          {%- assign author_first_name = author.first | remove: '<b>' | remove: '</b>' -%}
+          {% if author_last_name == 'Chen' and author_first_name == 'Shuo' %}
+            {% assign author_is_self = true %}
+          {% endif %}
+          {%- if forloop.length > 1 -%}
+            {% if forloop.first == false %}, {% endif %}
+          {% endif %}
+          {%- if author_is_self -%}
+            <strong>{{ author_first_name }} {{ author_last_name }}</strong>
+          {%- else -%}
+            {{ author_first_name }} {{ author_last_name }}
+          {%- endif -%}
+        {%- endfor -%}
+      </p>
+      {% assign proceedings = 'inproceedings,incollection' | split: ',' %}
+      {% assign thesis = 'thesis,mastersthesis,phdthesis' | split: ',' %}
+      {% if entry.type == 'article' %}
+        {% capture entrytype %}{{ entry.journal }}{% endcapture %}
+      {% elsif proceedings contains entry.type %}
+        {% capture entrytype %}{{ entry.booktitle }}{% endcapture %}
+      {% elsif thesis contains entry.type %}
+        {% capture entrytype %}{{ entry.school }}{% endcapture %}
+      {% else %}
+        {% capture entrytype %}{% endcapture %}
+      {% endif %}
+      {% assign entrytype_text = entrytype | strip_html | strip %}
+      {% if entrytype_text != blank %}
+        <p class="modern-publication-venue">{{ entrytype_text }}</p>
+      {% endif %}
+      <div class="modern-publication-links">
+        {% if entry.pdf %}
+          {% if entry.pdf contains '://' %}
+            <a href="{{ entry.pdf }}">Paper</a>
+          {% else %}
+            <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}">Paper</a>
+          {% endif %}
+        {% endif %}
+        {% if entry.arxiv %}
+          <a href="https://arxiv.org/abs/{{ entry.arxiv }}">arXiv</a>
+        {% endif %}
+        {% if entry.website %}
+          <a href="{{ entry.website }}">Project</a>
+        {% endif %}
+        {% if entry.code %}
+          <a href="{{ entry.code }}">Code</a>
+        {% endif %}
+        {% if entry.dataset %}
+          <a href="{{ entry.dataset }}">Dataset</a>
+        {% endif %}
+        {% if entry.bibtex_show %}
+          <a class="bibtex" role="button">Bib</a>
+        {% endif %}
+      </div>
+      {% if entry.bibtex_show %}
+        <div class="bibtex hidden">
+          {% highlight bibtex %}
+          {{- entry.bibtex | hideCustomBibtex -}}
+          {% endhighlight %}
+        </div>
+      {% endif %}
+    </div>
+  </article>
+{% else %}
 <div class="row">
   {% if site.enable_publication_thumbnails %}
     <div class="col-sm-2 abbr">
@@ -325,3 +431,4 @@
     {% endif %}
   </div>
 </div>
+{% endif %}

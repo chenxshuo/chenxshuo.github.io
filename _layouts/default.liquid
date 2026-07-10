@@ -16,12 +16,12 @@
   </head>
 
   <!-- Body -->
-  <body class="{% if page.modern_home %}modern-home-page{% endif %} {% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+  <body class="{% if page.modern_home %}modern-home-page{% endif %}{% if page.modern_publications %} modern-publications-page{% endif %}{% if page.modern_subpage %} modern-subpage{% endif %} {% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
     <!-- Header -->
     {% include header.liquid %}
 
     <!-- Content -->
-    <div class="container mt-5{% if page.modern_home %} modern-home-container{% endif %}" role="main">
+    <div class="container mt-5{% if page.modern_home %} modern-home-container{% endif %}{% if page.modern_publications %} modern-publications-container{% endif %}{% if page.modern_subpage %} modern-subpage-container{% endif %}" role="main">
       {% if page.toc and page.toc.sidebar %}
         {% if page.toc.sidebar == 'right' %}
           <div class="row">
