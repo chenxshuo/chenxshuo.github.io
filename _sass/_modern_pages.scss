@@ -39,6 +39,69 @@ body.modern-subpage .navbar-nav {
   gap: 0.32rem;
 }
 
+body.modern-subpage .navbar.navbar-light .navbar-brand,
+body.modern-publications-page .navbar.navbar-light .navbar-brand {
+  color: #151515;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.06rem;
+  font-weight: 720 !important;
+  letter-spacing: 0;
+}
+
+body.modern-subpage .toggle-container,
+body.modern-publications-page .toggle-container {
+  margin-left: 0.14rem;
+}
+
+body.modern-subpage #light-toggle,
+body.modern-publications-page #light-toggle {
+  width: 2.48rem;
+  height: 2.48rem;
+}
+
+body.modern-subpage .modern-theme-icon-wrap,
+body.modern-publications-page .modern-theme-icon-wrap {
+  width: 2.42rem;
+  height: 2.42rem;
+}
+
+body.modern-subpage .modern-theme-icon,
+body.modern-publications-page .modern-theme-icon {
+  transform: translateY(-0.48rem);
+}
+
+body.modern-subpage footer.fixed-bottom,
+body.modern-publications-page footer.fixed-bottom {
+  background-color: rgba(248, 246, 239, 0.94);
+  border-top: 1px solid rgba(35, 31, 25, 0.1);
+  box-shadow: 0 -10px 26px rgba(35, 31, 25, 0.035);
+  backdrop-filter: blur(10px);
+
+  .container {
+    max-width: 1120px;
+    padding: 0.58rem 1.15rem 0.62rem;
+    color: #5f594f;
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 430;
+    line-height: 1.45;
+    letter-spacing: 0;
+  }
+
+  a {
+    color: #2b2925;
+    font-weight: 520;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+
+    &:hover {
+      color: #8f4b2e;
+      text-decoration: underline;
+    }
+  }
+}
+
 body.modern-subpage .navbar.navbar-light .navbar-nav .nav-item .nav-link {
   position: relative;
   padding: 0.42rem 0.68rem;
@@ -467,6 +530,30 @@ html[data-theme="dark"] body.modern-subpage .navbar {
 
 html[data-theme="dark"] body.modern-subpage .navbar.navbar-light .navbar-nav .nav-item .nav-link {
   color: #c8c0b3;
+}
+
+html[data-theme="dark"] body.modern-subpage .navbar.navbar-light .navbar-brand,
+html[data-theme="dark"] body.modern-publications-page .navbar.navbar-light .navbar-brand {
+  color: #f3efe5;
+}
+
+html[data-theme="dark"] body.modern-subpage footer.fixed-bottom,
+html[data-theme="dark"] body.modern-publications-page footer.fixed-bottom {
+  background-color: rgba(23, 22, 20, 0.94);
+  border-top-color: rgba(248, 246, 239, 0.1);
+  box-shadow: 0 -10px 26px rgba(0, 0, 0, 0.22);
+
+  .container {
+    color: #bdb5aa;
+  }
+
+  a {
+    color: #f3efe5;
+
+    &:hover {
+      color: #d79b77;
+    }
+  }
 }
 
 html[data-theme="dark"] body.modern-subpage .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover,
