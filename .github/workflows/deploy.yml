@@ -7,10 +7,12 @@ on:
       - main
     paths:
       - "assets/**"
+      - "_sass/**"
       - "**.html"
       - "**.js"
       - "**.liquid"
       - "**/*.md"
+      - "**.scss"
       - "**.yml"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/broken-links.yml"
@@ -31,10 +33,12 @@ on:
       - main
     paths:
       - "assets/**"
+      - "_sass/**"
       - "**.html"
       - "**.js"
       - "**.liquid"
       - "**/*.md"
+      - "**.scss"
       - "**.yml"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/broken-links.yml"
