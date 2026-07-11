@@ -13,8 +13,20 @@ social: false
 ---
 
 <section class="modern-page-hero">
-  <h1>Awards</h1>
-  <p>Selected competition awards, reviewer recognition, grants, and scholarships.</p>
+  <div class="modern-page-hero-copy">
+    <h1>Awards</h1>
+    <p>Selected competition awards, reviewer recognition, grants, and scholarships.</p>
+  </div>
+  <div class="modern-page-visual modern-page-visual--awards" aria-hidden="true">
+    <svg viewBox="0 0 320 220" role="img">
+      <path class="visual-fill-a" d="M122 60 H198 V112 C198 134 182 152 160 152 C138 152 122 134 122 112 Z" />
+      <path class="visual-fill-b" d="M108 58 H84 V88 C84 112 100 124 122 126" />
+      <path class="visual-fill-b" d="M212 58 H236 V88 C236 112 220 124 198 126" />
+      <path class="visual-fill-c" d="M142 150 H178 L188 188 H132 Z" />
+      <path class="visual-stroke" d="M128 188 H192" />
+      <path class="visual-thread" d="M160 42 L168 56 L184 58 L172 70 L176 86 L160 78 L144 86 L148 70 L136 58 L152 56 Z" />
+    </svg>
+  </div>
 </section>
 
 <section class="modern-section">

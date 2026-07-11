@@ -13,8 +13,22 @@ social: false
 ---
 
 <section class="modern-page-hero">
-  <h1>Education</h1>
-  <p>Academic training across computer science, data science, and information systems.</p>
+  <div class="modern-page-hero-copy">
+    <h1>Education</h1>
+    <p>Academic training across computer science, data science, and information systems.</p>
+  </div>
+  <div class="modern-page-visual modern-page-visual--education" aria-hidden="true">
+    <svg viewBox="0 0 320 220" role="img">
+      <path class="visual-fill-a" d="M70 62 H206 C230 62 246 78 246 102 V166 H102 C84 166 70 152 70 134 Z" />
+      <path class="visual-fill-b" d="M94 84 H258 V174 H116 C104 174 94 164 94 152 Z" />
+      <path class="visual-stroke" d="M120 108 H220" />
+      <path class="visual-stroke" d="M120 130 H238" />
+      <path class="visual-stroke" d="M120 152 H190" />
+      <path class="visual-thread" d="M86 58 C117 42 147 45 177 66" />
+      <circle class="visual-dot" cx="86" cy="58" r="4" />
+      <circle class="visual-dot" cx="177" cy="66" r="4" />
+    </svg>
+  </div>
 </section>
 
 <section class="modern-section">

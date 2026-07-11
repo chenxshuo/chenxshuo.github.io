@@ -13,8 +13,20 @@ social: false
 ---
 
 <section class="modern-page-hero">
-  <h1>Talks</h1>
-  <p>Research talks on robustness, trustworthy foundation models, and multimodal in-context learning.</p>
+  <div class="modern-page-hero-copy">
+    <h1>Talks</h1>
+    <p>Research talks on robustness, trustworthy foundation models, and multimodal in-context learning.</p>
+  </div>
+  <div class="modern-page-visual modern-page-visual--talks" aria-hidden="true">
+    <svg viewBox="0 0 320 220" role="img">
+      <path class="visual-fill-a" d="M74 70 H210 C226 70 238 82 238 98 V124 C238 140 226 152 210 152 H142 L110 180 V152 H74 C58 152 46 140 46 124 V98 C46 82 58 70 74 70 Z" />
+      <path class="visual-fill-b" d="M150 50 H252 C266 50 276 60 276 74 V100 C276 114 266 124 252 124 H222 L202 144 V124 H150 C136 124 126 114 126 100 V74 C126 60 136 50 150 50 Z" />
+      <path class="visual-stroke" d="M78 104 H182" />
+      <path class="visual-stroke" d="M78 124 H150" />
+      <path class="visual-stroke" d="M160 78 H238" />
+      <path class="visual-thread" d="M74 184 C112 170 150 190 188 176" />
+    </svg>
+  </div>
 </section>
 
 <section class="modern-section">

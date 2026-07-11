@@ -13,8 +13,22 @@ social: false
 ---
 
 <section class="modern-page-hero">
-  <h1>Service</h1>
-  <p>Community service through workshop organization and peer review.</p>
+  <div class="modern-page-hero-copy">
+    <h1>Service</h1>
+    <p>Community service through workshop organization and peer review.</p>
+  </div>
+  <div class="modern-page-visual modern-page-visual--service" aria-hidden="true">
+    <svg viewBox="0 0 320 220" role="img">
+      <path class="visual-fill-b" d="M82 70 H238 V154 H82 Z" />
+      <path class="visual-fill-a" d="M112 100 H264 V184 H112 Z" />
+      <path class="visual-stroke" d="M128 126 L148 146 L188 108" />
+      <path class="visual-stroke" d="M204 124 H244" />
+      <path class="visual-stroke" d="M204 148 H236" />
+      <path class="visual-thread" d="M76 164 C103 142 128 162 154 178 C186 198 218 178 246 156" />
+      <circle class="visual-dot" cx="76" cy="164" r="4" />
+      <circle class="visual-dot" cx="246" cy="156" r="4" />
+    </svg>
+  </div>
 </section>
 
 <section class="modern-section">

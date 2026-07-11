@@ -13,8 +13,22 @@ social: false
 ---
 
 <section class="modern-page-hero">
-  <h1>News</h1>
-  <p>Research updates, papers, awards, internships, and occasional notes.</p>
+  <div class="modern-page-hero-copy">
+    <h1>News</h1>
+    <p>Research updates, papers, awards, internships, and occasional notes.</p>
+  </div>
+  <div class="modern-page-visual modern-page-visual--news" aria-hidden="true">
+    <svg viewBox="0 0 320 220" role="img">
+      <path class="visual-fill-a" d="M76 70 H226 V116 H76 Z" />
+      <path class="visual-fill-b" d="M104 110 H252 V158 H104 Z" />
+      <path class="visual-fill-c" d="M78 154 H204 V188 H78 Z" />
+      <path class="visual-stroke" d="M100 92 H184" />
+      <path class="visual-stroke" d="M126 132 H222" />
+      <path class="visual-stroke" d="M100 172 H164" />
+      <path class="visual-thread" d="M240 62 C264 86 266 116 242 140" />
+      <path class="visual-thread" d="M258 46 C294 82 296 126 260 164" />
+    </svg>
+  </div>
 </section>
 
 <section class="modern-section">

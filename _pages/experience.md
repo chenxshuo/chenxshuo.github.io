@@ -13,8 +13,21 @@ social: false
 ---
 
 <section class="modern-page-hero">
-  <h1>Experiences</h1>
-  <p>Research roles in robust AI systems, multimodal models, and applied machine learning.</p>
+  <div class="modern-page-hero-copy">
+    <h1>Experiences</h1>
+    <p>Research roles in robust AI systems, multimodal models, and applied machine learning.</p>
+  </div>
+  <div class="modern-page-visual modern-page-visual--experiences" aria-hidden="true">
+    <svg viewBox="0 0 320 220" role="img">
+      <path class="visual-fill-a" d="M72 66 H164 L190 96 H104 Z" />
+      <path class="visual-fill-b" d="M128 118 H248 L218 158 H96 Z" />
+      <path class="visual-fill-c" d="M86 164 H186 L210 190 H112 Z" />
+      <path class="visual-thread" d="M100 82 C140 108 178 91 204 120 C231 150 176 156 164 186" />
+      <circle class="visual-dot" cx="100" cy="82" r="5" />
+      <circle class="visual-dot" cx="204" cy="120" r="5" />
+      <circle class="visual-dot" cx="164" cy="186" r="5" />
+    </svg>
+  </div>
 </section>
 
 <section class="modern-section">
