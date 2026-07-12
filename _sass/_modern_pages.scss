@@ -347,17 +347,19 @@ body.modern-subpage .navbar.navbar-light .navbar-nav .nav-item.active > .nav-lin
 
 .modern-row {
   display: grid;
-  grid-template-columns: 9rem minmax(0, 1fr);
+  grid-template-columns: 12rem minmax(0, 1fr);
   gap: 1.6rem;
-  padding: 1.45rem 0 1.55rem;
+  padding: 1.05rem 0 1.9rem;
   border-bottom: 1px solid rgba(35, 31, 25, 0.09);
 }
 
 .modern-date {
+  align-self: center;
   color: #8f4b2e;
   font-size: 0.98rem;
   font-weight: 620;
   line-height: 1.35;
+  white-space: nowrap;
 }
 
 .modern-tag-column {
