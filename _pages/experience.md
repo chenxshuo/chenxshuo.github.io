@@ -33,6 +33,25 @@ social: false
 <section class="modern-section">
   <ol class="modern-list modern-large-list">
     <li class="modern-row">
+      <time class="modern-date">08 / 2026 - Present</time>
+      <div class="modern-row-main">
+        <h2 class="modern-row-title">Applied Scientist Intern</h2>
+        <div class="modern-row-text">
+          <p><strong>Microsoft</strong>, London, United Kingdom 🇬🇧</p>
+          <ul>
+            <li>Working on Copilot Agent Harness</li>
+          </ul>
+        </div>
+        <div class="modern-chip-list">
+          <span>Applied Scientist Intern</span>
+          <span>Microsoft</span>
+          <span>London</span>
+          <span>Copilot Agent Harness</span>
+        </div>
+      </div>
+    </li>
+
+    <li class="modern-row">
       <time class="modern-date">02 / 2023 - Present</time>
       <div class="modern-row-main">
         <h2 class="modern-row-title">Doctoral Researcher</h2>

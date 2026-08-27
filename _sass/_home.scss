@@ -588,6 +588,12 @@ body.modern-home-page footer.fixed-bottom {
     line-height: 1.35;
   }
 
+  .modern-home-title-with-mark {
+    display: flex;
+    align-items: center;
+    gap: 0.56rem;
+  }
+
   .modern-home-mini-chips {
     grid-column: 2;
     display: flex;
@@ -682,6 +688,24 @@ body.modern-home-page footer.fixed-bottom {
 
 .modern-home-news li > time {
   color: #8f4b2e !important;
+}
+
+.modern-home-news-title-with-mark {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.58rem;
+}
+
+.modern-home-company-mark {
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.14em;
+  object-fit: contain;
+}
+
+.modern-home-company-mark--wordmark {
+  width: 3.25rem;
 }
 
 .modern-home-catalog-tags {

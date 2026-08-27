@@ -39,6 +39,14 @@ social: false
   </div>
   <ol class="modern-list modern-table-list modern-large-list">
     <li class="modern-row">
+      <time class="modern-date">08 / 2026</time>
+      <div class="modern-tag-column"><span>Experience</span></div>
+      <div class="modern-row-main">
+        <h2 class="modern-row-title">I joined <strong>Microsoft London</strong> as an Applied Scientist Intern, working on Copilot Agent Harness.</h2>
+      </div>
+    </li>
+
+    <li class="modern-row">
       <time class="modern-date">06 / 2026</time>
       <div class="modern-tag-column"><span>Award</span></div>
       <div class="modern-row-main">

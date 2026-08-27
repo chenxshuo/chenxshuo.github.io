@@ -101,8 +101,23 @@ social: false  # includes social icons at the bottom of the page
       </div>
       <div class="modern-home-timeline">
         <article>
+          <span>2026 - Present</span>
+          <h3 class="modern-home-title-with-mark">
+            <img class="modern-home-company-mark" src="{{ '/assets/img/company-logos/microsoft.svg' | relative_url }}" alt="Microsoft" width="24" height="24">
+            Applied Scientist Intern
+          </h3>
+          <div class="modern-home-mini-chips">
+            <span>Microsoft</span>
+            <span>London</span>
+            <span>Copilot Agent Harness</span>
+          </div>
+        </article>
+        <article>
           <span>2023 - Present</span>
-          <h3>Doctoral Researcher</h3>
+          <h3 class="modern-home-title-with-mark">
+            <img class="modern-home-company-mark modern-home-company-mark--wordmark" src="{{ '/assets/img/company-logos/siemens.svg' | relative_url }}" alt="Siemens" width="72" height="24">
+            Doctoral Researcher
+          </h3>
           <div class="modern-home-mini-chips">
             <a href="https://www.siemens.com/global/en/company/innovation.html" target="_blank" rel="noopener">Siemens Research</a>
             <span>Munich</span>
@@ -112,7 +127,10 @@ social: false  # includes social icons at the bottom of the page
         </article>
         <article>
           <span>2024 - 2025</span>
-          <h3>Applied Scientist Intern</h3>
+          <h3 class="modern-home-title-with-mark">
+            <img class="modern-home-company-mark modern-home-company-mark--wordmark" src="{{ '/assets/img/company-logos/amazon.svg' | relative_url }}" alt="Amazon" width="72" height="24">
+            Applied Scientist Intern
+          </h3>
           <div class="modern-home-mini-chips">
             <span>Amazon</span>
             <span>Berlin</span>
@@ -137,6 +155,14 @@ social: false  # includes social icons at the bottom of the page
           <span>Title</span>
         </div>
         <ul class="modern-home-news">
+          <li class="modern-home-search-item">
+            <time datetime="2026-08-01">Aug 1, 2026</time>
+            <div class="modern-home-catalog-tags"><span>Experience</span><span>Agents</span></div>
+            <span class="modern-home-news-title-with-mark">
+              <img class="modern-home-company-mark" src="{{ '/assets/img/company-logos/microsoft.svg' | relative_url }}" alt="Microsoft" width="24" height="24">
+              <span>I joined <strong>Microsoft London</strong> as an Applied Scientist Intern, working on Copilot Agent Harness.</span>
+            </span>
+          </li>
           <li class="modern-home-search-item">
             <time datetime="2026-06">Jun 2026</time>
             <div class="modern-home-catalog-tags"><span>Award</span><span>Competition</span></div>
