@@ -59,6 +59,7 @@ social: false
       <div class="modern-tag-column"><span>Publication</span></div>
       <div class="modern-row-main">
         <h2 class="modern-row-title">One paper (co-first) on Automatic Red-teaming Implicit Vulnerabilities of T2I Models is accepted at <strong>ECCV 2026</strong>.</h2>
+        <div class="modern-row-text"><p><a href="{{ '/advpie/' | relative_url }}">View the AdvPIE project page</a>.</p></div>
       </div>
     </li>
 

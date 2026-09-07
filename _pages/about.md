@@ -171,7 +171,7 @@ social: false  # includes social icons at the bottom of the page
           <li class="modern-home-search-item">
             <time datetime="2026-06">Jun 2026</time>
             <div class="modern-home-catalog-tags"><span>Publication</span><span>Red Teaming</span></div>
-            <span>One co-first paper on red-teaming implicit vulnerabilities of T2I models was accepted to ECCV 2026.</span>
+            <span>One co-first paper on red-teaming implicit vulnerabilities of T2I models was accepted to ECCV 2026. <a href="{{ '/advpie/' | relative_url }}">Project page</a></span>
           </li>
           <li class="modern-home-search-item">
             <time datetime="2026-05">May 2026</time>
@@ -202,6 +202,18 @@ social: false  # includes social icons at the bottom of the page
           <span>Title</span>
         </div>
         <div class="modern-home-publications">
+          <article class="modern-home-publication modern-home-search-item">
+            <time datetime="2026">2026</time>
+            <div class="modern-home-catalog-tags"><span>ECCV</span><span>Red Teaming</span><span>Safety</span></div>
+            <div class="modern-home-publication-content">
+              <h3>Automatic Red Teaming for Implicit Vulnerabilities of Text-to-Image Models</h3>
+              <p>Chang Ma, Junlin Han, <strong>Shuo Chen</strong>, Runjia Li, Philip Torr, Jindong Gu.</p>
+              <div class="modern-home-publication-links">
+                <a href="{{ '/advpie/' | relative_url }}">Project</a>
+                <a href="https://github.com/MercuryCod/APEX">Code</a>
+              </div>
+            </div>
+          </article>
           <article class="modern-home-publication modern-home-search-item">
             <time datetime="2023">2023</time>
             <div class="modern-home-catalog-tags"><span>NeurIPS</span><span>Robustness</span><span>VLM</span></div>
@@ -259,7 +271,7 @@ social: false  # includes social icons at the bottom of the page
         <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
         <input id="modern-home-search-input" type="search" placeholder="Search" autocomplete="off" data-modern-home-search>
       </label>
-      <p class="modern-home-search-status" data-modern-home-search-status aria-live="polite">Showing 9 entries</p>
+      <p class="modern-home-search-status" data-modern-home-search-status aria-live="polite">Showing 11 entries</p>
       <figure class="modern-home-index-art">
         <img src="{{ '/assets/img/home/research-index-art.png' | relative_url }}" alt="Abstract illustration of connected research modalities">
       </figure>
