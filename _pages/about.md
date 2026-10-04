@@ -31,8 +31,8 @@ social: false  # includes social icons at the bottom of the page
           <div class="modern-home-links">
             <a class="modern-home-button" href="https://scholar.google.com/citations?user=BKvdGiwAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><i class="ai ai-google-scholar" aria-hidden="true"></i></a>
             <a class="modern-home-button" href="https://github.com/chenxshuo" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-            <a class="modern-home-button" href="https://www.linkedin.com/in/shuochen1999" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-            <a class="modern-home-button" href="https://twitter.com/chenshuo_cs" target="_blank" rel="noopener" aria-label="X" title="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a class="modern-home-button" href="https://www.linkedin.com/in/schenapp/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a class="modern-home-button" href="https://x.com/schenapp" target="_blank" rel="noopener" aria-label="X" title="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
             <a class="modern-home-button" href="https://www.xiaohongshu.com/user/profile/5c1d9f940000000006017d78" target="_blank" rel="noopener" aria-label="小红书" title="小红书"><img class="modern-home-social-icon" src="{{ '/assets/img/xiaohongshu.png' | relative_url }}" alt="" width="28" height="28"></a>
           </div>
         </div>
