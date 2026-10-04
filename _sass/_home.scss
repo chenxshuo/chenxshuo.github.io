@@ -1,4 +1,5 @@
 body.modern-home-page {
+  overflow-x: clip;
   background-color: #f8f6ef;
   background-image:
     linear-gradient(rgba(31, 28, 23, 0.014) 1px, transparent 1px),
@@ -202,6 +203,8 @@ body.modern-home-page footer.fixed-bottom {
 }
 
 .modern-home-hero {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(31rem, 1.06fr) minmax(22rem, 0.94fr);
   gap: 3.5rem;
@@ -210,6 +213,29 @@ body.modern-home-page footer.fixed-bottom {
   padding: 0.7rem 0 3.7rem;
   border-bottom: 1px solid rgba(35, 31, 25, 0.12);
   text-align: left;
+}
+
+.modern-home-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -2.5rem;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background-image: var(--hero-background-image);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.48;
+  filter: saturate(0.9);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 75%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 75%, transparent);
+  pointer-events: none;
+}
+
+html[data-theme="dark"] .modern-home-hero::before {
+  opacity: 0.2;
 }
 
 .modern-home-hero-heading,
@@ -223,7 +249,7 @@ body.modern-home-page footer.fixed-bottom {
 
 .modern-home-profile {
   display: grid;
-  grid-template-columns: 8.9rem minmax(0, 1fr);
+  grid-template-columns: 9.35rem minmax(0, 1fr);
   column-gap: 1.5rem;
   row-gap: 0.28rem;
   align-items: center;
@@ -248,15 +274,15 @@ body.modern-home-page footer.fixed-bottom {
 .modern-home-role {
   margin: 0.42rem 0 0;
   color: #6f685c;
-  font-size: 1.04rem;
+  font-size: 1.09rem;
   font-weight: 650;
   line-height: 1.35;
 }
 
 .modern-home-avatar-frame {
   display: block;
-  width: 8.9rem;
-  height: 8.9rem;
+  width: 9.35rem;
+  height: 9.35rem;
   margin: 0;
   overflow: hidden;
   border-radius: 10px;
@@ -268,19 +294,17 @@ body.modern-home-page footer.fixed-bottom {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
-  transform: scale(0.92) translateY(0.18rem);
-  transform-origin: center 16%;
+  object-position: center;
 }
 
 .modern-home-kicker {
   margin: 0.55rem 0 0;
   color: #8f4b2e;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 750;
   letter-spacing: 0;
   line-height: 1.35;
-  white-space: nowrap;
+  white-space: normal;
   text-transform: none;
 }
 
@@ -288,7 +312,7 @@ body.modern-home-page footer.fixed-bottom {
   max-width: 100%;
   margin: 0;
   color: #111111;
-  font-size: clamp(2.15rem, 3.65vw, 3.35rem);
+  font-size: clamp(2.25rem, 3.85vw, 3.52rem);
   font-weight: 850;
   line-height: 1.02;
   letter-spacing: 0;
@@ -333,6 +357,13 @@ body.modern-home-page footer.fixed-bottom {
   justify-content: flex-start;
 }
 
+.modern-home-social-icon {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
 .modern-home-chip,
 .modern-home-button {
   display: inline-flex;
@@ -372,7 +403,7 @@ body.modern-home-page footer.fixed-bottom {
   i {
     width: 1em;
     color: #151515;
-    font-size: 1em;
+    font-size: 1.15em;
     line-height: 1;
     text-align: center;
   }
@@ -1012,6 +1043,11 @@ html[data-theme="dark"] body.modern-home-page .modern-home-index-art {
   .modern-home-profile {
     grid-template-columns: 8.9rem minmax(0, 1fr);
     gap: 1.35rem;
+  }
+
+  .modern-home-avatar-frame {
+    width: 8.9rem;
+    height: 8.9rem;
   }
 
   .modern-home-hero-copy {

@@ -7,7 +7,7 @@ modern_home: true
 
 profile:
   align: right
-  image: foto-2.png
+  image: photo2.jpeg
   image_circular: true # crops the image to make it circular
   address:
 
@@ -16,11 +16,11 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 <div class="modern-home">
-  <section class="modern-home-hero">
+  <section class="modern-home-hero" style="--hero-background-image: url('{{ '/assets/img/home/banner-background.png' | relative_url }}');">
     <div class="modern-home-hero-heading">
       <div class="modern-home-profile">
         <span class="modern-home-avatar-frame">
-          <img class="modern-home-avatar" src="{{ '/assets/img/foto-2.png' | relative_url }}" alt="Portrait of Shuo Chen">
+          <img class="modern-home-avatar" src="{{ '/assets/img/photo2.jpeg' | relative_url }}" alt="Portrait of Shuo Chen">
         </span>
         <div class="modern-home-profile-copy">
           <h1 class="modern-home-title">Shuo Chen</h1>
@@ -33,6 +33,7 @@ social: false  # includes social icons at the bottom of the page
             <a class="modern-home-button" href="https://github.com/chenxshuo" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
             <a class="modern-home-button" href="https://www.linkedin.com/in/shuochen1999" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
             <a class="modern-home-button" href="https://twitter.com/chenshuo_cs" target="_blank" rel="noopener" aria-label="X" title="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a class="modern-home-button" href="https://www.xiaohongshu.com/user/profile/5c1d9f940000000006017d78" target="_blank" rel="noopener" aria-label="小红书" title="小红书"><img class="modern-home-social-icon" src="{{ '/assets/img/xiaohongshu.png' | relative_url }}" alt="" width="28" height="28"></a>
           </div>
         </div>
       </div>
