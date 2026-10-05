@@ -24,8 +24,8 @@ social: false  # includes social icons at the bottom of the page
         </span>
         <div class="modern-home-profile-copy">
           <h1 class="modern-home-title">Shuo Chen</h1>
-          <p class="modern-home-role">Ph.D. Candidate · LMU Munich / Siemens</p>
-          <p class="modern-home-kicker">LLM/MLLM Robustness · AI Safety · Reasoning</p>
+          <p class="modern-home-role">AI Researcher · LMU Munich / Microsoft</p>
+          <p class="modern-home-kicker">Agent · M/LLM · AI Safety · Reasoning</p>
         </div>
         <div class="modern-home-profile-actions">
           <div class="modern-home-links">
@@ -40,8 +40,8 @@ social: false  # includes social icons at the bottom of the page
     </div>
     <div class="modern-home-hero-copy">
       <p class="modern-home-subtitle">
-        I study how large language and multimodal models behave under challenging
-        reasoning, safety, and adaptation settings, with a focus on robustness,
+        I study how agents, large language and multimodal models behave under challenging
+        reasoning, safety, and adaptation settings, with a focus on alignment,
         red-teaming, and in-context learning.
       </p>
     </div>
